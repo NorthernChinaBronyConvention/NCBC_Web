@@ -28,6 +28,169 @@ function initSite() {
             faqItem.classList.toggle('active');
         });
     });
+
+    initMap();
+}
+
+function initMap() {
+    const mapContainer = document.querySelector('.zoomable-map');
+    const mapImage = document.querySelector('.map-image');
+    const markers = document.querySelectorAll('.map-marker');
+    
+    if (!mapContainer || !mapImage) return;
+    
+    let scale = 1;
+    let posX = 0;
+    let posY = 0;
+    let isDragging = false;
+    let startX, startY;
+    
+    markers.forEach(marker => {
+        const markerLeft = parseFloat(marker.style.left);
+        const markerTop = parseFloat(marker.style.top);
+        
+        marker.dataset.originalLeft = markerLeft;
+        marker.dataset.originalTop = markerTop;
+        
+        updateMarkerPosition(marker);
+    });
+    
+    mapContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        
+        const rect = mapContainer.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        
+        const mapX = (mouseX - posX) / scale;
+        const mapY = (mouseY - posY) / scale;
+        
+        const delta = -e.deltaY;
+        let zoomFactor = 1.1;
+        
+        if (delta < 0) {
+            zoomFactor = 1 / zoomFactor;
+        }
+        
+        const newScale = scale * zoomFactor;
+        
+        if (newScale < 1) {
+            scale = 1;
+            posX = 0;
+            posY = 0;
+        } else if (newScale > 5) {
+            scale = 5;
+        } else {
+            scale = newScale;
+            
+            posX = mouseX - mapX * scale;
+            posY = mouseY - mapY * scale;
+        }
+        
+        updateMapTransform();
+        updateAllMarkersPosition();
+    }, { passive: false });
+    
+    mapContainer.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        
+        isDragging = true;
+        startX = e.clientX - posX;
+        startY = e.clientY - posY;
+        mapContainer.classList.add('grabbing');
+        
+        e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        posX = e.clientX - startX;
+        posY = e.clientY - startY;
+        
+        updateMapTransform();
+        updateAllMarkersPosition();
+    });
+    
+    document.addEventListener('mouseup', (e) => {
+        if (e.button === 0) {
+            isDragging = false;
+            mapContainer.classList.remove('grabbing');
+        }
+    });
+    
+    mapContainer.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+            isDragging = true;
+            startX = e.touches[0].clientX - posX;
+            startY = e.touches[0].clientY - posY;
+        }
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (!isDragging || e.touches.length !== 1) return;
+        e.preventDefault();
+        
+        posX = e.touches[0].clientX - startX;
+        posY = e.touches[0].clientY - startY;
+        
+        updateMapTransform();
+        updateAllMarkersPosition();
+    }, { passive: false });
+    
+    document.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+    
+    function updateMapTransform() {
+        mapImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+    }
+    
+    function updateMarkerPosition(marker) {
+        const originalLeft = parseFloat(marker.dataset.originalLeft);
+        const originalTop = parseFloat(marker.dataset.originalTop);
+        
+        const containerRect = mapContainer.getBoundingClientRect();
+        const containerWidth = containerRect.width;
+        const containerHeight = containerRect.height;
+        
+        const centerX = containerWidth / 2;
+        const centerY = containerHeight / 2;
+        
+        const offsetX = (originalLeft / 100) * containerWidth - centerX;
+        const offsetY = (originalTop / 100) * containerHeight - centerY;
+        
+        const newX = centerX + offsetX * scale + posX;
+        const newY = centerY + offsetY * scale + posY;
+        
+        marker.style.left = `${newX}px`;
+        marker.style.top = `${newY}px`;
+    }
+    
+    function updateAllMarkersPosition() {
+        markers.forEach(marker => {
+            updateMarkerPosition(marker);
+        });
+    }
+    
+    markers.forEach(marker => {
+        marker.addEventListener('mouseenter', () => {
+            const tooltip = marker.querySelector('.marker-tooltip');
+            const title = marker.getAttribute('data-title');
+            const details = marker.getAttribute('data-details');
+            
+            if (tooltip) {
+                tooltip.innerHTML = `<strong>${title}</strong><br>${details}`;
+            }
+            
+            const locationTitle = document.querySelector('.location-details h3');
+            const locationDetails = document.querySelector('.location-details');
+            
+            if (locationTitle && locationDetails) {
+                locationTitle.textContent = title;
+            }
+        });
+    });
 }
 
 function initLoader() {
