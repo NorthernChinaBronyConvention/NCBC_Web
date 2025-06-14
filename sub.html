@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <div class="cursor"></div> <!-- 一定要添加这个才能显示光标 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCBC</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cur.css">
+</head>
+<body>
+
+    <div class="loader" id="loader">
+        <div class="loader-content" id="loader-content">
+            <div class="loader-line">NCBC2025@web ~$ <span style="color: rgb(137, 255, 130);">load</span> <span style="opacity: 0.5;">ncbc2025_system.sh</span></div>
+            <div class="loader-line">初始化终端………</div>
+            <div class="loader-line" style="opacity: 0.5;">[完成]</div>
+            <div class="loader-line">认证身份………</div>
+            <div class="loader-line" style="opacity: 0.5;">[通过]</div>
+            <div class="loader-line">载入用户界面 <span class="rotating-chars"></span></div>
+        </div>
+    </div>
+    
+    <div class="scanlines"></div>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <img src="img/ncbc.png" class="logo">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#about">关于</a></li>
+                <li><a href="index.html#exhibition">场地</a></li>
+                <li><a href="index.html#event">活动</a></li>
+                <li><a href="index.html#team">团队</a></li>
+                <li><a href="index.html#mascots">吉祥物</a></li>
+                <li><a href="index.html#faq">问题</a></li>
+                <li><a href="#">子页面</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页眉 -->
+    <header class="about-header">
+        <div class="about-header-content">
+            <h1>子页面</h1>
+            <p>这是子页面</p>
+        </div>
+    </header>
+    
+    <!-- 主要内容 -->
+    <div class="container">
+        <section id="team" class="content-section">
+            <h2>团队成员</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="terminal-avatar"><img src="img/dd.png"></div>
+                    <div class="terminal-icon">></div>
+                    <h3>叨叨</h3>
+                    <p class="role">我不是主办</p>
+                    <p class="bio">我只是一个飞舞</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        Copyright © 2025 NCBC<br>
+        友情外链：<a href="#">网站1</a> - <a href="#">网站2</a> - <a href="#">网站3</a>
+        <p style="font-size: 11px;">Web by JessDaodao & Raku</p>
+    </footer>
+    
+    <script src="js/scripts.js"></script>
+    <script src="js/cur.js"></script>
+	<script type="text/javascript">
+		var cursor = new Cursor(".mainbody","waitcursor");
+        var cursor = new Cursor(".retro-button","incursor");
+        var cursor = new Cursor(".faq-question","incursor");
+        var cursor = new Cursor("a","incursor");
+	</script>
+</body>
+</body>
+</html>

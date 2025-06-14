@@ -1,0 +1,39 @@
+@keyframes incursor {
+  from {
+    opacity: 0;}
+  to {
+    opacity: 1;} }
+
+.opposite, .cursor, .cursor::after {
+  user-select: none;
+  pointer-events: none;
+  mix-blend-mode: difference; }
+
+html {
+  cursor: none !important; }
+
+a {
+  cursor: none !important;
+}
+
+.faq-question {
+  cursor: none !important; }
+
+.cursor {
+  display: none;
+  width: 10px;
+  height: 28px;
+  background: rgb(255, 0, 166);
+  position: fixed;
+  transition-timing-function: ease-out; 
+  filter: invert(100%);
+  z-index: 100;
+  animation: incursor 0.1s infinite alternate;
+}
+
+.incursor {
+  border: none;
+  background: rgb(0, 255, 85); 
+  animation: none;
+
+}
