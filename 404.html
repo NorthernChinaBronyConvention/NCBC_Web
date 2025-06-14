@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <div class="cursor"></div> <!-- 一定要添加这个才能显示光标 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ncbc-loader" content="special">
+    <title>NCBC</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cur.css">
+</head>
+<body>
+
+    <div class="loader" id="loader">
+        <div class="loader-content" id="loader-content">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+    
+    <div class="scanlines"></div>
+    
+    <script src="js/scripts.js"></script>
+    <script src="js/cur.js"></script>
+	<script type="text/javascript">
+		var cursor = new Cursor(".mainbody","waitcursor");
+        var cursor = new Cursor(".retro-button","incursor");
+        var cursor = new Cursor(".faq-question","incursor");
+        var cursor = new Cursor("a","incursor");
+	</script>
+</body>
+</body>
+</html>
