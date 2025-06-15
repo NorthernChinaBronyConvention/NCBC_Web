@@ -94,6 +94,7 @@ function initMap() {
     }
     
     updateMapTransform();
+    updateAllMarkersPosition();
     
     markers.forEach(marker => {
         const markerLeft = parseFloat(marker.style.left);
