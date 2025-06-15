@@ -1,10 +1,27 @@
+console.log(
+    "     __           _   _                         ___ _     _\n" +
+    "  /\\ \\ \\___  _ __| |_| |__   ___ _ __ _ __     / __\\ |__ (_)_ __   __ _\n" +
+    " /  \\/ / _ \\| '__| __| '_ \\ / _ \\ '__| '_ \\   / /  | '_ \\| | '_ \\ / _` |\n" +
+    "/ /\\  / (_) | |  | |_| | | |  __/ |  | | | | / /___| | | | | | | | (_| |\n" +
+    "\\_\\ \\/ \\___/|_|   \\__|_| |_|\\___|_|  |_| |_| \\____/|_| |_|_|_| |_|\\__,_|\n" +
+    "   ___                           ___                           _   _\n" +
+    "  / __\\_ __ ___  _ __  _   _    / __\\___  _ ____   _____ _ __ | |_(_) ___  _ __\n" +
+    " /__\\// '__/ _ \\| '_ \\| | | |  / /  / _ \\| '_ \\ \\ / / _ \\ '_ \\| __| |/ _ \\| '_ \\\n" +
+    "/ \\/  \\ | | (_) | | | | |_| | / /__| (_) | | | \\ V /  __/ | | | |_| | (_) | | | |\n" +
+    "\\_____/_|  \\___/|_| |_|\\__, | \\____/\\___/|_| |_|\\_/ \\___|_| |_|\\__|_|\\___/|_| |_|\n" +
+    "                       |___/\n" +
+    "\n" +
+    "NCBC - 华北马聚 | Web by JessDaodao & Raku Inkyetta\n" +
+    "网站已在GitHub开源：https://github.com/NorthernChinaBronyConvention/NCBC_Web"
+);
+
 function initSite() {
     setInterval(function() {
         if(Math.random() > 0.9) {
-            document.body.style.opacity = 0.8 + Math.random() * 0.2;
+            document.body.style.opacity = 0.8 + Math.random() * 0.4;
             setTimeout(function() {
                 document.body.style.opacity = 1;
-            }, 50 + Math.random() * 150);
+            }, 50 + Math.random() * 300);
         }
     }, 5000);
     
@@ -21,6 +38,16 @@ function initSite() {
         }
     });
 
+    const hamburger = document.querySelector('.hamburger');
+    const hamburgerNavLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && hamburgerNavLinks) {
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            hamburgerNavLinks.classList.toggle('active');
+        });
+    }
+
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
@@ -36,14 +63,37 @@ function initMap() {
     const mapContainer = document.querySelector('.zoomable-map');
     const mapImage = document.querySelector('.map-image');
     const markers = document.querySelectorAll('.map-marker');
+    const mapXElement = document.querySelector('.map-x');
+    const mapYElement = document.querySelector('.map-y');
+    const mapScaleElement = document.querySelector('.map-scale');
     
     if (!mapContainer || !mapImage) return;
     
-    let scale = 1;
-    let posX = 0;
-    let posY = 0;
+    const isMobileView = window.matchMedia("(max-width: 768px)").matches;
+    
+    let scale, posX, posY;
+    if (isMobileView) {
+        scale = parseFloat(mapContainer.dataset.mobileScale) || 1.0;
+        posX = parseFloat(mapContainer.dataset.mobileX) || 50;
+        posY = parseFloat(mapContainer.dataset.mobileY) || 0;
+    } else {
+        scale = parseFloat(mapContainer.dataset.defaultScale) || 1.5;
+        posX = parseFloat(mapContainer.dataset.defaultX) || 0;
+        posY = parseFloat(mapContainer.dataset.defaultY) || 0;
+    }
+    
     let isDragging = false;
     let startX, startY;
+
+    function updateCoordinateDisplay() {
+        if (mapXElement && mapYElement && mapScaleElement) {
+            mapXElement.textContent = posX.toFixed(1);
+            mapYElement.textContent = posY.toFixed(1);
+            mapScaleElement.textContent = scale.toFixed(2);
+        }
+    }
+    
+    updateMapTransform();
     
     markers.forEach(marker => {
         const markerLeft = parseFloat(marker.style.left);
@@ -144,6 +194,7 @@ function initMap() {
     
     function updateMapTransform() {
         mapImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+        updateCoordinateDisplay();
     }
     
     function updateMarkerPosition(marker) {

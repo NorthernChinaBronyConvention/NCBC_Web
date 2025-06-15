@@ -29,7 +29,12 @@
     <nav>
         <div class="nav-container">
             <img src="img/ncbc.png" class="logo">
-            <ul>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#">首页</a></li>
                 <li><a href="#about">关于</a></li>
                 <li><a href="#exhibition">场地</a></li>
@@ -46,7 +51,7 @@
     <header class="home-header" style="height: 100vh;">
         <div class="header-shadow"></div>
         <h1 >Northern_China_Brony_Convention</h1>
-        <p style="font-size: 2.2rem;font-weight: 800;margin-top: -0.8rem;">华北马聚</p>
+        <p style="font-size: 2.2rem;font-weight: 800;margin-top: -0.8rem;">华北马聚_废土狂欢</p>
         <p>2025/8/9 ~ 8/10</p>
     </header>
     
@@ -60,15 +65,25 @@
         <section id="exhibition" class="content-section">
             <h2><br><br>场地信息</h2>
             <div class="map-container">
-                <div class="zoomable-map">
-                    <!-- 地图背景图片 -->
+                <div class="zoomable-map" 
+                 data-default-scale="3.1" 
+                 data-default-x="-328" 
+                 data-default-y="108"
+                 data-mobile-scale="3.1" 
+                 data-mobile-x="-195" 
+                 data-mobile-y="64">
                     <img class="map-image" src="img/map.png">
-                    <!-- 坐标点标记 -->
                     <div class="map-marker" style="top: 44%; left: 67%;" data-title="滨江凯隆酒店" data-details="地址：天津市和平区滨江凯隆酒店<br>地铁：小白楼站（1号线）<br>公交：滨江购物中心站（2路、842路）">
                         <div class="marker-dot"></div>
                         <div class="marker-pulse"></div>
                         <div class="marker-tooltip"></div>
                     </div>
+                </div>
+
+                <div class="map-caption">
+                    X: <span class="map-x">0</span> | 
+                    Y: <span class="map-y">0</span> | 
+                    缩放: <span class="map-scale">1.0</span>
                 </div>
         
                 <div class="location-details">
