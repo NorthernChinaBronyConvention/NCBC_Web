@@ -555,6 +555,18 @@ p {
     padding-right: 30px;
 }
 
+.only-image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.only-images-container2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .text-container {
     flex: 1;
     text-align: left;
@@ -563,6 +575,14 @@ p {
 .custom-image {
     width: 100%;
     max-width: 500px;
+    height: auto;
+    border: 1px solid #00ff00;
+    filter: grayscale(50%);
+}
+
+.custom-image2 {
+    width: 100%;
+    max-width: 300px;
     height: auto;
     border: 1px solid #00ff00;
     filter: grayscale(50%);
