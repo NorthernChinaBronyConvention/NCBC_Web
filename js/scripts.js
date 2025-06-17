@@ -11,7 +11,7 @@ console.log(
     "\\_____/_|  \\___/|_| |_|\\__, | \\____/\\___/|_| |_|\\_/ \\___|_| |_|\\__|_|\\___/|_| |_|\n" +
     "                       |___/\n" +
     "\n" +
-    "NCBC - 华北马聚 | Web by JessDaodao & Raku Inkyetta\n" +
+    "NCBC - 华北马聚 | Web by JessDaodao、Leonsu_L & Raku Inkyetta\n" +
     "网站已在GitHub开源：https://github.com/NorthernChinaBronyConvention/NCBC_Web"
 );
 
@@ -254,6 +254,7 @@ function initLoader() {
     
     const hasLoaded = sessionStorage.getItem('siteLoaded');
     const hasSpecialLoader = document.querySelector('meta[name="ncbc-loader"][content="special"]');
+    const quickLoaderContent = document.getElementById('quick-loader-content');
     
     if (!hasLoaded && !hasSpecialLoader) {
         lines.forEach(line => {
@@ -322,10 +323,7 @@ function initLoader() {
             showQuickLines(0);
         }, 300);
     } else {
-        loaderContent.innerHTML = `
-            <div class="loader-line" >NCBC2025@web ~$ <span style="color: rgb(137, 255, 130);">load</span> <span style="opacity: 0.5;">RnJpZW5kc2hpcCBpcyBNYWdpYwpEYW9kYW8gJiBSYWt1IElua3lldHRhIQ==</span></div>
-            <div class="loader-line" data-delay="1200">正在读取 <span class="rotating-chars"></span></div>
-        `;
+        loaderContent.innerHTML = quickLoaderContent.innerHTML;
         
         const quickLines = loaderContent.querySelectorAll('.loader-line');
         quickLines.forEach(line => {
