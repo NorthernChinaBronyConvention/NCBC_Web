@@ -6,7 +6,7 @@
 
 @font-face {
 font-family: 'Pixel10Lite';
-src: url('/fonts/pixel-lite.ttf') format('truetype');
+src: url('../fonts/pixel-lite.ttf') format('truetype');
 }
 
 ::selection {
