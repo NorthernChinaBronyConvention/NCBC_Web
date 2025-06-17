@@ -4,12 +4,22 @@
     box-sizing: border-box;
 }
 
+@font-face {
+font-family: 'Pixel10Lite';
+src: url('/fonts/pixel-lite.ttf') format('truetype');
+}
+
+::selection {
+    color: #000000;
+    background: #00ff00;
+}
+
 a {
     color: #00ff00;
 }
 
 body {
-    font-family: 'Courier New', monospace;
+    font-family: 'Pixel10Lite', monospace;
     background-color: #0f150f;
     color: #00ff00;
     animation: flicker 0.1s infinite;
@@ -463,7 +473,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Courier New', monospace;
+    font-family: 'Pixel10Lite', monospace;
     font-weight: bold;
     font-size: 1.2rem;
     color: #00ff00;
@@ -740,7 +750,7 @@ p {
     color: #00ff00;
     border: 1px solid #00ff00;
     text-decoration: none;
-    font-family: 'Courier New', monospace;
+    font-family: 'Pixel10Lite', monospace;
     margin-top: 15px;
 }
 
