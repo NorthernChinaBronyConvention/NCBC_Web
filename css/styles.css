@@ -1038,6 +1038,11 @@ ul.custom-before li::before {
     margin-bottom: 0px;
 }
 
+.footer-all a:hover{
+    background-color: #00ff00;
+    color: #000;
+}
+
 .Licences-text {
     font-family: 'Courier New', Courier, monospace;
     line-height: 1rem;
