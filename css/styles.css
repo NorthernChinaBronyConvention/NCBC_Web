@@ -632,8 +632,7 @@ p {
     border: 1px solid #00ff00;
     padding: 20px;
     margin-top: 30px;
-    max-width: 800px;
-    width: 100%;
+    width: 440px;
 }
 
 .faq-item {
@@ -664,7 +663,7 @@ p {
 
 .faq-answer p {
     margin-bottom: 10px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     word-break:break-all;
 }
 
