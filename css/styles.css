@@ -996,3 +996,7 @@ ul.custom-before li::before {
     margin-top: -3px;
     margin-bottom: 15px;
 }
+
+.ticket-pic {
+    display: inline-block;
+}
