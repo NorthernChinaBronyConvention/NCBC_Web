@@ -211,7 +211,7 @@ nav {
     width: 100%;
     background-color: rgba(0, 20, 0, 0.8);
     padding: 10px 0;
-    z-index: 3;
+    z-index: 50;
     border-bottom: 1px solid #00ff00;
     display: flex;
     justify-content: space-between;
@@ -999,4 +999,16 @@ ul.custom-before li::before {
 
 .ticket-pic {
     display: inline-block;
+}
+
+.footer-div {
+    font-size: 0.9rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.footer-div-s {
+    font-size: 0.75rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
