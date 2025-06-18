@@ -903,9 +903,10 @@ ul.custom-before li::before {
 .marker-dot {
     width: 12px;
     height: 12px;
-    background-color: #00ff0d;
+    background-color: rgb(255, 255, 255);;
     border-radius: 50%;
     animation: markerPulse 2s infinite;
+    
 }
 
 .marker-pulse {
@@ -914,9 +915,10 @@ ul.custom-before li::before {
     height: 20px;
     left: -4px;
     top: -4px;
-    background-color: rgba(108, 255, 133, 0.4);
+    background-color: rgba(255, 0, 166, 0.371);
     border-radius: 50%;
     animation-delay: 0.5s;
+    backdrop-filter: invert(100%);
 }
 
 .map-caption {
