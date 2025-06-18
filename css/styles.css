@@ -905,22 +905,22 @@ ul.custom-before li::before {
 }
 
 .marker-dot {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     background-color: rgb(255, 255, 255);;
-    border-radius: 50%;
+    border-radius: 0%;
     animation: markerPulse 2s infinite;
-    
+    backdrop-filter: invert(100%);
 }
 
 .marker-pulse {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    left: -4px;
-    top: -4px;
+    width: 16px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
     background-color: rgba(255, 0, 166, 0.371);
-    border-radius: 50%;
+    border-radius: 0%;
     animation-delay: 0.5s;
     backdrop-filter: invert(100%);
 }
@@ -941,9 +941,9 @@ ul.custom-before li::before {
 }
 
 @keyframes markerPulse {
-    0% { transform: scale(1); opacity: 1; }
+    0% { transform: scale(0.5); opacity: 1; }
     70% { transform: scale(2.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 0; }
+    100% { transform: scale(0.5); opacity: 0; }
 }
 
 .marker-tooltip {
