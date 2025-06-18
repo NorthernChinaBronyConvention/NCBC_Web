@@ -665,6 +665,7 @@ p {
 .faq-answer p {
     margin-bottom: 10px;
     font-size: 0.95rem;
+    word-break:break-all;
 }
 
 .faq-item.active .faq-answer {

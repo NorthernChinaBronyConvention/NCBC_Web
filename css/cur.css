@@ -17,7 +17,15 @@ a {
 }
 
 .faq-question {
-  cursor: none !important; }
+  cursor: none !important; 
+  background-color: #00ff00;
+  color: #000;
+}
+
+.faq-question:hover {
+  background-color: #60ff60;
+  color: #000;
+}
 
 .cursor {
   display: none;
