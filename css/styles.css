@@ -856,20 +856,42 @@ ul.custom-before li::before {
 }
 
 .rotating-chars {
-  display: inline-block;
-  vertical-align: baseline;
+    display: inline-block;
+    vertical-align: baseline;
 }
 
 .rotating-chars::after {
-  content: "|";
-  animation: charRotate 0.5s steps(1) infinite;
+    content: "|";
+    animation: charRotate 0.5s steps(1) infinite;
 }
 
 @keyframes charRotate {
-  0% { content: "|"; }
-  25% { content: "/"; }
-  50% { content: "-"; }
-  75% { content: "\\"; }
+    0% { content: "|"; }
+    25% { content: "/"; }
+    50% { content: "-"; }
+    75% { content: "\\"; }
+}
+
+.time5s {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.time5s::after {
+    color: rgb(180, 255, 176);
+    content: "0";
+    animation: time5sa 8s steps(1) ;
+}
+
+@keyframes time5sa {
+    0% { content: "8"; }
+    12.5% { content: "7"; }
+    25% { content: "6"; }
+    37.5% { content: "5"; }
+    50% { content: "4"; }
+    62.5% { content: "3"; }
+    75% { content: "2"; }
+    87.5% { content: "1"; }
 }
 
 .map-container {

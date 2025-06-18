@@ -289,7 +289,8 @@ function initLoader() {
         }, 500);
     } else if (hasSpecialLoader) {
         loaderContent.innerHTML = `
-            <div class="loader-line" data-delay="99999999999999999"><span style="color: rgb(255, 65, 65);">错误: 404 Not Found</span></div>
+            <div class="loader-line" ><span style="color: rgb(255, 105, 105);">[ERROR] 404 Not Found! </span></div>
+            <div class="loader-line" data-delay="1000000000"><span style="color: #00ff00;">Back Home in <span class="time5s"></span> seconds.</span></div>
         `;
 
         const quickLines = loaderContent.querySelectorAll('.loader-line');
