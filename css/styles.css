@@ -76,6 +76,8 @@ body {
 }
 
 .loader-line {
+    word-break: break-all;
+    font-size: 1.3rem;
     margin-bottom: 10px;
     white-space: pre-wrap;
     overflow: hidden;
