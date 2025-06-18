@@ -992,8 +992,7 @@ ul.custom-before li::before {
     }
 }
 
-.show-item {
-    display: inline-block;
-    margin-top: 0;
-    margin-bottom: 0;
+.belowimg-text {
+    margin-top: -3px;
+    margin-bottom: 15px;
 }
