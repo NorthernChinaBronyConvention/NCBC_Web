@@ -20,7 +20,6 @@ a {
   cursor: none !important; 
   background-color: #00ff00;
   color: #000;
-  word-break:break-all;
 }
 
 .faq-question:hover {
