@@ -362,4 +362,57 @@ function initLoader() {
 document.addEventListener('DOMContentLoaded', function() {
     initLoader();
     initSite();
+    initCountdown();
 });
+
+function initCountdown() {
+    // 这里设置倒计时目标时间
+    const eventDate = new Date('2025-08-9T08:00:00');
+    const daysElement = document.querySelector('.countdown-days');
+    const hoursElement = document.querySelector('.countdown-hours');
+    const minutesElement = document.querySelector('.countdown-minutes');
+    const secondsElement = document.querySelector('.countdown-seconds');
+    const timerElement = document.querySelector('.countdown-timer');
+    const titleElement = document.querySelector('.countdown-title');
+    
+    const criticalSeconds = 60;
+    const finalCountdownSeconds = 10;
+    
+    function updateCountdown() {
+        const now = new Date();
+        const diff = eventDate - now;
+        
+        if (diff <= 0) {
+            timerElement.textContent = "倒计时已结束";
+            timerElement.classList.add('critical');
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        daysElement.textContent = days.toString().padStart(2, '0');
+        hoursElement.textContent = hours.toString().padStart(2, '0');
+        minutesElement.textContent = minutes.toString().padStart(2, '0');
+        secondsElement.textContent = seconds.toString().padStart(2, '0');
+        
+        if (days === 0 && hours === 0 && minutes === 0 && seconds <= criticalSeconds) {
+            timerElement.classList.add('critical');
+        } else {
+            timerElement.classList.remove('critical');
+        }
+        
+        if (days === 0 && hours === 0 && minutes === 0 && seconds <= finalCountdownSeconds) {
+            timerElement.classList.add('final-countdown');
+            titleElement.textContent = " ";
+        } else {
+            timerElement.classList.remove('final-countdown');
+            titleElement.textContent = "活动倒计时";
+        }
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}

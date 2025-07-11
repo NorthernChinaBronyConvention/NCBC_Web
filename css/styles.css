@@ -1052,3 +1052,61 @@ ul.custom-before li::before {
 .Licences-text-div {
     text-align: left;
 }
+
+.countdown-container {
+    background-color: rgba(0, 20, 0, 0.8);
+    border-top: 1px solid #00ff00;
+    border-bottom: 1px solid #00ff00;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.countdown-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #00ff00;
+}
+
+.countdown-timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff00;
+}
+
+.countdown-timer span {
+    display: inline-block;
+    min-width: 2em;
+    text-align: center;
+}
+
+.countdown-timer.critical {
+    color: #ff0000;
+}
+
+.countdown-timer.final-countdown {
+    font-size: 4rem !important;
+}
+
+.countdown-seconds::after {
+    content: " 秒";
+}
+.countdown-minutes::after {
+    content: " 分";
+}
+.countdown-hours::after {
+    content: " 时";
+}
+.countdown-days::after {
+    content: " 天";
+}
+.countdown-timer.final-countdown .countdown-minutes {
+    display: none !important;
+}
+.countdown-timer.final-countdown .countdown-hours {
+    display: none !important;
+}
+.countdown-timer.final-countdown .countdown-days {
+    display: none !important;
+}
