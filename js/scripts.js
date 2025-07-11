@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initCountdown() {
     // 这里设置倒计时目标时间
-    const eventDate = new Date('2025-08-09T08:00:00');
+    const eventDate = new Date('2025-08-09T09:00:00');
     const daysElement = document.querySelector('.countdown-days');
     const hoursElement = document.querySelector('.countdown-hours');
     const minutesElement = document.querySelector('.countdown-minutes');
