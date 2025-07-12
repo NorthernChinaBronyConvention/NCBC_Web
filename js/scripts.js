@@ -363,11 +363,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initLoader();
     initSite();
     initCountdown();
+    initProgress();
 });
 
+// 这里设置倒计时目标时间
+const eventDate = new Date('2025-08-09T09:00:00');
+
 function initCountdown() {
-    // 这里设置倒计时目标时间
-    const eventDate = new Date('2025-08-09T09:00:00');
     const daysElement = document.querySelector('.countdown-days');
     const hoursElement = document.querySelector('.countdown-hours');
     const minutesElement = document.querySelector('.countdown-minutes');
@@ -406,7 +408,7 @@ function initCountdown() {
         
         if (days === 0 && hours === 0 && minutes === 0 && seconds <= finalCountdownSeconds) {
             timerElement.classList.add('final-countdown');
-            titleElement.textContent = " ";
+            titleElement.textContent = "";
         } else {
             timerElement.classList.remove('final-countdown');
             titleElement.textContent = "";
@@ -417,11 +419,11 @@ function initCountdown() {
     setInterval(updateCountdown, 1000);
 }
 
-//进度条
-document.addEventListener('DOMContentLoaded', function() {
+// 进度条
+function initProgress() {
     // 设置日期
-    const startDate = new Date('2025-07-10');//初始日期
-    const endDate = new Date('2025-08-09');//结束日期
+    const startDate = new Date('2025-07-10'); // 初始日期
+    const endDate = new Date('2025-08-09'); // 结束日期
     const currentDate = new Date(); // 当前日期
 
     // 计算总天数和已过去天数
@@ -439,11 +441,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressPercentageElement = document.getElementById('progress-percentage');
     const daysCompletedElement = document.getElementById('days-completed');
     const totalDaysElement = document.getElementById('total-days');
-    //const refreshBtn = document.getElementById('refresh-btn');//刷新按钮 禁用了
+    //const refreshBtn = document.getElementById('refresh-btn'); // 刷新按钮 禁用了
 
     // 这里生成进度条
     function generateProgressBar() {
         const circleCount = 20; // 进度条格总数
+        const diff = eventDate - currentDate;
+
+        if (diff <= 0) return;
 
         // 每格代表的天数
         const daysPerCircle = totalDays / circleCount;
@@ -452,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < circleCount; i++) {
             const circle = document.createElement('span');
             circle.className = `${i < filledCircles ? 'filled-circle' : 'empty-circle'}`;
-            circle.textContent = i < filledCircles ? '▮' : '▯'; //这里是进度条符号
+            circle.textContent = i < filledCircles ? '▮' : '▯'; // 这里是进度条符号
             circle.style.animationDelay = `${i * 30}ms`;
             circle.classList.add('progress-animation');
             progressDisplay.appendChild(circle);
@@ -466,15 +471,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始生成进度条
     generateProgressBar();
 
-    // 刷新按钮（还是不用刷新按钮了）
-    //refreshBtn.addEventListener('click', function() {
-    //this.classList.add('animate-pulse');
+    /* 刷新按钮（还是不用刷新按钮了）
+    refreshBtn.addEventListener('click', function() {
+    this.classList.add('animate-pulse');
 
     // 重置进度条并重新生成
-    //progressDisplay.innerHTML = '';
-    //setTimeout(() => {
-    //generateProgressBar();
-    //this.classList.remove('animate-pulse');
-    //}, 300);
-    //});
-});
+    progressDisplay.innerHTML = '';
+    setTimeout(() => {
+    generateProgressBar();
+    this.classList.remove('animate-pulse');
+    }, 300);
+    }); */
+};
