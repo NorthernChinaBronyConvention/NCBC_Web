@@ -633,7 +633,7 @@ p {
     border: 1px solid #00ff00;
     padding: 20px;
     margin-top: 30px;
-    width: 440px;
+    width: 390px;
 }
 
 .faq-item {
@@ -1069,6 +1069,18 @@ ul.custom-before li::before {
     color: #00ff00;
 }
 
+.countdown-title-zh {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #00ff00;
+}
+
+.countdown-title-en {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #00ff00;
+}
+
 .countdown-timer {
     font-size: 1.5rem;
     font-weight: bold;
@@ -1090,16 +1102,16 @@ ul.custom-before li::before {
 }
 
 .countdown-seconds::after {
-    content: " 秒";
+    content: " s";
 }
 .countdown-minutes::after {
-    content: " 分";
+    content: " m";
 }
 .countdown-hours::after {
-    content: " 时";
+    content: " h";
 }
 .countdown-days::after {
-    content: " 天";
+    content: " d";
 }
 .countdown-timer.final-countdown .countdown-minutes {
     display: none !important;
@@ -1109,4 +1121,26 @@ ul.custom-before li::before {
 }
 .countdown-timer.final-countdown .countdown-days {
     display: none !important;
+}
+
+@layer utilities {
+    .progress-container {
+        @apply bg-gray-100 p-4 rounded-lg text-center;
+    }
+    .circle-progress {
+        @apply text-2xl font-mono tracking-wider my-3;
+    }
+    .filled-circle {
+        @apply text-primary transition-all duration-500 transform scale-110;
+    }
+    .empty-circle {
+        @apply text-gray-300;
+    }
+    .progress-animation {
+        animation: fillProgress 1.5s ease-out forwards;
+    }
+    @keyframes fillProgress {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 }
