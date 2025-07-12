@@ -409,7 +409,7 @@ function initCountdown() {
             titleElement.textContent = " ";
         } else {
             timerElement.classList.remove('final-countdown');
-            titleElement.textContent = "活动倒计时";
+            titleElement.textContent = "距离活动开始还有";
         }
     }
     
