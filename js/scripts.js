@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 这里设置倒计时目标时间
-const eventDate = new Date('2025-08-09T09:00:00');
+const eventDate = new Date('2025-07-16T22:40:00');
 
 function initCountdown() {
     const daysElement = document.querySelector('.countdown-days');
@@ -387,6 +387,10 @@ function initCountdown() {
         if (diff <= 0) {
             timerElement.textContent = "倒计时已结束";
             timerElement.classList.add('critical');
+            timerElement.classList.remove('shake');
+            timerElement.classList.remove('shake-hard');
+            timerElement.classList.remove('shake-constant');
+            timerElement.classList.remove('final-countdown');
             return;
         }
         
@@ -402,15 +406,22 @@ function initCountdown() {
         
         if (days === 0 && hours === 0 && minutes === 0 && seconds <= criticalSeconds) {
             timerElement.classList.add('critical');
+            timerElement.classList.add('shake');
+            timerElement.classList.add('shake-constant');
         } else {
             timerElement.classList.remove('critical');
+            timerElement.classList.remove('shake');
         }
         
         if (days === 0 && hours === 0 && minutes === 0 && seconds <= finalCountdownSeconds) {
             timerElement.classList.add('final-countdown');
+            timerElement.classList.add('shake-hard');
+            timerElement.classList.add('shake-constant');
+            timerElement.classList.remove('shake');
             titleElement.textContent = "";
         } else {
             timerElement.classList.remove('final-countdown');
+            timerElement.classList.remove('shake-hard');
             titleElement.textContent = "";
         }
     }
