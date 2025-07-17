@@ -1123,6 +1123,10 @@ ul.custom-before li::before {
     display: none !important;
 }
 
+.progress-container {
+    text-align: center;
+}
+
 @layer utilities {
     .progress-container {
         @apply bg-gray-100 p-4 rounded-lg text-center;

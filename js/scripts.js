@@ -376,7 +376,9 @@ function initCountdown() {
     const secondsElement = document.querySelector('.countdown-seconds');
     const timerElement = document.querySelector('.countdown-timer');
     const titleElement = document.querySelector('.countdown-title');
-    
+    // 获取进度条元素
+    const progressDisplay = document.getElementById('progress-display');
+
     const criticalSeconds = 60;
     const finalCountdownSeconds = 10;
     
@@ -385,12 +387,16 @@ function initCountdown() {
         const diff = eventDate - now;
         
         if (diff <= 0) {
-            timerElement.textContent = "倒计时已结束";
+            timerElement.textContent = "展会已开始！";
             timerElement.classList.add('critical');
             timerElement.classList.remove('shake-little');
             timerElement.classList.remove('shake');
             timerElement.classList.remove('shake-constant');
             timerElement.classList.remove('final-countdown');
+            // 倒计时结束隐藏进度条
+            if (progressDisplay) {
+                progressDisplay.style.display = 'none';
+            }
             return;
         }
         
@@ -408,9 +414,17 @@ function initCountdown() {
             timerElement.classList.add('critical');
             timerElement.classList.add('shake-little');
             timerElement.classList.add('shake-constant');
+            // 最后一分钟隐藏进度条
+            if (progressDisplay) {
+                progressDisplay.style.display = 'none';
+            }
         } else {
             timerElement.classList.remove('critical');
             timerElement.classList.remove('shake-little');
+            // 恢复显示进度条
+            if (progressDisplay) {
+                progressDisplay.style.display = 'block';
+            }
         }
         
         if (days === 0 && hours === 0 && minutes === 0 && seconds <= finalCountdownSeconds) {
