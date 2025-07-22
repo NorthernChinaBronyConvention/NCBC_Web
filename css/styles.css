@@ -865,14 +865,18 @@ ul.custom-before li::before {
 
 .rotating-chars::after {
     content: "|";
-    animation: charRotate 0.5s steps(1) infinite;
+    animation: charRotate 1s steps(1) infinite;
 }
 
 @keyframes charRotate {
-    0% { content: "|"; }
-    25% { content: "/"; }
-    50% { content: "-"; }
-    75% { content: "\\"; }
+    0% { content: "⣽"; }
+    12.5% { content: "⣾"; }
+    25% { content: "⣷"; }
+    37.5% { content: "⣯"; }
+    50% { content: "⣟"; }
+    62.5% { content: "⡿"; }
+    75% { content: "⢿"; }
+    87.5% { content: "⣻"; }
 }
 
 .time5s {
