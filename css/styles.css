@@ -5,8 +5,8 @@
 }
 
 @font-face {
-font-family: 'Pixel10Lite';
-src: url('../fonts/pixel-lite.ttf') format('truetype');
+font-family: 'sweibell-r';
+src: url('../fonts/SweiBell-R-lite.ttf') format('truetype');
 }
 
 ::selection {
@@ -23,7 +23,7 @@ img {
 }
 
 body {
-    font-family: 'Pixel10Lite', monospace;
+    font-family: 'sweibell-r', sans-serif;
     background-color: #0f150f;
     color: #00ff00;
     animation: flicker 0.1s infinite;
