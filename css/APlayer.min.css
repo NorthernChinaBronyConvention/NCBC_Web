@@ -1,5 +1,5 @@
 .aplayer {
-    background: #122b12;
+    background: #001101;
     font-family: Arial,Helvetica,sans-serif;
     margin: 5px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.07),0 1px 5px 0 rgba(0,0,0,.1);
@@ -264,7 +264,7 @@
 .aplayer .aplayer-pic .aplayer-play {
     width: 26px;
     height: 26px;
-    border: 2px solid #20c000;
+    border: 2px solid #2bff00;
     bottom: 50%;
     right: 50%;
     margin: 0 -15px -15px 0
@@ -281,7 +281,7 @@
 .aplayer .aplayer-pic .aplayer-pause {
     width: 16px;
     height: 16px;
-    border: 2px solid #20c000;
+    border: 2px solid #2bff00;
     bottom: 4px;
     right: 4px
 }
@@ -483,7 +483,7 @@
 .aplayer .aplayer-lrc:before {
     top: 0;
     height: 10%;
-    background: linear-gradient(180deg,#122b12 0,hsla(0,0%,100%,0));
+    background: linear-gradient(180deg,#001101 0,hsla(0,0%,100%,0));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#00ffffff",GradientType=0)
 }
 
@@ -499,7 +499,7 @@
 .aplayer .aplayer-lrc:after {
     bottom: 0;
     height: 33%;
-    background: linear-gradient(180deg,hsla(0,0%,100%,0) 0,122b12(0,0%,100%,.8));
+    background: linear-gradient(180deg,hsla(0,0%,100%,0) 0,#001101);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff",endColorstr="#ccffffff",GradientType=0)
 }
 
@@ -586,7 +586,7 @@
 }
 
 .aplayer .aplayer-list ol li:hover {
-    background: #006411
+    background: #00550e
 }
 
 .aplayer .aplayer-list ol li.aplayer-list-light {
