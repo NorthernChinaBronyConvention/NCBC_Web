@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NCBC 华北马聚 | 主页</title>
     <link rel="icon" href="img/ncbc-ico.png">
+    <link rel="stylesheet" href="css/csshake.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/cur.css">
-    <link rel="stylesheet" href="css/csshake.css">
+    <link rel="stylesheet" href="css/APlayer.min.css">
 </head>
 <body>
 
@@ -266,11 +267,16 @@
 
         <section id="contact" class="content-section">
             <h2><br><br>联系方式</h2>
-                <div class="team-card">
-                    <div class="terminal-avatar"><img src="img/qrcode.png"></div>
-                    <h3><span>&lt;</span>QQ群<span>&gt;</span></h3>
-                    <p class="role">群号: 927518383</p>
-                </div>
+            <div class="team-card">
+                <div class="terminal-avatar"><img src="img/qrcode.png"></div>
+                <h3><span>&lt;</span>QQ群<span>&gt;</span></h3>
+                <p class="role">群号: 927518383</p>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <p>测试用的，后面会删掉</p>
+            <div id="aplayer">
         </section>
     </div>
     
@@ -293,11 +299,39 @@
     
     <script src="js/scripts.js"></script>
     <script src="js/cur.js"></script>
+    <script src="js/APlayer.min.js"></script>
 	<script type="text/javascript">
 		var cursor = new Cursor(".mainbody","waitcursor");
         var cursor = new Cursor(".retro-button","incursor");
         var cursor = new Cursor(".faq-question","incursor");
         var cursor = new Cursor("a","incursor");
 	</script>
+    <script>     
+      document.addEventListener('DOMContentLoaded', function() {
+        const ap = new APlayer({
+          container: document.getElementById('aplayer'),
+          theme: "#00740a",
+          audio: []
+        });
+
+        fetch('https://api.eqad.fun/ncm/playlist/13980548342')
+        .then(response => {
+          return response.json();
+        })
+        .then(songs => {
+          ap.list.clear();
+       
+          songs.forEach(song => {
+            ap.list.add({
+              name: song.title,
+              artist: song.author,
+              url: song.url,
+              cover: song.pic,
+              lrc: song.lrc
+            });
+          });
+        })
+      });
+    </script>
 </body>
 </html>
