@@ -9,6 +9,11 @@ font-family: 'sweibell-r';
 src: url('../fonts/SweiBell-R-lite.ttf') format('truetype');
 }
 
+@font-face {
+font-family: 'sfs-s';
+src: url('../fonts/SarasaFixedSlabSC-SemiBold.ttf') format('truetype');
+}
+
 ::selection {
     color: #000000;
     background: #00ff00;
@@ -70,19 +75,32 @@ body {
 
 .loader-content {
     position: absolute;
-    padding-left: 5rem;
-    padding-top: 5rem;
+    padding-left: 20px;
+    padding-top: 20px;
     max-width: calc(100% - 40px);
+    max-height: calc(100vh - 14px);
+    overflow-y: auto;
 }
 
 .loader-line {
     word-break: break-all;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     white-space: pre-wrap;
     overflow: hidden;
-    font-weight: 800;
+    font-weight: 500;
     visibility: hidden;
+    opacity: 0;
+    font-family: 'sfs-s', sans-serif;
+}
+
+.loader-line.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.loader-content::-webkit-scrollbar {
+    display: none;
 }
 
 body::before {

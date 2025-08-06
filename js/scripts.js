@@ -248,115 +248,129 @@ function initMap() {
 function initLoader() {
     const loader = document.getElementById('loader');
     const loaderContent = document.getElementById('loader-content');
-    const lines = loaderContent?.querySelectorAll('.loader-line');
     
-    if (!loader || !lines || lines.length === 0) return;
+    if (!loader) return;
     
     const hasLoaded = sessionStorage.getItem('siteLoaded');
     const hasSpecialLoader = document.querySelector('meta[name="ncbc-loader"][content="special"]');
     const quickLoaderContent = document.getElementById('quick-loader-content');
+    const fullLoaderContent = document.getElementById('full-loader-content');
     
     if (!hasLoaded && !hasSpecialLoader) {
-        lines.forEach(line => {
-            line.style.visibility = 'hidden';
+        const linesData = Array.from(fullLoaderContent.querySelectorAll('.loader-line')).map(line => ({
+            html: line.innerHTML,
+            delay: parseInt(line.getAttribute('data-delay')) || 0,
+            changeAfter: parseInt(line.getAttribute('data-change-after')) || null,
+            changeTo: line.getAttribute('data-change-to') || null
+        }));
+        
+        showTerminalAnimation(loaderContent, linesData, () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.display = 'block';
+                sessionStorage.setItem('siteLoaded', 'true');
+            }, 1000);
         });
-        
-        function showLines(index) {
-            if (index < lines.length) {
-                lines[index].style.visibility = 'visible';
-                
-                const customDelay = lines[index].getAttribute('data-delay');
-                const delay = customDelay ? parseInt(customDelay) : 300 + Math.random() * 700;
-                
-                setTimeout(() => {
-                    showLines(index + 1);
-                }, delay);
-            } else {
-                setTimeout(() => {
-                    loaderContent.innerHTML = '';
-                    
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        document.body.style.display = 'block';
-                        sessionStorage.setItem('siteLoaded', 'true');
-                    }, 1000);
-                }, 2000);
-            }
-        }
-        
-        setTimeout(() => {
-            showLines(0);
-        }, 500);
     } else if (hasSpecialLoader) {
         loaderContent.innerHTML = `
             <div class="loader-line" ><span style="color: rgb(255, 105, 105);">[ERROR] 404 Not Found! </span></div>
-            <div class="loader-line" data-delay="1000000000"><span style="color: #00ff00;">Back Home in <span class="time5s"></span> seconds.</span></div>
+            <div class="loader-line" data-delay="1000"><span style="color: #00ff00;">Back Home in <span class="time5s"></span> seconds.</span></div>
         `;
-
-        const quickLines = loaderContent.querySelectorAll('.loader-line');
-        quickLines.forEach(line => {
-            line.style.visibility = 'hidden';
+        showQuickLoader(loaderContent, () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.display = 'block';
+            }, 500);
         });
-        
-        function showQuickLines(index) {
-            if (index < quickLines.length) {
-                quickLines[index].style.visibility = 'visible';
-                
-                const delay = quickLines[index].getAttribute('data-delay') ? 
-                    parseInt(quickLines[index].getAttribute('data-delay')) : 200;
-                
-                setTimeout(() => {
-                    showQuickLines(index + 1);
-                }, delay);
-            } else {
-                setTimeout(() => {
-                    loaderContent.innerHTML = '';
-                    
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        document.body.style.display = 'block';
-                    }, 500);
-                }, 1000);
-            }
-        }
-
-        setTimeout(() => {
-            showQuickLines(0);
-        }, 300);
     } else {
         loaderContent.innerHTML = quickLoaderContent.innerHTML;
-        
-        const quickLines = loaderContent.querySelectorAll('.loader-line');
-        quickLines.forEach(line => {
-            line.style.visibility = 'hidden';
+        showQuickLoader(loaderContent, () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.display = 'block';
+            }, 500);
         });
-        
-        function showQuickLines(index) {
-            if (index < quickLines.length) {
-                quickLines[index].style.visibility = 'visible';
-                
-                const delay = quickLines[index].getAttribute('data-delay') ? 
-                    parseInt(quickLines[index].getAttribute('data-delay')) : 200;
-                
-                setTimeout(() => {
-                    showQuickLines(index + 1);
-                }, delay);
-            } else {
-                setTimeout(() => {
-                    loaderContent.innerHTML = '';
-                    
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        document.body.style.display = 'block';
-                    }, 500);
-                }, 1000);
-            }
+    }
+}
+
+function showTerminalAnimation(container, content, callback) {
+    let currentIndex = 0;
+    const lines = [];
+    
+    function addLine() {
+        if (currentIndex >= content.length) {
+            setTimeout(() => {
+                container.innerHTML = '';
+                if (callback) callback();
+            }, 2000);
+            return;
         }
         
+        const lineData = content[currentIndex];
+        const line = document.createElement('div');
+        line.className = 'loader-line';
+        line.innerHTML = lineData.html;
+        container.appendChild(line);
+        lines.push(line);
+        
         setTimeout(() => {
-            showQuickLines(0);
-        }, 300);
+            line.classList.add('visible');
+            
+            if (lineData.changeAfter && lineData.changeTo) {
+                setTimeout(() => {
+                    line.innerHTML = lineData.changeTo;
+                    checkScroll();
+                }, lineData.changeAfter);
+            }
+            
+            checkScroll();
+        }, 10);
+        
+        currentIndex++;
+        if (currentIndex < content.length) {
+            setTimeout(addLine, lineData.delay || 300);
+        } else {
+            setTimeout(addLine, 1000);
+        }
     }
+    
+    function checkScroll() {
+        const containerRect = container.getBoundingClientRect();
+        const lastLine = lines[lines.length - 1];
+        const lastLineRect = lastLine.getBoundingClientRect();
+        
+        if (lastLineRect.bottom > containerRect.bottom) {
+            const scrollAmount = lastLineRect.bottom - containerRect.bottom + 10;
+            container.scrollTop += scrollAmount;
+        }
+    }
+    addLine();
+}
+
+function showQuickLoader(container, callback) {
+    const lines = container.querySelectorAll('.loader-line');
+    let currentIndex = 0;
+    
+    function showNextLine() {
+        if (currentIndex >= lines.length) {
+            setTimeout(() => {
+                container.innerHTML = '';
+                if (callback) callback();
+            }, 1000);
+            return;
+        }
+        
+        const line = lines[currentIndex];
+        const delay = parseInt(line.getAttribute('data-delay')) || 200;
+        
+        setTimeout(() => {
+            line.classList.add('visible');
+            currentIndex++;
+            showNextLine();
+        }, delay);
+    }
+    
+    showNextLine();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -366,7 +380,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initProgress();
 });
 
-// 这里设置倒计时目标时间
 const eventDate = new Date('2025-08-09T09:00:00');
 
 function initCountdown() {
@@ -376,7 +389,6 @@ function initCountdown() {
     const secondsElement = document.querySelector('.countdown-seconds');
     const timerElement = document.querySelector('.countdown-timer');
     const titleElement = document.querySelector('.countdown-title');
-    // 获取进度条元素
     const progressDisplay = document.getElementById('progress-display');
 
     const criticalSeconds = 60;
@@ -393,7 +405,6 @@ function initCountdown() {
             timerElement.classList.remove('shake');
             timerElement.classList.remove('shake-constant');
             timerElement.classList.remove('final-countdown');
-            // 倒计时结束隐藏进度条
             if (progressDisplay) {
                 progressDisplay.style.display = 'none';
             }
@@ -414,14 +425,12 @@ function initCountdown() {
             timerElement.classList.add('critical');
             timerElement.classList.add('shake-little');
             timerElement.classList.add('shake-constant');
-            // 最后一分钟隐藏进度条
             if (progressDisplay) {
                 progressDisplay.style.display = 'none';
             }
         } else {
             timerElement.classList.remove('critical');
             timerElement.classList.remove('shake-little');
-            // 恢复显示进度条
             if (progressDisplay) {
                 progressDisplay.style.display = 'block';
             }

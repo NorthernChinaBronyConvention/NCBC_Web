@@ -15,19 +15,54 @@
     <div class="cursor"></div>
 
     <div id="quick-loader-content" style="display:none;">
-        <div class="loader-line" >NCBC2025@web ~$ <span style="color: rgb(137, 255, 130);">load</span> <span style="opacity: 0.5;">RnJpZW5kc2hpcCBpcyBNYWdpYwpEYW9kYW8gJiBSYWt1IElua3lldHRhIQ==</span></div>
-        <div class="loader-line" data-delay="1200">正在读取 <span class="rotating-chars"></span></div>
+        <div class="loader-line" >>&ensp;NCBC2025@web ~$ <span style="color: rgb(137, 255, 130);">load</span> <span style="opacity: 0.5;">RnJpZW5kc2hpcCBpcyBNYWdpYwpEYW9kYW8gJiBSYWt1IElua3lldHRhIQ==</span></div>
+        <div class="loader-line" data-delay="1200">Please wait <span class="rotating-chars"></span></div>
+    </div>
+
+    <div id="full-loader-content" style="display:none;">
+        <div class="loader-line" data-delay="0">>&ensp;NCBC2025@web ~$ <span style="color: rgb(137, 255, 130);">exec</span> <span style="opacity: 0.5;">./ncbc2025_system.sh</span></div>
+        <div class="loader-line" data-delay="500" data-change-after="500" data-change-to="[&ensp;OK&ensp;] Initializing kernel modules... (v3.12.5-rt14)">[&ensp;<span class="rotating-chars"></span>&ensp;] Initializing kernel modules...</div>
+        <div class="loader-line" data-delay="400" data-change-after="400" data-change-to="[&ensp;OK&ensp;] Mounting virtual filesystems: /proc, /sys, /dev, /run">[&ensp;<span class="rotating-chars"></span>&ensp;] Mounting virtual filesystems...</div>
+        <div class="loader-line" data-delay="300"><span style="color: #ff6e6e;">[&ensp;FAIL&ensp;] Failed to load module 'pip_duck' (retrying...)</span></div>
+        <div class="loader-line" data-delay="200">[&ensp;OK&ensp;] Successfully loaded module on 2nd attempt</div>
+        <div class="loader-line" data-delay="700">[&ensp;OK&ensp;] Language: zh-CN | Locale: en_US.UTF-8 | Timezone: Asia/Shanghai (CST)
+     __           _   _                         ___ _     _
+  /\ \ \___  _ __| |_| |__   ___ _ __ _ __     / __\ |__ (_)_ __   __ _
+ /  \/ / _ \| '__| __| '_ \ / _ \ '__| '_ \   / /  | '_ \| | '_ \ / _` |
+/ /\  / (_) | |  | |_| | | |  __/ |  | | | | / /___| | | | | | | | (_| |
+\_\ \/ \___/|_|   \__|_| |_|\___|_|  |_| |_| \____/|_| |_|_|_| |_|\__,_|
+   ___                           ___                           _   _
+  / __\_ __ ___  _ __  _   _    / __\___  _ ____   _____ _ __ | |_(_) ___  _ __
+ /__\// '__/ _ \| '_ \| | | |  / /  / _ \| '_ \ \ / / _ \ '_ \| __| |/ _ \| '_ \
+/ \/  \ | | (_) | | | | |_| | / /__| (_) | | | \ V /  __/ | | | |_| | (_) | | | |
+\_____/_|  \___/|_| |_|\__, | \____/\___/|_| |_|\_/ \___|_| |_|\__|_|\___/|_| |_|
+                       |___/
+Northern China Brony Convention Web - Version 1.145.14 (Build #2077)</div>
+        <div class="loader-line" data-delay="150" data-change-after="150" data-change-to="[&ensp;OK&ensp;] Loading cryptographic services: OpenSSL 3.0.8">[&ensp;<span class="rotating-chars"></span>&ensp;] Loading cryptographic services...</div>
+        <div class="loader-line" data-delay="200" data-change-after="200" data-change-to="[&ensp;OK&ensp;] Initializing network stack: wlan0 (192.168.1.42/24)">[&ensp;<span class="rotating-chars"></span>&ensp;] Initializing network stack...</div>
+        <div class="loader-line" data-delay="180"><span style="color: #ff6e6e;">[&ensp;FAIL&ensp;] CDN endpoint api.ncbronyconvention.top timeout (3000ms)</span></div>
+        <div class="loader-line" data-delay="150">[&ensp;OK&ensp;] Falling back to secondary CDN mirror</div>
+        <div class="loader-line" data-delay="250" data-change-after="250" data-change-to="[&ensp;OK&ensp;] Verifying asset integrity: 147 files">[&ensp;<span class="rotating-chars"></span>&ensp;] Verifying asset integrity...</div>
+        <div class="loader-line" data-delay="100"><span style="color: #ffcc66;">[&ensp;WARN&ensp;] 2 assets failed validation (re-downloading)</span></div>
+        <div class="loader-line" data-delay="150">[&ensp;OK&ensp;] Assets successfully repaired</div>
+        <div class="loader-line" data-delay="300" data-change-after="300" data-change-to="[&ensp;OK&ensp;] Loading font assets: 2.4MB">[&ensp;<span class="rotating-chars"></span>&ensp;] Loading font assets...</div>
+        <div class="loader-line" data-delay="220" data-change-after="220" data-change-to="[&ensp;OK&ensp;] Compiling stylesheets: 18 modules">[&ensp;<span class="rotating-chars"></span>&ensp;] Compiling stylesheets...</div>
+        <div class="loader-line" data-delay="200"><span style="color: #ff6e6e;">[&ensp;FAIL&ensp;] Sass compiler segmentation fault</span></div>
+        <div class="loader-line" data-delay="180">[&ensp;OK&ensp;] Recovered using legacy compiler</div>
+        <div class="loader-line" data-delay="280" data-change-after="280" data-change-to="[&ensp;OK&ensp;] Initializing JavaScript runtime">[&ensp;<span class="rotating-chars"></span>&ensp;] Initializing JavaScript runtime...</div>
+        <div class="loader-line" data-delay="190" data-change-after="190" data-change-to="[&ensp;OK&ensp;] Building DOM tree: 247 nodes">[&ensp;<span class="rotating-chars"></span>&ensp;] Building DOM tree...</div>
+        <div class="loader-line" data-delay="170" data-change-after="170" data-change-to="[&ensp;OK&ensp;] Calculating responsive breakpoints">[&ensp;<span class="rotating-chars"></span>&ensp;] Calculating responsive breakpoints...</div>
+        <div class="loader-line" data-delay="210" data-change-after="210" data-change-to="[&ensp;OK&ensp;] Initializing interactive map">[&ensp;<span class="rotating-chars"></span>&ensp;] Initializing interactive map...</div>
+        <div class="loader-line" data-delay="230" data-change-after="230" data-change-to="[&ensp;OK&ensp;] Configuring audio subsystem">[&ensp;<span class="rotating-chars"></span>&ensp;] Configuring audio subsystem...</div>
+        <div class="loader-line" data-delay="260" data-change-after="260" data-change-to="[&ensp;OK&ensp;] Enabling security policies">[&ensp;<span class="rotating-chars"></span>&ensp;] Enabling security policies...</div>
+        <div class="loader-line" data-delay="240" data-change-after="240" data-change-to="[&ensp;OK&ensp;] Loading ScanLine effect">[&ensp;<span class="rotating-chars"></span>&ensp;] Loading ScanLine effect...</div>
+        <div class="loader-line" data-delay="300" data-change-after="300" data-change-to="[&ensp;OK&ensp;] Initializing cursor effects">[&ensp;<span class="rotating-chars"></span>&ensp;] Initializing cursor effects...</div>
+        <div class="loader-line" data-delay="200"><span style="color: #ffcc66;">[&ensp;WARN&ensp;] 1 non-critical systems unstable (safe to continue)</span></div>
+        <div class="loader-line" data-delay="400">[&ensp;DONE&ensp;] System ready in 4.12s</div>
     </div>
 
     <div class="loader" id="loader">
-        <div class="loader-content" id="loader-content">
-            <div class="loader-line">NCBC2025@web ~$ <span style="color: rgb(137, 255, 130);">load</span> <span style="opacity: 0.5;">ncbc2025_system.sh</span></div>
-            <div class="loader-line">初始化终端...</div>
-            <div class="loader-line" style="opacity: 0.5;">[完成]</div>
-            <div class="loader-line">认证身份...</div>
-            <div class="loader-line" style="opacity: 0.5;">[通过]</div>
-            <div class="loader-line">载入哔哔小马用户界面 <span class="rotating-chars"></span></div>
-        </div>
+        <div class="loader-content" id="loader-content"></div>
     </div>
     
     <div class="scanlines"></div>
