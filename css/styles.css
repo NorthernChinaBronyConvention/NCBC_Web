@@ -6,12 +6,12 @@
 
 @font-face {
 font-family: 'sweibell-r';
-src: url('../fonts/SweiBell-R-lite.ttf') format('truetype');
+src: url('../fonts/SweiBell-R-lite.woff2') format('truetype');
 }
 
 @font-face {
 font-family: 'sfs-s';
-src: url('../fonts/SarasaFixedSlabSC-SemiBold.ttf') format('truetype');
+src: url('../fonts/SarasaFixedSlabSC-SemiBold.woff2') format('truetype');
 }
 
 ::selection {
