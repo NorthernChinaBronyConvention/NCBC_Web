@@ -11,7 +11,7 @@ src: url('../fonts/SweiBell-R-lite.woff2') format('truetype');
 
 @font-face {
 font-family: 'sfs-s';
-src: url('../fonts/SarasaFixedSlabSC-SemiBold.woff2') format('truetype');
+src: url('../fonts/SarasaFixedSlabCL-SemiBold.woff2') format('woff2');
 }
 
 ::selection {
