@@ -276,13 +276,20 @@ function initLoader() {
             <div class="loader-line" ><span style="color: rgb(255, 105, 105);">[ERROR] 404 Not Found! </span></div>
             <div class="loader-line" data-delay="1000"><span style="color: #00ff00;">Back Home in <span class="time5s"></span> seconds</span></div>
         `;
+        showTerminalAnimation(loaderContent, linesData, () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.display = 'block';
+                sessionStorage.setItem('siteLoaded', 'true');
+            }, 100000);
+        });
     } else {
         loaderContent.innerHTML = quickLoaderContent.innerHTML;
         showQuickLoader(loaderContent, () => {
             setTimeout(() => {
                 loader.style.display = 'none';
                 document.body.style.display = 'block';
-            }, 500);
+            }, 1000);
         });
     }
 }
