@@ -299,11 +299,6 @@
                 <p class="role">群号: 927518383</p>
             </div>
         </section>
-
-        <section id="contact" class="content-section">
-            <p>测试用的，后面会删掉</p>
-            <div id="aplayer">
-        </section>
     </div>
     
     <!-- 页脚 -->
@@ -332,34 +327,5 @@
         var cursor = new Cursor(".faq-question","incursor");
         var cursor = new Cursor("a","incursor");
 	</script>
-    <script>     
-      document.addEventListener('DOMContentLoaded', function() {
-        const ap = new APlayer({
-          container: document.getElementById('aplayer'),
-          theme: "#00740a",
-          showlrc: true,
-          lrcType: 3,
-          audio: []
-        });
-
-        fetch('https://api.eqad.fun/ncm/playlist/13980548342')
-        .then(response => {
-          return response.json();
-        })
-        .then(songs => {
-          ap.list.clear();
-       
-          songs.forEach(song => {
-            ap.list.add({
-              name: song.title,
-              artist: song.author,
-              url: song.url,
-              cover: song.pic,
-              lrc: song.lrc
-            });
-          });
-        })
-      });
-    </script>
 </body>
 </html>

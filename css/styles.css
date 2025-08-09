@@ -191,6 +191,35 @@ body::before {
     z-index: -1;
 }
 
+.home-header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #00ff00;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+.home-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
 .home-header h1 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -1168,4 +1197,19 @@ ul.custom-before li::before {
         from { opacity: 0; transform: translateY(5px); }
         to { opacity: 1; transform: translateY(0); }
     }
+}
+
+.type-cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 1em;
+    background-color: #00ff00;
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
