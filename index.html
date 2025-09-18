@@ -2,39 +2,36 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NCBC 华北马聚 | 主页</title>
-    <link rel="icon" href="img/ncbc-ico.png">
+    <title>DreamLandCon</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/cur.css">
 </head>
 <body>
-
-    <div class="cursor"></div>
-    
-    <div class="scanlines"></div>
-    
-    <!-- 页眉 -->
-    <header class="home-header" style="height: 100vh;background-image: none;">
-        <p style="font-size: 1.2rem;font-weight: 800;margin-top: -0.8rem;margin-bottom: -0.1rem;" 
-           class="typing-title"
-           data-text="斑马里加的同胞们，如今星星的诅咒已经席卷了马奎斯大陆，那些小马们已经无可救药。所以，为了你们的挚爱与亲朋，拿起武器。我们将荡涤群星的罪恶，为这个世界带来解放与救赎。"
-           data-speed="100"
-           data-delay="500"
-           data-cursor="false"></p>
-        <p class="typing-title"
-           data-text="2026.08.01&02"
-           data-speed="100"
-           data-delay="500"></p>
+    <header class="header">
+        <img class="logo" src="img/ncbc.png">
+        <nav class="nav">
+            <a href="#">首页</a>
+            <a href="#">关于</a>
+            <a href="#">场地</a>
+            <a href="#">嘉宾</a>
+            <a href="#">购票</a>
+        </nav>
     </header>
-    
-    <script src="js/scripts.js"></script>
-    <script src="js/cur.js"></script>
-	<script type="text/javascript">
-		var cursor = new Cursor(".mainbody","waitcursor");
-        var cursor = new Cursor(".retro-button","incursor");
-        var cursor = new Cursor(".faq-question","incursor");
-        var cursor = new Cursor("a","incursor");
-	</script>
+
+    <div class="hero">
+
+        <img src="img/ncbc.png" class="hero-custom-image">
+
+        <h1 class="hero-title">欢迎来到逐梦庆典</h1>
+        <p class="hero-subtitle">WELCOME TO DREAMLAND CELEBRATION</p>
+    </div>
+
+    <main class="content">
+        <section>
+            <h2>关于</h2>
+            <p>这里是DreamLandCon...</p>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
