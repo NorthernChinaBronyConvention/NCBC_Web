@@ -15,9 +15,6 @@ body {
 }
 
 .header {
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     justify-content: space-between;
     color: white;
     display: flex;
@@ -28,7 +25,13 @@ body {
     left: 0;
     width: 100%;
     z-index: 10;
-    -webkit-font-smoothing: none;
+    transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -110,7 +113,7 @@ body {
 }
 
 #guests {
-    margin-top: 80px;
+    margin-top: 180px;
 }
 
 #guests h2 {
@@ -149,4 +152,83 @@ body {
 .guest p {
     font-size: 16px;
     line-height: 1.5;
+}
+
+.footer {
+    background: #262d74;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    padding: 30px 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    font-size: 24px;
+    height: 30px;
+    width: auto;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #a2aed5;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #cccccc;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px 15%;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .copyright {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
 }
