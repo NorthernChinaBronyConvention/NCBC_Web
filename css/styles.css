@@ -138,7 +138,7 @@ body {
 .activity-tab {
     background: none;
     border: 2px solid #a2aed5;
-    color: black;
+    color: white;
     font-size: 20px;
     padding: 10px 20px;
     cursor: pointer;
@@ -368,20 +368,22 @@ body {
     }
     
     .hero {
-        height: 700px;
-        top: -150px;
+        height: 100vh;
+        min-height: 700px;
+        top: 0;
+        margin-top: 0;
     }
     
     .hero-title {
-        font-size: 70px;
+        font-size: 60px;
         letter-spacing: -4px;
-        margin-bottom: -30px;
+        margin-bottom: -25px;
     }
     
     .hero-subtitle {
-        font-size: 42px;
+        font-size: 36px;
         letter-spacing: -2px;
-        word-spacing: -10px;
+        word-spacing: -8px;
     }
     
     .content {
@@ -475,6 +477,12 @@ body {
         font-size: 18px;
         padding: 12px 24px;
     }
+    
+    .error-container {
+        min-height: 100vh;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -492,20 +500,22 @@ body {
     }
     
     .hero {
-        height: 600px;
-        top: -120px;
+        height: 100vh;
+        min-height: 600px;
+        top: 0;
+        margin-top: 0;
     }
     
     .hero-title {
-        font-size: 50px;
-        letter-spacing: -3px;
-        margin-bottom: -20px;
+        font-size: 40px;
+        letter-spacing: -2px;
+        margin-bottom: -15px;
     }
     
     .hero-subtitle {
-        font-size: 30px;
+        font-size: 24px;
         letter-spacing: -1px;
-        word-spacing: -8px;
+        word-spacing: -6px;
     }
     
     .content {
@@ -576,6 +586,12 @@ body {
     .error-button {
         font-size: 16px;
         padding: 10px 20px;
+    }
+    
+    .error-container {
+        min-height: 100vh;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }
 
