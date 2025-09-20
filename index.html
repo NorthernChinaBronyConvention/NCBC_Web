@@ -3,12 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>DreamLandCon | 逐梦庆典</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamLandCon 逐梦庆典</title>
     <link rel="icon" href="img/dlc-ico.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="img/dlc.svg" alt="Logo">
+            </div>
+        </div>
+    </div>
+    
     <header class="header">
         <img class="logo" src="img/dlc.svg">
         <nav class="nav">
@@ -33,6 +42,34 @@
         <section id="about">
             <h2>关于</h2>
             <p>这里是DreamLandCon...</p>
+        </section>
+
+        <section id="activities">
+            <h2>活动</h2>
+            <div class="activity-tabs">
+                <button class="activity-tab active" data-tab="regular">普通活动</button>
+                <button class="activity-tab" data-tab="special">特别活动</button>
+            </div>
+            <div class="activities-container">
+                <div class="activity regular">
+                    <div class="activity-image">
+                        <img src="img/guest/cokecoffee.jpg">
+                    </div>
+                    <div class="activity-content">
+                        <h3>普通活动标题</h3>
+                        <p>普通活动介绍，这里是Door♂Locked♂Con♂</p>
+                    </div>
+                </div>
+                <div class="activity special" style="display:none;">
+                    <div class="activity-image">
+                        <img src="img/guest/cokecoffee.jpg">
+                    </div>
+                    <div class="activity-content">  
+                        <h3>特别活动标题</h3>
+                        <p>特别活动介绍，这里是Door♂Locked♂Con♂</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="guests">
@@ -71,6 +108,7 @@
         </div>
 
         <div class="star" style="top: 20%; left: 16%; animation-delay: 0s; animation-duration: 2s;"></div>
+        <div class="star" style="top: 56%; left: 6%; animation-delay: 0s; animation-duration: 2s;"></div>
         <div class="star" style="top: 30%; left: 80%; animation-delay: 0.5s; animation-duration: 2.5s;"></div>
         <div class="star" style="top: 76%; left: 15%; animation-delay: 1.7s; animation-duration: 1.8s;"></div>
         <div class="star" style="top: 70%; left: 75%; animation-delay: 1.5s; animation-duration: 2.2s;"></div>
