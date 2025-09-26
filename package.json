@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "deploy": "powershell -c \"$f=New-TemporaryFile; iwr https://host.retiehe.com/cli -OutFile $f; node $f --site ncbronyconvention.top --outdir .; rm $f -Force\""
+  }
+}
