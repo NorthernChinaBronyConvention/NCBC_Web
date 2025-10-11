@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: normal;
 }
 
 body {
@@ -83,7 +84,6 @@ body {
 
 .hero-title {
     font-size: 140px;
-    font-weight: normal;
     color: #d5d4df;
     letter-spacing: -10px;
     margin-bottom: -60px;
@@ -93,7 +93,6 @@ body {
     font-size: 78px;
     letter-spacing: -5px; 
     color: #cccccc;
-    font-weight: normal;
     text-decoration: underline;
     word-spacing: -22px;
 }
@@ -162,6 +161,8 @@ body {
 
 .activity {
     display: flex;
+    border: 5px solid #a2aed5;
+    background-color: #1c2264;
     width: 100%;
 }
 
@@ -174,7 +175,6 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    border: 5px solid #a2aed5;
     object-fit: cover;
 }
 
@@ -226,7 +226,7 @@ body {
 .guest img {
     width: 150px;
     height: 150px;
-    border: 5px solid #a2aed5;
+    box-shadow: 12px 10px #a2aed5;
     object-fit: cover;
     margin-bottom: 15px;
 }
@@ -246,7 +246,7 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: white;
-    padding: 30px 15%;
+    padding: 50px 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -257,6 +257,7 @@ body {
     font-size: 24px;
     height: 30px;
     width: auto;
+    margin-bottom: 12px;
 }
 
 .footer-links {
@@ -277,9 +278,9 @@ body {
 }
 
 .copyright {
-    font-size: 14px;
+    font-size: 12px;
     color: #cccccc;
-    text-align: right;
+    text-align: left;
 }
 
 @media (max-width: 1200px) {
@@ -597,8 +598,8 @@ body {
 
 .star {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 2px;
+    height: 2px;
     background: white;
     border-radius: 50%;
     animation: twinkle 2s infinite alternate;
