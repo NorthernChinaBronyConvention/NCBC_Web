@@ -89,3 +89,20 @@ function generateStars() {
 }
 
 document.addEventListener('DOMContentLoaded', generateStars);
+
+const qaQuestions = document.querySelectorAll('.qa-question');
+
+qaQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const toggle = question.querySelector('.qa-toggle');
+        
+        answer.classList.toggle('active');
+        
+        if (answer.classList.contains('active')) {
+            toggle.textContent = '-';
+        } else {
+            toggle.textContent = '+';
+        }
+    });
+});
