@@ -64,3 +64,28 @@ activityTabs.forEach(tab => {
         document.querySelector(`.activity.${tabType}`).style.display = 'flex';
     });
 });
+
+function generateStars() {
+    const footer = document.querySelector('.footer');
+    const starCount = 200;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        
+        const animationDelay = Math.random() * 2;
+        const animationDuration = Math.random() * 1 + 1.5;
+        
+        star.style.top = `${top}%`;
+        star.style.left = `${left}%`;
+        star.style.animationDelay = `${animationDelay}s`;
+        star.style.animationDuration = `${animationDuration}s`;
+        
+        footer.appendChild(star);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', generateStars);
