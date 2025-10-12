@@ -75,12 +75,12 @@ function generateStars() {
         
         const top = Math.random() * 100;
         const left = Math.random() * 100;
-        
         const animationDelay = Math.random() * 2;
         const animationDuration = Math.random() * 1 + 1.5;
         
         star.style.top = `${top}%`;
         star.style.left = `${left}%`;
+        star.style.opacity = `0`;
         star.style.animationDelay = `${animationDelay}s`;
         star.style.animationDuration = `${animationDuration}s`;
         

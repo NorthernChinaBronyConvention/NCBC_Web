@@ -501,20 +501,23 @@ body {
         padding: 20px 15%;
     }
     
-    .footer::before {
-        background-size: contain;
-        opacity: 0.5;
-    }
-    
     .footer-links {
         justify-content: center;
         gap: 15px;
         flex-wrap: wrap;
     }
+
+    .footer-image {
+        display: none;
+    }
     
     .copyright {
         text-align: center;
         margin-top: 10px;
+    }
+
+    .star {
+        display: none;
     }
     
     .error-code {
@@ -625,11 +628,6 @@ body {
     
     .footer {
         padding: 15px 10%;
-    }
-    
-    .footer::before {
-        background-size: contain;
-        opacity: 0.08;
     }
     
     .footer-links a {
