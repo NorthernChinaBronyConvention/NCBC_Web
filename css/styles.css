@@ -165,7 +165,7 @@ body {
 
 .venue-info {
     width: 100%;
-    text-align: left;
+    text-align: center;
     color: white;
 }
 
@@ -180,6 +180,7 @@ body {
     line-height: 1.6;
     margin-bottom: 15px;
     color: #cccccc;
+    text-align: center;
 }
 
 .activity-tabs {
