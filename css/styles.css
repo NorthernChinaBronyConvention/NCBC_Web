@@ -121,22 +121,8 @@ body {
     margin-top: 180px;
 }
 
-#activities h2 {
-    font-size: 40px;
-    margin-bottom: 30px;
-    text-align: center;
-    color: white;
-}
-
 #venue {
     margin-top: 180px;
-}
-
-#venue h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: white;
 }
 
 .venue-container {
@@ -257,24 +243,10 @@ body {
 
 #guests {
     margin-top: 180px;
-}
-
-#guests h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: white;
-}
+}
 
 #tickets {
     margin-top: 180px;
-}
-
-#tickets h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: white;
 }
 
 .tickets-container {
@@ -342,14 +314,7 @@ body {
 
 #qa {
     margin-top: 180px;
-}
-
-#qa h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: white;
-}
+}
 
 .qa-container {
     max-width: 800px;
