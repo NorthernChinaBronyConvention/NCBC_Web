@@ -161,7 +161,7 @@ body {
 
 .activity {
     display: flex;
-    box-shadow: 12px 10px #a2aed5;
+    box-shadow: 8px 8px #a2aed5;
     background-color: #1c2264;
     width: 100%;
 }
@@ -287,7 +287,7 @@ body {
 .guest img {
     width: 150px;
     height: 150px;
-    box-shadow: 12px 10px #a2aed5;
+    box-shadow: 8px 8px #a2aed5;
     object-fit: cover;
     margin-bottom: 15px;
 }
@@ -569,6 +569,10 @@ body {
     }
 
     .footer-image {
+        display: none;
+    }
+
+    .footer::before {
         display: none;
     }
     
