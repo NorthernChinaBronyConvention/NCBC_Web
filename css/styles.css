@@ -210,6 +210,80 @@ body {
     color: white;
 }
 
+#tickets {
+    margin-top: 180px;
+}
+
+#tickets h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: white;
+}
+
+.tickets-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ticket-tier {
+    background-color: #1c2264;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 8px 8px #a2aed5;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-tier h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.ticket-price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #a2aed5;
+    margin: 20px 0;
+}
+
+.ticket-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.ticket-features li {
+    padding: 8px 0;
+    color: #cccccc;
+    border-bottom: 1px solid #3a4180;
+}
+
+.ticket-features li:last-child {
+    border-bottom: none;
+}
+
+.ticket-button {
+    background: #a2aed5;
+    border: none;
+    color: black;
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto;
+    align-self: center;
+}
+
 #qa {
     margin-top: 180px;
 }
@@ -817,4 +891,48 @@ body {
     font-family: hycj-1, sans-serif;
     text-decoration: none;
     display: inline-block;
+}
+
+@media (max-width: 768px) {
+    #tickets {
+        margin-top: 120px;
+    }
+    
+    #tickets h2 {
+        font-size: 32px;
+    }
+    
+    .tickets-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .ticket-tier {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .ticket-price {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket-tier {
+        padding: 20px;
+    }
+    
+    .ticket-tier h3 {
+        font-size: 24px;
+    }
+    
+    .ticket-price {
+        font-size: 28px;
+    }
+    
+    .ticket-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
 }
