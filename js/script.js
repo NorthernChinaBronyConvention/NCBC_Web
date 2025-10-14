@@ -22,6 +22,40 @@ window.addEventListener('scroll', function () {
 
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 
+function highlightNavOnScroll() {
+    const scrollPosition = window.scrollY;
+    
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const activeLink = document.querySelector(`.nav a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+    
+    if (scrollPosition < 50) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+        document.querySelector('.nav a[href="#"]').classList.add('active');
+    }
+}
+
+window.addEventListener('scroll', highlightNavOnScroll);
+
+document.addEventListener('DOMContentLoaded', highlightNavOnScroll);
+
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -43,6 +77,11 @@ navLinks.forEach(link => {
                 behavior: 'smooth'
             });
         }
+        
+        navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
+        });
+        this.classList.add('active');
     });
 });
 

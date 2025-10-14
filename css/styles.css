@@ -53,6 +53,10 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
+.nav a.active {
+    color: #6085ff;
+}
+
 .nav a:hover {
     color: #a2aed5;
 }
