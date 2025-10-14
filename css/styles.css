@@ -243,7 +243,51 @@ body {
 
 #guests {
     margin-top: 180px;
-}
+}
+
+#mascots {
+    margin-top: 180px;
+}
+
+.mascots-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.mascot {
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.mascot:hover {
+    transform: translateY(-5px);
+}
+
+.mascot img {
+    width: auto;
+    height: 150px;
+    box-shadow: 8px 8px #a2aed5;
+    background: #1c2264;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.mascot h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.mascot p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #cccccc;
+}
+
 
 #tickets {
     margin-top: 180px;
@@ -314,7 +358,8 @@ body {
 
 #qa {
     margin-top: 180px;
-}
+}
+
 
 .qa-container {
     max-width: 800px;
@@ -509,6 +554,14 @@ body {
     .content {
         max-width: 70%;
     }
+
+    .footer::before {
+        height: 70%;
+    }
+
+    .footer {
+        padding: 90px 15%;
+    }
 }
 
 @media (max-width: 992px) {
@@ -552,6 +605,14 @@ body {
     .activity-image,
     .activity-content {
         width: 100%;
+    }
+
+    .footer::before {
+        height: 65%;
+    }
+
+    .footer {
+        padding: 80px 15%;
     }
 }
 
@@ -620,6 +681,7 @@ body {
     
     .activity-image {
         height: 250px;
+        padding: 0px;
     }
     
     .activity-content {
@@ -799,6 +861,25 @@ body {
         font-size: 14px;
     }
     
+    .mascot {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .mascot img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .mascot h3 {
+        font-size: 18px;
+    }
+    
+    .mascot p {
+        font-size: 13px;
+    }
+    
     .footer {
         padding: 15px 10%;
     }
@@ -930,10 +1011,6 @@ body {
 @media (max-width: 768px) {
     #tickets {
         margin-top: 120px;
-    }
-    
-    #tickets h2 {
-        font-size: 32px;
     }
     
     .tickets-container {
