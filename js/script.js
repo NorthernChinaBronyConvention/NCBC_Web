@@ -11,12 +11,15 @@ window.addEventListener('load', function() {
 });
 
 const header = document.querySelector('.header');
+const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', function () {
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
+        nav.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
+        nav.classList.remove('scrolled');
     }
 });
 

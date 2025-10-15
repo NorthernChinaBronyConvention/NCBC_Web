@@ -53,6 +53,10 @@ body {
     transition: color 0.2s ease-in-out;
 }
 
+.nav.scrolled {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
 .nav a.active {
     color: #6085ff;
 }
