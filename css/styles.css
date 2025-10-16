@@ -67,27 +67,37 @@ body {
 
 .hero {
     position: relative;
-    height: 1050px;
-    top: -190px;
+    height: 100vh;
+    min-height: 600px;
+    top: 0;
     background-color: #262d74;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
     color: white;
+    padding-top: 20vh;
 }
 
 .hero-custom-image {
     position: absolute;
-    top: 55%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     height: auto;
-    opacity: 0.05;
-    z-index: 1;
+    opacity: 0.1;
+    z-index: 0;
     pointer-events: none;
+    transition: transform 0.2s ease-out;
+}
+
+.hero-title,
+.hero-subtitle {
+    transition: transform 0.2s ease-out;
 }
 
 .hero-title {
@@ -95,6 +105,7 @@ body {
     color: #d5d4df;
     letter-spacing: -10px;
     margin-bottom: -60px;
+    z-index: 1;
 }
 
 .hero-subtitle {
@@ -103,6 +114,7 @@ body {
     color: #cccccc;
     text-decoration: underline;
     word-spacing: -22px;
+    z-index: 1;
 }
 
 .content {

@@ -148,3 +148,86 @@ qaQuestions.forEach(question => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const heroImage = document.querySelector('.hero-custom-image');
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const hero = document.querySelector('.hero');
+    
+    function isMobile() {
+        return window.innerWidth < 768;
+    }
+    
+    function resetParallaxElements() {
+        if (heroImage) {
+            heroImage.style.transform = 'translate(-50%, -50%)';
+        }
+        if (heroTitle) {
+            heroTitle.style.transform = 'translate(0, 0)';
+        }
+        if (heroSubtitle) {
+            heroSubtitle.style.transform = 'translate(0, 0)';
+        }
+    }
+    
+    if (heroImage && hero) {
+        let heroRect = hero.getBoundingClientRect();
+        let heroCenterX = heroRect.width / 2;
+        let heroCenterY = heroRect.height / 2;
+        
+        const parallaxIntensity = 30;
+        const titleParallaxIntensity = 10;
+        
+        if (isMobile()) {
+            resetParallaxElements();
+        }
+        
+        document.addEventListener('mousemove', function(e) {
+            if (isMobile()) {
+                resetParallaxElements();
+                return;
+            }
+            
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            heroRect = hero.getBoundingClientRect();
+            const relMouseX = mouseX - heroRect.left;
+            const relMouseY = mouseY - heroRect.top;
+            
+            const offsetX = (relMouseX - heroCenterX) / heroCenterX;
+            const offsetY = (relMouseY - heroCenterY) / heroCenterY;
+            
+            const moveX = offsetX * parallaxIntensity;
+            const moveY = offsetY * parallaxIntensity;
+            
+            const titleMoveX = offsetX * titleParallaxIntensity;
+            const titleMoveY = offsetY * titleParallaxIntensity;
+            
+            heroImage.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px)`;
+            
+            const rotateX = -offsetY * 2;
+            const rotateY = offsetX * 2;
+            heroImage.style.transform += ` rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            
+            if (heroTitle) {
+                heroTitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+            
+            if (heroSubtitle) {
+                heroSubtitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+        });
+        
+        window.addEventListener('resize', function() {
+            heroRect = hero.getBoundingClientRect();
+            heroCenterX = heroRect.width / 2;
+            heroCenterY = heroRect.height / 2;
+            
+            if (isMobile()) {
+                resetParallaxElements();
+            }
+        });
+    }
+});
