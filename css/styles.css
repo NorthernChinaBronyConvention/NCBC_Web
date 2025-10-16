@@ -76,8 +76,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     color: white;
     padding-top: 20vh;
 }
@@ -135,6 +134,10 @@ body {
     margin-bottom: 15px;
     font-size: 20px;
     color: #cccccc;
+}
+
+#about {
+    margin-top: 180px;
 }
 
 #activities {
@@ -280,20 +283,16 @@ body {
     padding: 20px;
     text-align: center;
     width: 250px;
-    transition: transform 0.3s ease;
-}
-
-.mascot:hover {
-    transform: translateY(-5px);
 }
 
 .mascot img {
-    width: auto;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     box-shadow: 8px 8px #a2aed5;
     background: #1c2264;
     object-fit: cover;
     margin-bottom: 15px;
+    padding: 20px;
 }
 
 .mascot h3 {
@@ -660,16 +659,22 @@ body {
         min-height: 700px;
         top: 0;
         margin-top: 0;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+    .hero-custom-image {
+        top: 52%;
     }
     
     .hero-title {
         font-size: 60px;
         letter-spacing: -4px;
-        margin-bottom: -25px;
+        margin-bottom: -23px;
     }
     
     .hero-subtitle {
-        font-size: 36px;
+        font-size: 24px;
         letter-spacing: -2px;
         word-spacing: -8px;
     }
@@ -807,10 +812,12 @@ body {
     }
     
     .hero {
+        justify-content: center;
         height: 100vh;
         min-height: 600px;
         top: 0;
         margin-top: 0;
+        padding-top: 0;
     }
     
     .hero-title {

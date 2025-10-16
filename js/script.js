@@ -1,4 +1,4 @@
-console.log('DreamLandCon Web');
+console.log('我是叨叨，这个网站的搭建者，你既然通过翻日志看到了这个消息，那么……来玩EQAD喵~来玩EQAD谢谢喵~ 群号：859298157');
 
 window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
@@ -179,22 +179,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const parallaxIntensity = 30;
         const titleParallaxIntensity = 10;
         
+        let currentMouseX = window.innerWidth / 2;
+        let currentMouseY = window.innerHeight / 2;
+        
         if (isMobile()) {
             resetParallaxElements();
         }
         
-        document.addEventListener('mousemove', function(e) {
+        function updateParallaxEffect() {
             if (isMobile()) {
                 resetParallaxElements();
                 return;
             }
             
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            
             heroRect = hero.getBoundingClientRect();
-            const relMouseX = mouseX - heroRect.left;
-            const relMouseY = mouseY - heroRect.top;
+            
+            if (heroRect.bottom < 0 || heroRect.top > window.innerHeight) {
+                return;
+            }
+            
+            const relMouseX = currentMouseX - heroRect.left;
+            const relMouseY = currentMouseY - heroRect.top;
             
             const offsetX = (relMouseX - heroCenterX) / heroCenterX;
             const offsetY = (relMouseY - heroCenterY) / heroCenterY;
@@ -218,6 +223,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (heroSubtitle) {
                 heroSubtitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
             }
+        }
+        
+        document.addEventListener('mousemove', function(e) {
+            currentMouseX = e.clientX;
+            currentMouseY = e.clientY;
+            updateParallaxEffect();
+        });
+        
+        window.addEventListener('scroll', function() {
+            updateParallaxEffect();
         });
         
         window.addEventListener('resize', function() {
