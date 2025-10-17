@@ -184,6 +184,19 @@ body {
     color: white;
 }
 
+.content p.subtitle-bottom {
+    margin-top: -20px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #a2aed5;
+}
+
+.content p.subtitle-top {
+    margin-bottom: -5px;
+    font-size: 16px;
+    color: #a2aed5;
+}
+
 .content p {
     margin-bottom: 15px;
     font-size: 20px;
