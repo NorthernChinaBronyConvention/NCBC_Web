@@ -116,6 +116,60 @@ body {
     z-index: 1;
 }
 
+.countdown-container {
+    background-color: #1c2264;
+    padding: 30px 0;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-content {
+    max-width: 600px;
+    background: rgba(38, 45, 116, 0.5);
+    box-shadow: 4px 4px #a2aed5;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.countdown-title {
+    font-size: 24px;
+    color: white;
+    white-space: nowrap;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 12px;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #a2aed5;
+}
+
+.countdown-unit {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.562);
+    margin-left: 5px;
+}
+
 .content {
     max-width: 60%;
     margin: 30px auto 0;
