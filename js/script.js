@@ -13,7 +13,10 @@ window.addEventListener('load', function() {
 const header = document.querySelector('.header');
 const nav = document.querySelector('.nav');
 
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);
+
+function handleScroll() {
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
         nav.classList.add('scrolled');
@@ -21,7 +24,7 @@ window.addEventListener('scroll', function () {
         header.classList.remove('scrolled');
         nav.classList.remove('scrolled');
     }
-});
+}
 
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 
