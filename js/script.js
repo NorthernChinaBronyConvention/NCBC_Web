@@ -277,3 +277,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setInterval(updateCountdown, 1000);
 });
+
+// 汉堡菜单功能
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav a');
+    
+    // 检查元素是否存在
+    if (!hamburger || !nav) return;
+    
+    // 点击汉堡菜单切换导航栏显示状态
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+    
+    // 点击导航链接后关闭菜单
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+    
+    // 点击页面其他区域关闭菜单
+    document.addEventListener('click', function(event) {
+        if (!hamburger.contains(event.target) && !nav.contains(event.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+});

@@ -40,7 +40,7 @@ body {
 
 .logo {
     font-size: 24px;
-    height: 30px;
+    height: 28px;
     width: auto;
 }
 
@@ -62,6 +62,33 @@ body {
 
 .nav a:hover {
     color: #a2aed5;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .hero {
@@ -619,6 +646,10 @@ body {
 
 @media (max-width: 1200px) {
     .header {
+        padding: 40px 10%;
+    }
+
+    .header.scrolled {
         padding: 15px 10%;
     }
     
@@ -649,6 +680,10 @@ body {
 
 @media (max-width: 992px) {
     .header {
+        padding: 40px 8%;
+    }
+
+    .header.scrolled {
         padding: 15px 8%;
     }
     
@@ -701,21 +736,43 @@ body {
 
 @media (max-width: 768px) {
     .header {
-        padding: 10px 5%;
-        flex-direction: column;
-        margin-top: 10px;
-        gap: 10px;
+        padding: 40px 5%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .header.scrolled {
+        padding: 15px 5%;
     }
     
     .nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        position: fixed;
+        left: -100%;
+        top: 90px;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        z-index: 10;
+    }
+    
+    .nav.scrolled {
+        top: 59px;
+        background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav.active {
+        left: 0;
     }
     
     .nav a {
-        margin: 5px 10px;
-        font-size: 14px;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    
+    .hamburger {
+        display: block;
     }
     
     .hero {
@@ -866,13 +923,25 @@ body {
         padding: 10px 3%;
     }
     
+    .header.scrolled {
+        padding: 10px 3%;
+    }
+    
     .logo {
         height: 25px;
     }
     
+    .nav {
+        top: 60px;
+    }
+    
     .nav a {
-        margin: 5px 8px;
-        font-size: 12px;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+    
+    .hamburger {
+        display: block;
     }
     
     .hero {
