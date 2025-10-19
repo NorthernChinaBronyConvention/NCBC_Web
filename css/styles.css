@@ -758,7 +758,6 @@ body {
     }
     
     .nav.scrolled {
-        top: 59px;
         background: rgba(0, 0, 0, 0.1);
     }
     
@@ -798,6 +797,21 @@ body {
         font-size: 24px;
         letter-spacing: -2px;
         word-spacing: -8px;
+    }
+    
+    .countdown-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .countdown-title {
+        margin-right: 0px;
+        margin-top: 20px;
+    }
+    
+    .countdown-timer {
+        justify-content: center;
     }
     
     .content {
