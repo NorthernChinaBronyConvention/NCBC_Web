@@ -406,16 +406,16 @@ body {
 .tickets-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    max-width: 1000px;
+    gap: 30px;
+    flex-wrap: nowrap;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .ticket-tier {
     background-color: #1c2264;
     padding: 30px;
-    width: 350px;
+    width: 300px;
     text-align: center;
     box-shadow: 8px 8px #a2aed5;
     display: flex;
@@ -873,6 +873,15 @@ body {
         font-size: 16px;
     }
     
+    .tickets-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .ticket-tier {
+        width: 45%;
+    }
+    
     .guest {
         width: 100%;
         max-width: 250px;
@@ -1052,6 +1061,29 @@ body {
     
     .mascot p {
         font-size: 13px;
+    }
+    
+    .tickets-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .ticket-tier {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .ticket-tier h3 {
+        font-size: 22px;
+    }
+    
+    .ticket-price {
+        font-size: 28px;
+    }
+    
+    .ticket-features li {
+        font-size: 14px;
     }
     
     .footer {
