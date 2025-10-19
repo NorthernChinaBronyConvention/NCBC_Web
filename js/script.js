@@ -92,21 +92,24 @@ navLinks.forEach(link => {
 });
 
 const activityTabs = document.querySelectorAll('.activity-tab');
-const activities = document.querySelectorAll('.activity');
+const activityItems = document.querySelectorAll('.activity-item');
 
 activityTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-        const tabType = tab.getAttribute('data-tab');
+        const activityNum = tab.getAttribute('data-activity');
         
         activityTabs.forEach(t => t.classList.remove('active'));
         
         tab.classList.add('active');
         
-        activities.forEach(activity => {
-            activity.style.display = 'none';
+        activityItems.forEach(item => {
+            item.style.display = 'none';
         });
         
-        document.querySelector(`.activity.${tabType}`).style.display = 'flex';
+        const targetActivity = document.querySelector(`.activity-item[data-activity="${activityNum}"]`);
+        if (targetActivity) {
+            targetActivity.style.display = 'flex';
+        }
     });
 });
 
