@@ -141,7 +141,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 30px;
-    color: rgb(255, 255, 255);
+    color: white;
     z-index: 3;
     margin-top: 450px;
     white-space: nowrap;
@@ -165,7 +165,7 @@ body {
 
 .hero-subtitle {
     font-size: 78px;
-    color: #cccccc;
+    color: #d5d4df;
     margin-top: -60px;
     z-index: 1;
 }
@@ -173,7 +173,7 @@ body {
 .hero-subtitle-line {
     width: 1448px;
     height: 3px;
-    background: #fff;
+    background: #d5d4df;
     margin: -23px auto 20px;
     z-index: 1;
 }
