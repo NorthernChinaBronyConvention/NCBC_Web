@@ -157,8 +157,11 @@ qaQuestions.forEach(question => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const heroImage = document.querySelector('.hero-custom-image');
+    const heroParallaxImage = document.querySelector('.hero-parallax-image');
+    const heroParallaxText = document.querySelector('.hero-parallax-text');
     const heroTitle = document.querySelector('.hero-title');
     const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroSubtitleLine = document.querySelector('.hero-subtitle-line');
     const hero = document.querySelector('.hero');
     
     function isMobile() {
@@ -169,11 +172,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (heroImage) {
             heroImage.style.transform = 'translate(-50%, -50%)';
         }
+        if (heroParallaxImage) {
+            heroParallaxImage.style.transform = 'translate(-50%, -50%)';
+        }
+        if (heroParallaxText) {
+            heroParallaxText.style.transform = 'translate(-50%, -50%)';
+        }
         if (heroTitle) {
             heroTitle.style.transform = 'translate(0, 0)';
         }
         if (heroSubtitle) {
             heroSubtitle.style.transform = 'translate(0, 0)';
+        }
+        if (heroSubtitleLine) {
+            heroSubtitleLine.style.transform = 'translate(0, 0)';
         }
     }
     
@@ -222,12 +234,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const rotateY = offsetX * 2;
             heroImage.style.transform += ` rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
             
+            // 新图片图层景深效果 - 中等幅度
+            if (heroParallaxImage) {
+                const parallaxMoveX = offsetX * 15;
+                const parallaxMoveY = offsetY * 15;
+                heroParallaxImage.style.transform = `translate(-50%, -50%) translate(${parallaxMoveX}px, ${parallaxMoveY}px)`;
+            }
+            
+            // 新文字景深效果 - 与图片相同幅度
+            if (heroParallaxText) {
+                const parallaxMoveX = offsetX * 15;
+                const parallaxMoveY = offsetY * 15;
+                heroParallaxText.style.transform = `translate(-50%, -50%) translate(${parallaxMoveX}px, ${parallaxMoveY}px)`;
+            }
+            
             if (heroTitle) {
                 heroTitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
             }
             
             if (heroSubtitle) {
                 heroSubtitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+            
+            if (heroSubtitleLine) {
+                heroSubtitleLine.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
             }
         }
         

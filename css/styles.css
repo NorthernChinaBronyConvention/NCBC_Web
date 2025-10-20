@@ -1,6 +1,11 @@
 @font-face {
-    font-family: 'hycj-1';
+    font-family: 'hycj';
     src: url('../fonts/HanYiCuSongJian-1.woff2');
+}
+
+@font-face {
+    font-family: 'hynhs';
+    src: url('../fonts/HYNianHuaSongU-fix.woff2');
 }
 
 * {
@@ -11,7 +16,7 @@
 }
 
 body {
-    font-family: hycj-1, sans-serif;
+    font-family: hycj, sans-serif;
     line-height: 1.6;
     background-color: #262d74;
     color: white;
@@ -120,26 +125,165 @@ body {
     transition: transform 0.2s ease-out;
 }
 
+.hero-parallax-image {
+    position: absolute;
+    justify-content: flex-start;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1700px;
+    height: auto;
+    margin-top: 440px;
+    z-index: 2;
+}
+
+.hero-parallax-text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+    margin-top: 450px;
+    white-space: nowrap;
+}
+
 .hero-title,
-.hero-subtitle {
+.hero-subtitle,
+.hero-subtitle-line,
+.hero-parallax-image,
+.hero-parallax-text {
     transition: transform 0.2s ease-out;
+    font-family: hynhs, sans-serif;
 }
 
 .hero-title {
     font-size: 140px;
     color: #d5d4df;
-    letter-spacing: -10px;
-    margin-bottom: -60px;
     z-index: 1;
+    margin-top: -60px;
 }
 
 .hero-subtitle {
     font-size: 78px;
-    letter-spacing: -5px; 
     color: #cccccc;
-    text-decoration: underline;
-    word-spacing: -22px;
+    margin-top: -60px;
     z-index: 1;
+}
+
+.hero-subtitle-line {
+    width: 1448px;
+    height: 3px;
+    background: #fff;
+    margin: -23px auto 20px;
+    z-index: 1;
+}
+
+@media (max-width: 1500px) {
+    .hero-title {
+        font-size: 120px;
+        margin-bottom: -40px;
+    }
+
+    .hero-subtitle {
+        font-size: 58px;
+        margin-top: 0px;
+    }
+
+    .hero-subtitle-line {
+        width: 1074px;
+        margin: -18px auto 20px;
+    }
+
+    .hero-parallax-image {
+        width: 1400px;
+        margin-top: 360px;
+    }
+
+    .hero-parallax-text {
+        font-size: 26px;
+        margin-top: 366px;
+    }
+}
+
+@media (max-width: 1192px) {
+    .hero-title {
+        font-size: 100px;
+        margin-bottom: -40px;
+    }
+
+    .hero-subtitle {
+        font-size: 38px;
+    }
+
+    .hero-subtitle-line {
+        width: 704px;
+        margin: -10px auto 20px;
+        height: 2px;
+    }
+
+    .hero-parallax-image {
+        width: 1200px;
+        margin-top: 285px;
+    }
+
+    .hero-parallax-text {
+        font-size: 22px;
+        margin-top: 290px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 80px;
+        margin-bottom: -24px;
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+    }
+
+    .hero-subtitle-line {
+        width: 444px;
+        margin: -6px auto 20px;
+        height: 1px;
+    }
+
+    .hero-parallax-image {
+        width: 800px;
+        margin-top: 500px;
+    }
+
+    .hero-parallax-text {
+        font-size: 15px;
+        margin-top: 296px;
+    }
+}
+
+@media (max-width: 550px) {
+    .hero-title {
+        font-size: 50px;
+        margin-bottom: -14px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .hero-subtitle-line {
+        width: 278px;
+        margin: -4px auto 20px;
+        height: 1px;
+    }
+
+    .hero-parallax-image {
+        width: 500px;
+        margin-top: 278px;
+    }
+
+    .hero-parallax-text {
+        font-size: 9.8px;
+        margin-top: 152px;
+    }
 }
 
 .countdown-container {
@@ -296,7 +440,7 @@ body {
     font-size: 20px;
     padding: 10px 20px;
     cursor: pointer;
-    font-family: hycj-1, sans-serif;
+    font-family: hycj, sans-serif;
     margin: 0 10px;
 }
 
@@ -652,19 +796,7 @@ body {
     .header.scrolled {
         padding: 15px 10%;
     }
-    
-    .hero-title {
-        font-size: 120px;
-        letter-spacing: -8px;
-        margin-bottom: -50px;
-    }
-    
-    .hero-subtitle {
-        font-size: 68px;
-        letter-spacing: -4px;
-        word-spacing: -18px;
-    }
-    
+
     .content {
         max-width: 70%;
     }
@@ -686,40 +818,28 @@ body {
     .header.scrolled {
         padding: 15px 8%;
     }
-    
+
     .nav a {
         margin-right: 15px;
         font-size: 14px;
     }
-    
+
     .hero {
         height: 900px;
     }
-    
-    .hero-title {
-        font-size: 100px;
-        letter-spacing: -6px;
-        margin-bottom: -40px;
-    }
-    
-    .hero-subtitle {
-        font-size: 58px;
-        letter-spacing: -3px;
-        word-spacing: -15px;
-    }
-    
+
     .content {
         max-width: 80%;
     }
-    
+
     .activities-container {
         max-width: 700px;
     }
-    
+
     .activity {
         flex-direction: column;
     }
-    
+
     .activity-image,
     .activity-content {
         width: 100%;
@@ -744,7 +864,7 @@ body {
     .header.scrolled {
         padding: 15px 5%;
     }
-    
+
     .nav {
         position: fixed;
         left: -100%;
@@ -756,24 +876,24 @@ body {
         padding: 20px 0;
         z-index: 10;
     }
-    
+
     .nav.scrolled {
         background: rgba(0, 0, 0, 0.1);
     }
-    
+
     .nav.active {
         left: 0;
     }
-    
+
     .nav a {
         margin: 10px 0;
         font-size: 18px;
     }
-    
+
     .hamburger {
         display: block;
     }
-    
+
     .hero {
         height: 100vh;
         min-height: 700px;
@@ -785,115 +905,105 @@ body {
 
     .hero-custom-image {
         top: 52%;
+        width: 85%;
+        max-width: 500px;
     }
-    
-    .hero-title {
-        font-size: 60px;
-        letter-spacing: -4px;
-        margin-bottom: -23px;
-    }
-    
-    .hero-subtitle {
-        font-size: 24px;
-        letter-spacing: -2px;
-        word-spacing: -8px;
-    }
-    
+
     .countdown-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
+
     .countdown-title {
         margin-right: 0px;
         margin-top: 20px;
     }
-    
+
     .countdown-timer {
         justify-content: center;
     }
-    
+
     .content {
         max-width: 90%;
         margin-top: 20px;
     }
-    
+
     .content h2 {
         font-size: 32px;
     }
-    
+
     .content p {
         font-size: 18px;
     }
-    
+
     .activity-tabs {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-    
+
     .activity-tab {
         font-size: 18px;
         padding: 8px 16px;
         width: 200px;
     }
-    
+
     .activity-image {
         height: 250px;
         padding: 0px;
     }
-    
+
     .activity-content {
         height: auto;
         padding: 20px;
     }
-    
+
     .activity-content h3 {
         font-size: 24px;
     }
-    
+
     .activity-content p {
         font-size: 16px;
     }
-    
+
     .venue-container {
         padding: 0;
     }
-    
+
     .venue-image {
         height: 250px;
     }
-    
+
     .venue-info h3 {
         font-size: 24px;
     }
-    
+
     .venue-info p {
         font-size: 16px;
     }
-    
+
     .tickets-container {
         flex-wrap: wrap;
         gap: 20px;
     }
-    
+
     .ticket-tier {
         width: 45%;
     }
-    
+
     .guest {
         width: 100%;
         max-width: 250px;
     }
-    
+
     .footer {
         flex-direction: column;
         gap: 20px;
         text-align: center;
         padding: 20px 15%;
     }
-    
+
     .footer-links {
         justify-content: center;
         gap: 15px;
@@ -907,7 +1017,7 @@ body {
     .footer::before {
         display: none;
     }
-    
+
     .copyright {
         text-align: center;
         margin-top: 10px;
@@ -916,24 +1026,24 @@ body {
     .star {
         display: none;
     }
-    
+
     .error-code {
         font-size: 80px;
     }
-    
+
     .error-message {
         font-size: 28px;
     }
-    
+
     .error-description {
         font-size: 16px;
     }
-    
+
     .error-button {
         font-size: 18px;
         padding: 12px 24px;
     }
-    
+
     .error-container {
         min-height: 100vh;
         padding-top: 80px;
@@ -945,28 +1055,28 @@ body {
     .header {
         padding: 10px 3%;
     }
-    
+
     .header.scrolled {
         padding: 10px 3%;
     }
-    
+
     .logo {
         height: 25px;
     }
-    
+
     .nav {
         top: 60px;
     }
-    
+
     .nav a {
         margin: 10px 0;
         font-size: 16px;
     }
-    
+
     .hamburger {
         display: block;
     }
-    
+
     .hero {
         justify-content: center;
         height: 100vh;
@@ -975,138 +1085,126 @@ body {
         margin-top: 0;
         padding-top: 0;
     }
-    
-    .hero-title {
-        font-size: 40px;
-        letter-spacing: -2px;
-        margin-bottom: -15px;
-    }
-    
-    .hero-subtitle {
-        font-size: 24px;
-        letter-spacing: -1px;
-        word-spacing: -6px;
-    }
-    
+
     .content {
         max-width: 95%;
     }
-    
+
     .content h2 {
         font-size: 28px;
     }
-    
+
     .content p {
         font-size: 16px;
     }
-    
+
     .activity-tab {
         font-size: 16px;
         padding: 6px 12px;
         width: 180px;
     }
-    
+
     .activity-image {
         height: 200px;
     }
-    
+
     .activity-content h3 {
         font-size: 22px;
     }
-    
+
     .venue-image {
         height: 200px;
     }
-    
+
     .venue-info h3 {
         font-size: 20px;
     }
-    
+
     .venue-info p {
         font-size: 14px;
     }
-    
+
     .guest {
         width: 100%;
         padding: 15px;
     }
-    
+
     .guest img {
         width: 120px;
         height: 120px;
     }
-    
+
     .guest h3 {
         font-size: 20px;
     }
-    
+
     .guest p {
         font-size: 14px;
     }
-    
+
     .mascot {
         width: 100%;
         padding: 15px;
         margin-bottom: 20px;
     }
-    
+
     .mascot img {
         width: 100px;
         height: 100px;
     }
-    
+
     .mascot h3 {
         font-size: 18px;
     }
-    
+
     .mascot p {
         font-size: 13px;
     }
-    
+
     .tickets-container {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
-    
+
     .ticket-tier {
         width: 90%;
         padding: 20px;
     }
-    
+
     .ticket-tier h3 {
         font-size: 22px;
     }
-    
+
     .ticket-price {
         font-size: 28px;
     }
-    
+
     .ticket-features li {
         font-size: 14px;
     }
-    
+
     .footer {
         padding: 15px 10%;
     }
-    
+
     .footer-links a {
         font-size: 12px;
     }
-    
+
     .error-code {
         font-size: 60px;
     }
-    
+
     .error-message {
         font-size: 24px;
     }
-    
+
     .error-button {
         font-size: 16px;
         padding: 10px 20px;
     }
-    
+
     .error-container {
         min-height: 100vh;
         padding-top: 60px;
@@ -1128,6 +1226,7 @@ body {
     0% {
         opacity: 0.3;
     }
+
     100% {
         opacity: 1;
     }
@@ -1209,7 +1308,7 @@ body {
     font-size: 20px;
     padding: 15px 30px;
     cursor: pointer;
-    font-family: hycj-1, sans-serif;
+    font-family: hycj, sans-serif;
     text-decoration: none;
     display: inline-block;
 }
@@ -1218,18 +1317,18 @@ body {
     #tickets {
         margin-top: 120px;
     }
-    
+
     .tickets-container {
         flex-direction: column;
         align-items: center;
         gap: 30px;
     }
-    
+
     .ticket-tier {
         width: 100%;
         max-width: 350px;
     }
-    
+
     .ticket-price {
         font-size: 32px;
     }
@@ -1239,15 +1338,15 @@ body {
     .ticket-tier {
         padding: 20px;
     }
-    
+
     .ticket-tier h3 {
         font-size: 24px;
     }
-    
+
     .ticket-price {
         font-size: 28px;
     }
-    
+
     .ticket-button {
         font-size: 18px;
         padding: 10px 20px;
