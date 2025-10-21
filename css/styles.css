@@ -79,7 +79,6 @@ body {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: white;
 }
@@ -122,7 +121,6 @@ body {
     opacity: 0.1;
     z-index: 0;
     pointer-events: none;
-    transition: transform 0.2s ease-out;
 }
 
 .hero-parallax-image {
@@ -148,6 +146,7 @@ body {
     white-space: nowrap;
 }
 
+.hero-custom-image,
 .hero-title,
 .hero-subtitle,
 .hero-subtitle-line,
