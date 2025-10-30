@@ -37,9 +37,7 @@ body {
 }
 
 .header.scrolled {
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(26, 32, 73, 0.96);
     padding: 15px 15%;
 }
 
@@ -62,7 +60,7 @@ body {
 }
 
 .nav a.active {
-    color: #6085ff;
+    color: #99b0ff;
 }
 
 .nav a:hover {
