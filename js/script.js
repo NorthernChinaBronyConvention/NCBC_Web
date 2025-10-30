@@ -1,12 +1,8 @@
 console.log('我是叨叨，这个网站的搭建者，你既然通过翻日志看到了这个消息，那么……来玩EQAD喵~来玩EQAD谢谢喵~ 群号：859298157');
 
 window.addEventListener('load', function () {
-    const loader = document.getElementById('loader');
     setTimeout(function () {
-        loader.classList.add('fade-out');
-        setTimeout(function () {
-            loader.style.display = 'none';
-        }, 500);
+        document.body.classList.add('loaded');
     }, 500);
 });
 
