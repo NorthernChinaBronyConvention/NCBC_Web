@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - DreamLandCon</title>
+    <link rel="icon" href="../img/dlc-ico.webp" type="image/webp">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="../img/dlc.svg" alt="Logo">
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <a href="index.html" class="logo"><img class="logo" src="../img/dlc.svg"></a>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#venue">Venue</a>
+            <a href="#activities">Events</a>
+            <a href="#mascots">Mascots</a>
+            <a href="#guests">Guests</a>
+            <a href="#tickets">Tickets</a>
+            <a href="#qa">Q&A</a>
+            <div class="nav-divider"></div>
+            <a href="../index.html">简中</a>
+        </nav>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="../img/dlc_b.svg" class="hero-custom-image">
+        <img src="../img/title-ch.svg" class="hero-title">
+        <img src="../img/title-en.svg" class="hero-subtitle">
+        <img src="../img/castles&moon.png" class="hero-parallax-image">
+        <p class="hero-parallax-text">由露娜天才独角兽学院举办&nbsp;&nbsp;&nbsp;&nbsp;Held by Luna's Academy For Young
+            Unicorns&nbsp;&nbsp;&nbsp;&nbsp;2026.8.1~8.2</p>
+    </div>
+
+    <div class="countdown-container">
+        <div class="countdown-content">
+            <h2 class="countdown-title">Countdown</h2>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-unit">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-unit">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-unit">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-unit">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="content">
+
+        <section id="about">
+            <p class="subtitle-top">关于</p>
+            <h2>About</h2>
+            <p>Welcome to DreamLandCon, also known as DLC</p>
+        </section>
+
+        <section id="venue">
+            <p class="subtitle-top">场地</p>
+            <h2>Venue</h2>
+            <div class="venue-container">
+                <div class="venue-image">
+                    <img src="../img/venue-flat.webp" class="venue-image-default">
+                    <img src="../img/venue.webp" class="venue-image-hover">
+                </div>
+                <div class="venue-info">
+                    <h3>Tianjin Flamingo Harbor Hotel</h3>
+                    <p><strong>Address:</strong> No. 1 Ren'ai East Road, Jinghai District, Tianjin</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <p class="subtitle-top">活动</p>
+            <h2>Events</h2>
+            <div class="activity-tabs">
+                <button class="activity-tab active" data-activity="1">Event 1</button>
+                <button class="activity-tab" data-activity="2">Event 2</button>
+                <button class="activity-tab" data-activity="3">Event 3</button>
+            </div>
+            <div class="activities-container">
+                <div class="activity-item active" data-activity="1">
+                    <div class="activity-image">
+                        <img src="../img/sample.jpg">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Event 1</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="activity-item" data-activity="2" style="display:none;">
+                    <div class="activity-image">
+                        <img src="../img/guest/coffee.jpg">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Event 2</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="activity-item" data-activity="3" style="display:none;">
+                    <div class="activity-image">
+                        <img src="../img/sample.jpg">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Event 3</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mascots">
+            <p class="subtitle-top">吉祥物</p>
+            <h2>Mascots</h2>
+            <div class="mascots-container">
+                <div class="mascot">
+                    <img src="../img/mascot/云.webp">
+                    <h3>Yun</h3>
+                    <p>Description</p>
+                </div>
+                <div class="mascot">
+                    <img src="../img/mascot/夕音.webp">
+                    <h3>Xi Yin</h3>
+                    <p>Description</p>
+                </div>
+                <div class="mascot">
+                    <img src="../img/mascot/当归.webp">
+                    <h3>Dang Gui</h3>
+                    <p>Description</p>
+                </div>
+                <div class="mascot">
+                    <img src="../img/mascot/绫心.webp">
+                    <h3>Ling Xin</h3>
+                    <p>Description</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="guests">
+            <p class="subtitle-top">嘉宾</p>
+            <h2>Guests</h2>
+            <div class="guests-container">
+                <div class="guest">
+                    <img src="../img/guest/coffee.jpg">
+                    <h3>CokeCoffee</h3>
+                    <p>Well-known Chinese pony talk content creator</p>
+                </div>
+                <div class="guest">
+                    <img src="../img/sample.jpg">
+                    <h3>Guest</h3>
+                    <p>Guest</p>
+                </div>
+                <div class="guest">
+                    <img src="../img/sample.jpg">
+                    <h3>Guest</h3>
+                    <p>Guest</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tickets">
+            <p class="subtitle-top">门票</p>
+            <h2>Tickets</h2>
+            <div class="tickets-container">
+                <div class="ticket-tier">
+                    <h3>Tier 1</h3>
+                    <div class="ticket-price">¥114</div>
+                    <ul class="ticket-features">
+                        <li>Benefit 1</li>
+                        <li>Benefit 2</li>
+                        <li>Benefit 3</li>
+                    </ul>
+                    <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Join Group to Purchase</a>
+                </div>
+                <div class="ticket-tier">
+                    <h3>Tier 2</h3>
+                    <div class="ticket-price">¥514</div>
+                    <ul class="ticket-features">
+                        <li>Benefit 1</li>
+                        <li>Benefit 2</li>
+                        <li>Benefit 3</li>
+                        <li>Benefit 4</li>
+                    </ul>
+                    <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Join Group to Purchase</a>
+                </div>
+                <div class="ticket-tier">
+                    <h3>Tier 3</h3>
+                    <div class="ticket-price">¥1919</div>
+                    <ul class="ticket-features">
+                        <li>Benefit 1</li>
+                        <li>Benefit 2</li>
+                        <li>Benefit 3</li>
+                        <li>Benefit 4</li>
+                        <li>Benefit 5</li>
+                    </ul>
+                    <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Join Group to Purchase</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="qa">
+            <p class="subtitle-top">常见问题</p>
+            <h2>Q&A</h2>
+            <div class="qa-container">
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <h3>Question 1</h3>
+                        <span class="qa-toggle">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Answer 1</p>
+                    </div>
+                </div>
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <h3>Question 2</h3>
+                        <span class="qa-toggle">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Answer 2</p>
+                    </div>
+                </div>
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <h3>Question 3</h3>
+                        <span class="qa-toggle">+</span>
+                    </div>
+                    <div class="qa-answer">
+                        <p>Answer 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer-left">
+            <a href="index.html"><img src="../img/dlc.svg" class="footer-logo"></a>
+            <div class="copyright">
+                <a href="https://github.com/NorthernChinaBronyConvention/NCBC_Web">&copy;2026 DLC(NCBC)</a><br>
+                This website's source code is open under MIT License
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-links">
+                <a target="_blank" href="https://csbronycarnival.com/">CSBC</a>
+                <a target="_blank" href="https://www.equestriacn.com/">EQCN</a>
+            </div>
+            <div class="footer-image">
+                <img src="../img/qrcode.webp">
+                <p class="qrcode-text">Join Group</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
