@@ -1,4 +1,5 @@
 console.log('我是叨叨，这个网站的搭建者，你既然通过翻日志看到了这个消息，那么……来玩EQAD喵~来玩EQAD谢谢喵~ 群号：859298157');
+console.log('🥵🥵烧叨艾草！');
 
 window.addEventListener('load', function () {
     setTimeout(function () {
