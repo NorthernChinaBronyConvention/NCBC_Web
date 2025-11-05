@@ -1610,8 +1610,8 @@ body.loaded .loader {
 }
 
 .lightbox-image {
-    max-width: 100%;
-    max-height: 80vh;
+    width: 800px;
+    height: 600px;
     object-fit: contain;
 }
 
@@ -1711,6 +1711,16 @@ body.loaded .loader {
         gap: 15px;
     }
     
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    
+    .lightbox-image {
+        width: 90vw;
+        height: 60vh;
+    }
+    
     .lightbox-nav {
         position: fixed;
         top: auto;
@@ -1758,5 +1768,18 @@ body.loaded .loader {
         width: 35px;
         height: 35px;
         font-size: 14px;
+    }
+    
+    .lightbox-image {
+        width: 95vw;
+        height: 50vh;
+    }
+    
+    .lightbox-info h3 {
+        font-size: 18px;
+    }
+    
+    .lightbox-info {
+        margin-top: 10px;
     }
 }
