@@ -1424,3 +1424,53 @@ body.loaded .loader {
         text-align: center;
     }
 }
+
+.subpage-hero {
+    height: 300px;
+    background: #1d2258;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.subpage-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.subpage-hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.subpage-hero p {
+    font-size: 16px;
+    color: #a2aed5;
+}
+
+@media (max-width: 768px) {
+    .subpage-hero {
+        height: 300px;
+    }
+    
+    .subpage-hero h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .subpage-hero {
+        height: 250px;
+    }
+    
+    .subpage-hero h1 {
+        font-size: 28px;
+    }
+}
