@@ -1446,7 +1446,6 @@ body.loaded .loader {
 
 .subpage-hero h1 {
     font-size: 48px;
-    font-weight: bold;
     margin-top: 50px;
 }
 
@@ -1472,5 +1471,292 @@ body.loaded .loader {
     
     .subpage-hero h1 {
         font-size: 28px;
+    }
+}
+
+#gallery {
+    margin-top: 80px;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.gallery-item {
+    background-color: #1c2264;
+    box-shadow: 8px 8px #a2aed5;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.gallery-item img.loaded {
+    opacity: 1;
+}
+
+.gallery-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery-info h3 {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.gallery-info p {
+    font-size: 14px;
+    color: #a2aed5;
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.pagination-btn {
+    background: #a2aed5;
+    border: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: font, sans-serif;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: #8a9bd4;
+}
+
+.pagination-btn:disabled {
+    background: #5a6799;
+    cursor: not-allowed;
+    color: #cccccc;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 10px;
+}
+
+.pagination-number {
+    background: #1c2264;
+    border: 2px solid #a2aed5;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: font, sans-serif;
+}
+
+.pagination-number.active {
+    background: #a2aed5;
+    color: black;
+}
+
+.pagination-number:hover:not(.active) {
+    background: #2a3175;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.lightbox-info {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.lightbox-info h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.lightbox-author {
+    font-size: 16px;
+    color: #a2aed5;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(162, 174, 213, 0.7);
+    border: none;
+    color: black;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-nav:hover {
+    background: rgba(162, 174, 213, 1);
+}
+
+.lightbox-prev {
+    left: -70px;
+}
+
+.lightbox-next {
+    right: -70px;
+}
+
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .lightbox-prev {
+        left: -60px;
+    }
+    
+    .lightbox-next {
+        right: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .lightbox-nav {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+    }
+    
+    .lightbox-prev {
+        left: 20px;
+    }
+    
+    .lightbox-next {
+        right: 20px;
+    }
+    
+    .lightbox-close {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        padding: 0 10px;
+    }
+    
+    .gallery-info {
+        padding: 15px;
+    }
+    
+    .gallery-info h3 {
+        font-size: 16px;
+    }
+    
+    .gallery-info p {
+        font-size: 12px;
+    }
+    
+    .pagination-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    
+    .pagination-number {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
     }
 }
