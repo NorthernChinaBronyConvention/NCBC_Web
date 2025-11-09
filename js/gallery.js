@@ -83,7 +83,7 @@ function updatePagination() {
 function openLightbox(index) {
     currentImageIndex = index;
     lightboxImg.src = galleryItems[index].dataset.src;
-    lightboxName.textContent = galleryItems[index].dataset.name || '未知作者';
+    lightboxName.textContent = galleryItems[index].dataset.name;
     
     const imgAuthor = galleryItems[index].dataset.author;
     let authorElement = lightbox.querySelector('.lightbox-author');
@@ -106,7 +106,7 @@ function closeLightbox() {
 function showPrevImage() {
     currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
     lightboxImg.src = galleryItems[currentImageIndex].dataset.src;
-    lightboxName.textContent = galleryItems[currentImageIndex].dataset.name || '未知作者';
+    lightboxName.textContent = galleryItems[currentImageIndex].dataset.name;
     
     const authorElement = lightbox.querySelector('.lightbox-author');
     if (authorElement) {
@@ -117,7 +117,7 @@ function showPrevImage() {
 function showNextImage() {
     currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
     lightboxImg.src = galleryItems[currentImageIndex].dataset.src;
-    lightboxName.textContent = galleryItems[currentImageIndex].dataset.name || '未知作者';
+    lightboxName.textContent = galleryItems[currentImageIndex].dataset.name;
     
     const authorElement = lightbox.querySelector('.lightbox-author');
     if (authorElement) {
