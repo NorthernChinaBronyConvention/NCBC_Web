@@ -26,6 +26,12 @@ function handleScroll() {
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 
 function highlightNavOnScroll() {
+    const isDisabledNav = window.isDisabledNav === true;
+
+    if (isDisabledNav) {
+        return;
+    }
+    
     const scrollPosition = window.scrollY;
 
     const sections = document.querySelectorAll('section');
