@@ -1736,11 +1736,11 @@ body.loaded .loader {
         gap: 15px;
     }
 
-    .gallery-item .loading-spinner {
+    .gallery-item img {
         height: 200px;
     }
 
-    .gallery-item img {
+    .gallery-item .loading-spinner {
         height: 200px;
     }
 
