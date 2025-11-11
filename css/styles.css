@@ -1458,7 +1458,7 @@ body.loaded .loader {
     .subpage-hero {
         height: 300px;
     }
-    
+
     .subpage-hero h1 {
         font-size: 36px;
     }
@@ -1468,7 +1468,7 @@ body.loaded .loader {
     .subpage-hero {
         height: 250px;
     }
-    
+
     .subpage-hero h1 {
         font-size: 28px;
     }
@@ -1535,13 +1535,18 @@ body.loaded .loader {
     animation: spin 1s linear infinite;
 }
 
-.gallery-item img.loaded + .loading-spinner {
+.gallery-item img.loaded+.loading-spinner {
     opacity: 0;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .gallery-info {
@@ -1709,17 +1714,17 @@ body.loaded .loader {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
+
     .lightbox-nav {
         width: 40px;
         height: 40px;
         font-size: 20px;
     }
-    
+
     .lightbox-prev {
         left: -60px;
     }
-    
+
     .lightbox-next {
         right: -60px;
     }
@@ -1730,41 +1735,45 @@ body.loaded .loader {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
+    .gallery-item .loading-spinner {
+        height: 200px;
+    }
+
     .gallery-item img {
         height: 200px;
     }
-    
+
     .pagination {
         flex-wrap: wrap;
         gap: 15px;
     }
-    
+
     .lightbox-content {
         max-width: 95%;
         max-height: 95%;
     }
-    
+
     .lightbox-image {
         width: 90vw;
         height: 60vh;
     }
-    
+
     .lightbox-nav {
         position: fixed;
         top: auto;
         bottom: 20px;
         transform: none;
     }
-    
+
     .lightbox-prev {
         left: 20px;
     }
-    
+
     .lightbox-next {
         right: 20px;
     }
-    
+
     .lightbox-close {
         top: 20px;
         right: 20px;
@@ -1775,39 +1784,39 @@ body.loaded .loader {
     .gallery-container {
         padding: 0 10px;
     }
-    
+
     .gallery-info {
         padding: 15px;
     }
-    
+
     .gallery-info h3 {
         font-size: 16px;
     }
-    
+
     .gallery-info p {
         font-size: 12px;
     }
-    
+
     .pagination-btn {
         font-size: 14px;
         padding: 8px 16px;
     }
-    
+
     .pagination-number {
         width: 35px;
         height: 35px;
         font-size: 14px;
     }
-    
+
     .lightbox-image {
         width: 95vw;
         height: 50vh;
     }
-    
+
     .lightbox-info h3 {
         font-size: 18px;
     }
-    
+
     .lightbox-info {
         margin-top: 10px;
     }
