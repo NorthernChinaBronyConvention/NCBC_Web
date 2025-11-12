@@ -165,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroTitle = document.querySelector('.hero-title');
     const heroSubtitle = document.querySelector('.hero-subtitle');
     const heroSubtitleLine = document.querySelector('.hero-subtitle-line');
+    const titleDivider = document.querySelector('.title-divider');
     const hero = document.querySelector('.hero');
 
     function isMobile() {
@@ -189,6 +190,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (heroSubtitleLine) {
             heroSubtitleLine.style.transform = 'translate(0, 0)';
+        }
+        if (titleDivider) {
+            titleDivider.style.transform = 'translate(-50%, -50%)';
         }
     }
 
@@ -235,6 +239,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const parallaxMoveX = offsetX * parallaxCastlesIntensity;
             const parallaxMoveY = offsetY * parallaxCastlesIntensity;
 
+            const dividerMoveX = offsetX * titleParallaxIntensity;
+            const dividerMoveY = offsetY * titleParallaxIntensity;
+
             heroImage.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px)`;
 
             const rotateX = -offsetY * 2;
@@ -259,6 +266,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (heroSubtitleLine) {
                 heroSubtitleLine.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+
+            if (titleDivider) {
+                titleDivider.style.transform = `translate(-50%, -50%) translate(${dividerMoveX}px, ${dividerMoveY}px)`;
             }
         }
 
