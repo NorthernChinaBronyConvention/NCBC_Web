@@ -195,10 +195,10 @@ body {
     mask: linear-gradient(
         to right,
         white 0%,
-        white 34%,
-        transparent 34%,
-        transparent 66%,
-        white 66%,
+        white 33%,
+        transparent 34.5%,
+        transparent 65.5%,
+        white 67%,
         white 100%
     );
 }
