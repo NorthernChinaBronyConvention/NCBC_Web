@@ -1481,6 +1481,33 @@ body.loaded .loader {
     overflow: hidden;
 }
 
+.subpage-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 500%;
+    height: 5px;
+    background: repeating-linear-gradient(
+        90deg,
+        #a2aed5 0px,
+        #a2aed5 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    animation: infiniteScroll 140s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 .subpage-hero-content {
     position: relative;
     z-index: 2;
@@ -1526,6 +1553,7 @@ body.loaded .loader {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    margin-top: 80px;
 }
 
 .gallery-grid {
