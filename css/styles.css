@@ -13,6 +13,53 @@
     padding: 0;
     box-sizing: border-box;
     font-weight: normal;
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.1s ease, height 0.1s ease, border-color 0.1s ease;
+}
+
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    opacity: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+
+body a:hover ~ .custom-cursor,
+body button:hover ~ .custom-cursor,
+body .gallery-item:hover ~ .custom-cursor,
+body .qa-item:hover ~ .custom-cursor,
+.custom-cursor.hover {
+    width: 20px;
+    height: 20px;
+}
+
+.custom-cursor.active {
+    width: 12px;
+    height: 12px;
+    border-color: #a1a1a1;
+}
+
+.custom-cursor.active::after {
+    opacity: 0;
 }
 
 body {
@@ -76,7 +123,6 @@ body {
 
 .hamburger {
     display: none;
-    cursor: pointer;
 }
 
 .bar {
@@ -513,7 +559,6 @@ body {
     color: white;
     font-size: 20px;
     padding: 10px 20px;
-    cursor: pointer;
     font-family: font, sans-serif;
     margin: 0 10px;
 }
@@ -677,7 +722,6 @@ body {
     color: black;
     font-size: 20px;
     padding: 12px 24px;
-    cursor: pointer;
     text-decoration: none;
     display: inline-block;
     margin-top: auto;
@@ -705,7 +749,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    cursor: pointer;
 }
 
 .qa-question h3 {
@@ -1381,7 +1424,6 @@ body.loaded .loader {
     color: black;
     font-size: 20px;
     padding: 15px 30px;
-    cursor: pointer;
     font-family: font, sans-serif;
     text-decoration: none;
     display: inline-block;
@@ -1567,7 +1609,6 @@ body.loaded .loader {
     background-color: #1c2264;
     box-shadow: 8px 8px #a2aed5;
     overflow: hidden;
-    cursor: pointer;
     position: relative;
 }
 
@@ -1652,7 +1693,6 @@ body.loaded .loader {
     color: black;
     font-size: 16px;
     padding: 10px 20px;
-    cursor: pointer;
     font-family: font, sans-serif;
 }
 
@@ -1662,8 +1702,19 @@ body.loaded .loader {
 
 .pagination-btn:disabled {
     background: #5a6799;
-    cursor: not-allowed;
     color: #cccccc;
+}
+
+body .pagination-btn:disabled:hover ~ .custom-cursor,
+.pagination-btn:disabled:hover + .custom-cursor,
+.custom-cursor.disabled {
+    border-color: #a8a8a8;
+}
+
+.pagination-btn:disabled:hover ~ .custom-cursor::after,
+.pagination-btn:disabled:hover + .custom-cursor::after,
+.custom-cursor.disabled::after {
+    opacity: 0;
 }
 
 .pagination-numbers {
@@ -1680,7 +1731,6 @@ body.loaded .loader {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     font-family: font, sans-serif;
 }
 
@@ -1749,7 +1799,6 @@ body.loaded .loader {
     border: none;
     color: white;
     font-size: 40px;
-    cursor: pointer;
     width: 50px;
     height: 50px;
     display: flex;
@@ -1767,7 +1816,6 @@ body.loaded .loader {
     font-size: 24px;
     width: 50px;
     height: 50px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;

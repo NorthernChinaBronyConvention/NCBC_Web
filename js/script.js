@@ -97,6 +97,92 @@ navLinks.forEach(link => {
 const activityTabs = document.querySelectorAll('.activity-tab');
 const activityItems = document.querySelectorAll('.activity-item');
 
+const customCursor = document.getElementById('customCursor');
+
+function updateCursorPosition(e) {
+    if (customCursor) {
+        customCursor.style.left = e.clientX + 'px';
+        customCursor.style.top = e.clientY + 'px';
+    }
+}
+
+function handleLinkHover() {
+    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .qa-item');
+    const disabledPaginationBtns = document.querySelectorAll('.pagination-btn:disabled');
+    
+    interactiveElements.forEach(element => {
+        if (element.classList.contains('pagination-btn') && element.disabled) {
+            return;
+        }
+        
+        element.addEventListener('mouseenter', () => {
+            if (customCursor) {
+                customCursor.classList.add('hover');
+                customCursor.classList.remove('disabled');
+            }
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            if (customCursor) {
+                customCursor.classList.remove('hover');
+                customCursor.classList.remove('disabled');
+            }
+        });
+    });
+    
+    disabledPaginationBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            if (customCursor) {
+                customCursor.classList.add('disabled');
+                customCursor.classList.remove('hover');
+            }
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            if (customCursor) {
+                customCursor.classList.remove('disabled');
+                customCursor.classList.remove('hover');
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('mousemove', updateCursorPosition);
+    
+    document.addEventListener('mousedown', () => {
+        if (customCursor) {
+            customCursor.classList.add('active');
+        }
+    });
+    
+    document.addEventListener('mouseup', () => {
+        if (customCursor) {
+            customCursor.classList.remove('active');
+        }
+    });
+    
+    document.addEventListener('mouseleave', () => {
+        if (customCursor) {
+            customCursor.classList.remove('active');
+        }
+    });
+    
+    window.addEventListener('resize', () => {
+        if (customCursor) {
+            customCursor.style.left = window.innerWidth / 2 + 'px';
+            customCursor.style.top = window.innerHeight / 2 + 'px';
+        }
+    });
+    
+    if (customCursor) {
+        customCursor.style.left = window.innerWidth / 2 + 'px';
+        customCursor.style.top = window.innerHeight / 2 + 'px';
+    }
+    
+    handleLinkHover();
+});
+
 activityTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         const activityNum = tab.getAttribute('data-activity');
