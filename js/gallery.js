@@ -13,6 +13,12 @@ let currentPage = 1;
 const itemsPerPage = 6;
 let currentImageIndex = 0;
 
+function refreshCursorScript() {
+    if (typeof handleLinkHover === 'function') {
+        handleLinkHover();
+    }
+}
+
 function setupLazyLoading() {
     const lazyImages = document.querySelectorAll('.lazy-load');
     
@@ -56,6 +62,8 @@ function showPage(page) {
     setupLazyLoading();
 
     updatePagination();
+    
+    refreshCursorScript();
 }
 
 function updatePagination() {
