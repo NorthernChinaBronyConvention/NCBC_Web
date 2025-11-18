@@ -43,10 +43,10 @@
     mix-blend-mode: difference;
 }
 
-body a:hover ~ .custom-cursor,
-body button:hover ~ .custom-cursor,
-body .gallery-item:hover ~ .custom-cursor,
-body .qa-item:hover ~ .custom-cursor,
+body a:hover~.custom-cursor,
+body button:hover~.custom-cursor,
+body .gallery-item:hover~.custom-cursor,
+body .qa-item:hover~.custom-cursor,
 .custom-cursor.hover {
     width: 22px;
     height: 22px;
@@ -227,32 +227,29 @@ body {
     height: 2px;
     margin-top: 45px;
     z-index: 0;
-    background: repeating-linear-gradient(
-        90deg,
-        #fff 0px,
-        #fff 10px,
-        transparent 10px,
-        transparent 20px
-    );
+    background: repeating-linear-gradient(90deg,
+            #fff 0px,
+            #fff 10px,
+            transparent 10px,
+            transparent 20px);
     background-size: 40px 2px;
     background-repeat: repeat-x;
     animation: slideDashedLine 2s linear infinite;
     opacity: 0.6;
-    mask: linear-gradient(
-        to right,
-        white 0%,
-        white 33%,
-        transparent 34.5%,
-        transparent 65.5%,
-        white 67%,
-        white 100%
-    );
+    mask: linear-gradient(to right,
+            white 0%,
+            white 33%,
+            transparent 34.5%,
+            transparent 65.5%,
+            white 67%,
+            white 100%);
 }
 
 @keyframes slideDashedLine {
     0% {
         background-position: 0 0;
     }
+
     100% {
         background-position: 40px 0;
     }
@@ -331,6 +328,14 @@ body {
 }
 
 @media (max-width: 768px) {
+    * {
+        cursor: auto;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+
     .hero-title {
         height: 60px;
         margin-bottom: -20px;
@@ -1530,13 +1535,11 @@ body.loaded .loader {
     left: 0;
     width: 500%;
     height: 5px;
-    background: repeating-linear-gradient(
-        90deg,
-        #a2aed5 0px,
-        #a2aed5 10px,
-        transparent 10px,
-        transparent 20px
-    );
+    background: repeating-linear-gradient(90deg,
+            #a2aed5 0px,
+            #a2aed5 10px,
+            transparent 10px,
+            transparent 20px);
     animation: infiniteScroll 140s linear infinite;
     opacity: 0.1;
 }
@@ -1545,6 +1548,7 @@ body.loaded .loader {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -1705,14 +1709,14 @@ body.loaded .loader {
     color: #cccccc;
 }
 
-body .pagination-btn:disabled:hover ~ .custom-cursor,
-.pagination-btn:disabled:hover + .custom-cursor,
+body .pagination-btn:disabled:hover~.custom-cursor,
+.pagination-btn:disabled:hover+.custom-cursor,
 .custom-cursor.disabled {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.pagination-btn:disabled:hover ~ .custom-cursor::after,
-.pagination-btn:disabled:hover + .custom-cursor::after,
+.pagination-btn:disabled:hover~.custom-cursor::after,
+.pagination-btn:disabled:hover+.custom-cursor::after,
 .custom-cursor.disabled::after {
     opacity: 0;
 }
