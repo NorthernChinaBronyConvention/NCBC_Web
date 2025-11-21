@@ -382,12 +382,29 @@ body {
 }
 
 .countdown-container {
-    background-color: #1c2264;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #1c2264 0px,
+        #1c2264 20px,
+        #262d74 20px,
+        #262d74 40px
+    );
+    background-size: 56.57px 56.57px;
+    animation: scrollStripes 4s linear infinite;
     padding: 0px 0;
     margin: 0;
     width: 100%;
     position: relative;
     overflow: hidden;
+}
+
+@keyframes scrollStripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -56.57px 0;
+    }
 }
 
 .countdown-content {
@@ -425,6 +442,13 @@ body {
     font-size: 32px;
     font-weight: bold;
     color: #a2aed5;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.countdown-number.updating {
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 .countdown-unit {

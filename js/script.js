@@ -398,10 +398,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById('days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        const newValues = [
+            days.toString().padStart(2, '0'),
+            hours.toString().padStart(2, '0'),
+            minutes.toString().padStart(2, '0'),
+            seconds.toString().padStart(2, '0')
+        ];
+
+        const elements = [daysEl, hoursEl, minutesEl, secondsEl];
+
+        elements.forEach((el, index) => {
+            if (el && newValues[index] !== el.textContent) {
+                el.classList.add('updating');
+                
+                setTimeout(() => {
+                    el.textContent = newValues[index];
+                    el.classList.remove('updating');
+                }, 150);
+            }
+        });
     }
 
     updateCountdown();
