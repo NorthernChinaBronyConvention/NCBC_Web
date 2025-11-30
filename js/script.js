@@ -31,7 +31,7 @@ function highlightNavOnScroll() {
     if (isDisabledNav) {
         return;
     }
-    
+
     const scrollPosition = window.scrollY;
 
     const sections = document.querySelectorAll('section');
@@ -109,19 +109,19 @@ function updateCursorPosition(e) {
 function handleLinkHover() {
     const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .qa-item');
     const disabledPaginationBtns = document.querySelectorAll('.pagination-btn:disabled');
-    
+
     interactiveElements.forEach(element => {
         if (element.classList.contains('pagination-btn') && element.disabled) {
             return;
         }
-        
+
         element.addEventListener('mouseenter', () => {
             if (customCursor) {
                 customCursor.classList.add('hover');
                 customCursor.classList.remove('disabled');
             }
         });
-        
+
         element.addEventListener('mouseleave', () => {
             if (customCursor) {
                 customCursor.classList.remove('hover');
@@ -129,7 +129,7 @@ function handleLinkHover() {
             }
         });
     });
-    
+
     disabledPaginationBtns.forEach(btn => {
         btn.addEventListener('mouseenter', () => {
             if (customCursor) {
@@ -137,7 +137,7 @@ function handleLinkHover() {
                 customCursor.classList.remove('hover');
             }
         });
-        
+
         btn.addEventListener('mouseleave', () => {
             if (customCursor) {
                 customCursor.classList.remove('disabled');
@@ -149,37 +149,37 @@ function handleLinkHover() {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', updateCursorPosition);
-    
+
     document.addEventListener('mousedown', () => {
         if (customCursor) {
             customCursor.classList.add('active');
         }
     });
-    
+
     document.addEventListener('mouseup', () => {
         if (customCursor) {
             customCursor.classList.remove('active');
         }
     });
-    
+
     document.addEventListener('mouseleave', () => {
         if (customCursor) {
             customCursor.classList.remove('active');
         }
     });
-    
+
     window.addEventListener('resize', () => {
         if (customCursor) {
             customCursor.style.left = window.innerWidth / 2 + 'px';
             customCursor.style.top = window.innerHeight / 2 + 'px';
         }
     });
-    
+
     if (customCursor) {
         customCursor.style.left = window.innerWidth / 2 + 'px';
         customCursor.style.top = window.innerHeight / 2 + 'px';
     }
-    
+
     handleLinkHover();
 });
 
@@ -188,16 +188,14 @@ activityTabs.forEach(tab => {
         const activityNum = tab.getAttribute('data-activity');
 
         activityTabs.forEach(t => t.classList.remove('active'));
-
         tab.classList.add('active');
-
-        activityItems.forEach(item => {
-            item.style.display = 'none';
-        });
 
         const targetActivity = document.querySelector(`.activity-item[data-activity="${activityNum}"]`);
         if (targetActivity) {
-            targetActivity.style.display = 'flex';
+            activityItems.forEach(t => t.classList.remove('active'));
+            setTimeout(() => {
+                targetActivity.classList.add('active');
+            }, 200);
         }
     });
 });
@@ -415,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
         elements.forEach((el, index) => {
             if (el && newValues[index] !== el.textContent) {
                 el.classList.add('updating');
-                
+
                 setTimeout(() => {
                     el.textContent = newValues[index];
                     el.classList.remove('updating');

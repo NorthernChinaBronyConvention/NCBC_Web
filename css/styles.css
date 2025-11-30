@@ -16,6 +16,11 @@
     cursor: none;
 }
 
+img {
+    -webkit-user-drag: none;
+    -user-select: none;
+}
+
 .custom-cursor {
     position: fixed;
     width: 18px;
@@ -160,6 +165,10 @@ body {
     overflow: hidden;
     color: white;
     padding-top: 20vh;
+}
+
+.hero p {
+    user-select: none;
 }
 
 .hero-custom-image {
@@ -382,13 +391,11 @@ body {
 }
 
 .countdown-container {
-    background-image: repeating-linear-gradient(
-        45deg,
-        #1c2264 0px,
-        #1c2264 20px,
-        #262d74 20px,
-        #262d74 40px
-    );
+    background-image: repeating-linear-gradient(45deg,
+            #1c2264 0px,
+            #1c2264 20px,
+            #262d74 20px,
+            #262d74 40px);
     background-size: 56.57px 56.57px;
     animation: scrollStripes 4s linear infinite;
     padding: 0px 0;
@@ -402,6 +409,7 @@ body {
     0% {
         background-position: 0 0;
     }
+
     100% {
         background-position: -56.57px 0;
     }
@@ -599,18 +607,32 @@ body {
 }
 
 .activities-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 100%;
     align-items: center;
     margin: 0 auto;
     max-width: 900px;
 }
 
 .activity-item {
+    grid-area: 1 / 1;
     display: flex;
     box-shadow: 8px 8px #a2aed5;
     background-color: #1c2264;
     width: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+
+    transition: opacity 0.2s, visibility 0s step-start 0.2s;
+}
+
+.activity-item.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transition: opacity 0.2s, visibility 0s linear 0s;
 }
 
 .activity-image {
