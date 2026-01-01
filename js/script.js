@@ -310,8 +310,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const mascot1ParallaxIntensity = 10;
         const mascot2ParallaxIntensity = 12;
         const mascot3ParallaxIntensity = 14;
-        const mascot4ParallaxIntensity = 16;
-        const mascotCParallaxIntensity = 18;
+        const mascot4ParallaxIntensity = 18;
+        const mascotCParallaxIntensity = 16;
         const titleParallaxIntensity = 10;
 
         let currentMouseX = window.innerWidth / 2;
