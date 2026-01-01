@@ -262,7 +262,10 @@ body .qa-item:hover~.custom-cursor,
     bottom: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 350px;
+    background-image: url('../img/hero/bottom.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     z-index: 9;
 }
 
@@ -1027,21 +1030,6 @@ body .qa-item:hover~.custom-cursor,
         top: 52%;
         width: 85%;
         max-width: 500px;
-    }
-
-    .countdown-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .countdown-title {
-        margin-right: 0px;
-        margin-top: 20px;
-    }
-
-    .countdown-timer {
-        justify-content: center;
     }
 
     .content {
