@@ -8,12 +8,24 @@
     src: url('../fonts/HYNianHuaSongU-fix.woff2');
 }
 
+@font-face {
+    font-family: 'font3';
+    src: url('../fonts/SourceHanSerifCN-Heavy.otf');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-weight: normal;
     cursor: none;
+}
+
+body {
+    font-family: font, sans-serif;
+    line-height: 1.6;
+    background-color: #262d74;
+    color: white;
 }
 
 img {
@@ -29,7 +41,7 @@ img {
     border-radius: 0;
     transform: translate(-50%, -50%) rotate(0deg);
     pointer-events: none;
-    z-index: 9999;
+    z-index: 114514;
     transition: width 0.1s ease, height 0.1s ease, border-color 0.1s ease, opacity 0.1s ease;
     mix-blend-mode: difference;
 }
@@ -67,13 +79,6 @@ body .qa-item:hover~.custom-cursor,
     opacity: 0;
 }
 
-body {
-    font-family: font, sans-serif;
-    line-height: 1.6;
-    background-color: #262d74;
-    color: white;
-}
-
 .header {
     justify-content: space-between;
     color: white;
@@ -84,13 +89,15 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 30;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9));
     transition: 0.3s ease;
 }
 
 .header.scrolled {
     background: rgba(26, 32, 73, 0.96);
     padding: 15px 15%;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0));
 }
 
 .logo {
@@ -167,258 +174,197 @@ body {
     padding-top: 20vh;
 }
 
+.hero-subtitle1,
+.hero-subtitle2,
+.hero-title1,
+.hero-title2,
+.hero-title3,
+.hero-bg-left-image,
+.hero-birds-image,
+.hero-mascot1-image,
+.hero-mascot2-image,
+.hero-mascot3-image,
+.hero-mascot4-image,
+.hero-mascot-c-image {
+    transition: transform 0.2s ease-out;
+}
+
+.hero-subtitle1 {
+    position: absolute;
+    top: 120px;
+    left: 60px;
+    font-size: 30px;
+    font-family: font3, sans-serif;
+    color: #262d74;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    letter-spacing: -2px;
+}
+
+.hero-subtitle2 {
+    position: absolute;
+    top: 136px;
+    left: 50px;
+    font-size: 90px;
+    font-family: font3, sans-serif;
+    color: #262d74;
+    z-index: 10;
+    letter-spacing: -2px;
+    background: linear-gradient(to bottom, #262d74 40%, rgba(38, 45, 116, 0) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+}
+
+.hero-title1 {
+    position: absolute;
+    top: 190px;
+    left: 50px;
+    font-size: 130px;
+    font-family: font3, sans-serif;
+    color: #262d74;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    letter-spacing: -2px;
+}
+
+.hero-title2 {
+    position: absolute;
+    top: 328px;
+    left: 50px;
+    font-size: 90px;
+    font-family: font3, sans-serif;
+    color: #262d74;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    letter-spacing: -3px;
+}
+
+.hero-title3 {
+    position: absolute;
+    top: 430px;
+    left: 50px;
+    font-size: 40px;
+    font-family: font3, sans-serif;
+    color: #262d74;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    letter-spacing: -2px;
+}
+
 .hero p {
     user-select: none;
 }
 
-.hero-custom-image {
+.hero-bottom-image {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: auto;
-    opacity: 0.1;
-    z-index: 0;
-    pointer-events: none;
+    z-index: 9;
 }
 
-.hero-parallax-image {
+.hero-bottom-left-image {
     position: absolute;
-    justify-content: flex-start;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1700px;
+    bottom: 26px;
+    left: 40px;
+    width: auto;
+    height: 30px;
+    z-index: 10;
+}
+
+.hero-bg-left-image {
+    position: absolute;
+    bottom: -200px;
+    left: -20px;
+    width: auto;
     height: auto;
-    margin-top: 440px;
+    max-height: 150%;
+    z-index: 1;
+}
+
+.hero-bg-right-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    max-height: 125%;
     z-index: 2;
 }
 
-.hero-parallax-text {
-    font-family: font2, sans-serif;
+.hero-birds-image {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    color: white;
+    top: 50px;
+    right: 100px;
+    width: auto;
+    height: auto;
+    max-height: 68%;
     z-index: 3;
-    margin-top: 450px;
-    white-space: nowrap;
 }
 
-.hero-custom-image,
-.hero-title,
-.hero-subtitle,
-.hero-subtitle-line,
-.hero-parallax-image,
-.hero-parallax-text,
-.title-divider {
-    transition: transform 0.2s ease-out;
-}
-
-.hero-title {
-    height: 140px;
-    margin-top: -30px;
-    z-index: 1;
-}
-
-.hero-subtitle {
-    height: 78px;
-    margin-top: 20px;
-    z-index: 1;
-}
-
-.title-divider {
+.hero-mascot1-image {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 3000px;
-    height: 2px;
-    margin-top: 45px;
-    z-index: 0;
-    background: repeating-linear-gradient(90deg,
-            #fff 0px,
-            #fff 10px,
-            transparent 10px,
-            transparent 20px);
-    background-size: 40px 2px;
-    background-repeat: repeat-x;
-    animation: slideDashedLine 2s linear infinite;
-    opacity: 0.6;
-    mask: linear-gradient(to right,
-            white 0%,
-            white 33%,
-            transparent 34.5%,
-            transparent 65.5%,
-            white 67%,
-            white 100%);
+    bottom: 140px;
+    right: 150px;
+    width: auto;
+    height: auto;
+    max-height: 68%;
+    z-index: 4;
 }
 
-@keyframes slideDashedLine {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 40px 0;
-    }
+.hero-mascot2-image {
+    position: absolute;
+    bottom: 180px;
+    right: -160px;
+    width: auto;
+    height: auto;
+    max-height: 80%;
+    z-index: 5;
 }
 
-@media (max-width: 1500px) {
-    .hero-title {
-        height: 110px;
-        margin-bottom: -10px;
-    }
-
-    .hero-subtitle {
-        height: 60px;
-        margin-top: 30px;
-    }
-
-    .hero-parallax-image {
-        width: 1400px;
-        margin-top: 360px;
-    }
-
-    .hero-parallax-text {
-        font-size: 24px;
-        margin-top: 366px;
-    }
-
-    .title-divider {
-        display: none;
-    }
+.hero-mascot3-image {
+    position: absolute;
+    bottom: -180px;
+    right: 210px;
+    width: auto;
+    height: auto;
+    max-height: 80%;
+    z-index: 6;
 }
 
-@media (max-width: 1192px) {
-    .hero-title {
-        height: 80px;
-        margin-bottom: -10px;
-        margin-top: 1px;
-    }
-
-    .hero-subtitle {
-        height: 45px;
-        margin-top: 20px;
-    }
-
-    .hero-parallax-image {
-        width: 1180px;
-        margin-top: 285px;
-    }
-
-    .hero-parallax-text {
-        font-size: 20px;
-        margin-top: 290px;
-    }
+.hero-mascot-c-image {
+    position: absolute;
+    bottom: -200px;
+    right: -40px;
+    width: auto;
+    height: auto;
+    max-height: 96%;
+    z-index: 7;
 }
 
-@media (max-width: 992px) {
-    .hero-title {
-        height: 70px;
-        margin-bottom: -10px;
-        margin-top: 20px;
-    }
-
-    .hero-subtitle {
-        height: 40px;
-        margin-top: 20px;
-    }
-
-    .hero-parallax-image {
-        width: 1130px;
-        margin-top: 285px;
-    }
-
-    .hero-parallax-text {
-        font-size: 19px;
-        margin-top: 290px;
-    }
-}
-
-@media (max-width: 768px) {
-    * {
-        cursor: auto;
-    }
-
-    .custom-cursor {
-        display: none;
-    }
-
-    .hero-title {
-        height: 60px;
-        margin-bottom: -20px;
-        margin-top: -20px;
-    }
-
-    .hero-subtitle {
-        height: 25px;
-        margin-top: 30px;
-    }
-
-    .hero-parallax-image {
-        width: 690px;
-        margin-top: 470px;
-    }
-
-    .hero-parallax-text {
-        font-size: 12px;
-        margin-top: 295px;
-    }
-}
-
-@media (max-width: 550px) {
-    .hero-title {
-        height: 55px;
-        margin-bottom: -20px;
-        margin-top: -80px;
-    }
-
-    .hero-subtitle {
-        height: 20px;
-        margin-top: 30px;
-    }
-
-    .hero-parallax-image {
-        width: 500px;
-        margin-top: 278px;
-    }
-
-    .hero-parallax-text {
-        font-size: 9px;
-        margin-top: 152px;
-    }
+.hero-mascot4-image {
+    position: absolute;
+    bottom: -100px;
+    right: 80px;
+    width: auto;
+    height: auto;
+    max-height: 84%;
+    z-index: 8;
 }
 
 .countdown-container {
-    background-image: repeating-linear-gradient(45deg,
-            #1c2264 0px,
-            #1c2264 20px,
-            #262d74 20px,
-            #262d74 40px);
-    background-size: 56.57px 56.57px;
-    animation: scrollStripes 4s linear infinite;
-    padding: 0px 0;
-    margin: 0;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes scrollStripes {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: -56.57px 0;
-    }
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    padding: 20px 30px;
+    z-index: 20;
 }
 
 .countdown-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-bottom: -30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -426,10 +372,10 @@ body {
 }
 
 .countdown-title {
-    font-size: 24px;
+    font-size: 25px;
     color: rgba(255, 255, 255, 0.562);
     white-space: nowrap;
-    margin-right: 14px;
+    margin-right: 10px;
 }
 
 .countdown-timer {
@@ -442,12 +388,12 @@ body {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    padding: 12px;
-    min-width: 80px;
+    padding: 8px;
+    min-width: 60px;
 }
 
 .countdown-number {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: bold;
     color: #a2aed5;
     transition: all 0.3s ease;
@@ -460,9 +406,9 @@ body {
 }
 
 .countdown-unit {
-    font-size: 16px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.562);
-    margin-left: 5px;
+    margin-left: 4px;
 }
 
 .content {
@@ -1071,6 +1017,12 @@ body {
         padding-top: 0;
     }
 
+    .hero-title {
+        top: 100px;
+        left: 5%;
+        font-size: 36px;
+    }
+
     .hero-custom-image {
         top: 52%;
         width: 85%;
@@ -1252,6 +1204,12 @@ body {
         top: 0;
         margin-top: 0;
         padding-top: 0;
+    }
+
+    .hero-title {
+        top: 80px;
+        left: 3%;
+        font-size: 28px;
     }
 
     .content {

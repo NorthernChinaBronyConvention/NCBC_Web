@@ -243,13 +243,18 @@ qaQuestions.forEach(question => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const heroImage = document.querySelector('.hero-custom-image');
-    const heroParallaxImage = document.querySelector('.hero-parallax-image');
-    const heroParallaxText = document.querySelector('.hero-parallax-text');
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroSubtitleLine = document.querySelector('.hero-subtitle-line');
-    const titleDivider = document.querySelector('.title-divider');
+    const heroBgLeftImage = document.querySelector('.hero-bg-left-image');
+    const heroBirdsImage = document.querySelector('.hero-birds-image');
+    const heroMascot1Image = document.querySelector('.hero-mascot1-image');
+    const heroMascot2Image = document.querySelector('.hero-mascot2-image');
+    const heroMascot3Image = document.querySelector('.hero-mascot3-image');
+    const heroMascotCImage = document.querySelector('.hero-mascot-c-image');
+    const heroMascot4Image = document.querySelector('.hero-mascot4-image');
+    const heroSubtitle1 = document.querySelector('.hero-subtitle1');
+    const heroSubtitle2 = document.querySelector('.hero-subtitle2');
+    const heroTitle1 = document.querySelector('.hero-title1');
+    const heroTitle2 = document.querySelector('.hero-title2');
+    const heroTitle3 = document.querySelector('.hero-title3');
     const hero = document.querySelector('.hero');
 
     function isMobile() {
@@ -257,37 +262,57 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function resetParallaxElements() {
-        if (heroImage) {
-            heroImage.style.transform = 'translate(-50%, -50%)';
+        if (heroBgLeftImage) {
+            heroBgLeftImage.style.transform = '';
         }
-        if (heroParallaxImage) {
-            heroParallaxImage.style.transform = 'translate(-50%, -50%)';
+        if (heroBirdsImage) {
+            heroBirdsImage.style.transform = '';
         }
-        if (heroParallaxText) {
-            heroParallaxText.style.transform = 'translate(-50%, -50%)';
+        if (heroMascot1Image) {
+            heroMascot1Image.style.transform = '';
         }
-        if (heroTitle) {
-            heroTitle.style.transform = 'translate(0, 0)';
+        if (heroMascot2Image) {
+            heroMascot2Image.style.transform = '';
         }
-        if (heroSubtitle) {
-            heroSubtitle.style.transform = 'translate(0, 0)';
+        if (heroMascot3Image) {
+            heroMascot3Image.style.transform = '';
         }
-        if (heroSubtitleLine) {
-            heroSubtitleLine.style.transform = 'translate(0, 0)';
+        if (heroMascotCImage) {
+            heroMascotCImage.style.transform = '';
         }
-        if (titleDivider) {
-            titleDivider.style.transform = 'translate(-50%, -50%)';
+        if (heroMascot4Image) {
+            heroMascot4Image.style.transform = '';
+        }
+        if (heroSubtitle1) {
+            heroSubtitle1.style.transform = '';
+        }
+        if (heroSubtitle2) {
+            heroSubtitle2.style.transform = '';
+        }
+        if (heroTitle1) {
+            heroTitle1.style.transform = '';
+        }
+        if (heroTitle2) {
+            heroTitle2.style.transform = '';
+        }
+        if (heroTitle3) {
+            heroTitle3.style.transform = '';
         }
     }
 
-    if (heroImage && hero) {
+    if (hero) {
         let heroRect = hero.getBoundingClientRect();
         let heroCenterX = heroRect.width / 2;
         let heroCenterY = heroRect.height / 2;
 
-        const parallaxIntensity = 10;
-        const titleParallaxIntensity = 20;
-        const parallaxCastlesIntensity = 25;
+        const bgParallaxIntensity = 7;
+        const birdsParallaxIntensity = 8;
+        const mascot1ParallaxIntensity = 10;
+        const mascot2ParallaxIntensity = 12;
+        const mascot3ParallaxIntensity = 14;
+        const mascot4ParallaxIntensity = 16;
+        const mascotCParallaxIntensity = 18;
+        const titleParallaxIntensity = 10;
 
         let currentMouseX = window.innerWidth / 2;
         let currentMouseY = window.innerHeight / 2;
@@ -314,46 +339,71 @@ document.addEventListener('DOMContentLoaded', function () {
             const offsetX = (relMouseX - heroCenterX) / heroCenterX;
             const offsetY = (relMouseY - heroCenterY) / heroCenterY;
 
-            const moveX = offsetX * parallaxIntensity;
-            const moveY = offsetY * parallaxIntensity;
+            const bgMoveX = offsetX * bgParallaxIntensity;
+            const bgMoveY = offsetY * bgParallaxIntensity;
+
+            const birdsMoveX = offsetX * birdsParallaxIntensity;
+            const birdsMoveY = offsetY * birdsParallaxIntensity;
+            const mascot1MoveX = offsetX * mascot1ParallaxIntensity;
+            const mascot1MoveY = offsetY * mascot1ParallaxIntensity;
+            const mascot2MoveX = offsetX * mascot2ParallaxIntensity;
+            const mascot2MoveY = offsetY * mascot2ParallaxIntensity;
+            const mascot3MoveX = offsetX * mascot3ParallaxIntensity;
+            const mascot3MoveY = offsetY * mascot3ParallaxIntensity;
+            const mascot4MoveX = offsetX * mascot4ParallaxIntensity;
+            const mascot4MoveY = offsetY * mascot4ParallaxIntensity;
+            const mascotCMoveX = offsetX * mascotCParallaxIntensity;
+            const mascotCMoveY = offsetY * mascotCParallaxIntensity;
 
             const titleMoveX = offsetX * titleParallaxIntensity;
             const titleMoveY = offsetY * titleParallaxIntensity;
 
-            const parallaxMoveX = offsetX * parallaxCastlesIntensity;
-            const parallaxMoveY = offsetY * parallaxCastlesIntensity;
-
-            const dividerMoveX = offsetX * titleParallaxIntensity;
-            const dividerMoveY = offsetY * titleParallaxIntensity;
-
-            heroImage.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px)`;
-
-            const rotateX = -offsetY * 2;
-            const rotateY = offsetX * 2;
-            heroImage.style.transform += ` rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-            if (heroParallaxImage) {
-                heroParallaxImage.style.transform = `translate(-50%, -50%) translate(${parallaxMoveX}px, ${parallaxMoveY}px)`;
+            if (heroBgLeftImage) {
+                heroBgLeftImage.style.transform = `translate(${bgMoveX}px, ${bgMoveY}px)`;
             }
 
-            if (heroParallaxText) {
-                heroParallaxText.style.transform = `translate(-50%, -50%) translate(${parallaxMoveX}px, ${parallaxMoveY}px)`;
+            if (heroBirdsImage) {
+                heroBirdsImage.style.transform = `translate(${birdsMoveX}px, ${birdsMoveY}px)`;
             }
 
-            if (heroTitle) {
-                heroTitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            if (heroMascot1Image) {
+                heroMascot1Image.style.transform = `translate(${mascot1MoveX}px, ${mascot1MoveY}px)`;
             }
 
-            if (heroSubtitle) {
-                heroSubtitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            if (heroMascot2Image) {
+                heroMascot2Image.style.transform = `translate(${mascot2MoveX}px, ${mascot2MoveY}px)`;
             }
 
-            if (heroSubtitleLine) {
-                heroSubtitleLine.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            if (heroMascot3Image) {
+                heroMascot3Image.style.transform = `translate(${mascot3MoveX}px, ${mascot3MoveY}px)`;
             }
 
-            if (titleDivider) {
-                titleDivider.style.transform = `translate(-50%, -50%) translate(${dividerMoveX}px, ${dividerMoveY}px)`;
+            if (heroMascotCImage) {
+                heroMascotCImage.style.transform = `translate(${mascotCMoveX}px, ${mascotCMoveY}px)`;
+            }
+
+            if (heroMascot4Image) {
+                heroMascot4Image.style.transform = `translate(${mascot4MoveX}px, ${mascot4MoveY}px)`;
+            }
+
+            if (heroSubtitle1) {
+                heroSubtitle1.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+
+            if (heroSubtitle2) {
+                heroSubtitle2.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+
+            if (heroTitle1) {
+                heroTitle1.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+
+            if (heroTitle2) {
+                heroTitle2.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+            }
+
+            if (heroTitle3) {
+                heroTitle3.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
             }
         }
 
