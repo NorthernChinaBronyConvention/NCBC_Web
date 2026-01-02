@@ -937,6 +937,10 @@ body .qa-item:hover~.custom-cursor,
 }
 
 @media (max-width: 768px) {
+    .custom-cursor {
+        display: none;
+    }
+
     .header {
         padding: 40px 5%;
         flex-direction: row;
