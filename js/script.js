@@ -94,9 +94,6 @@ navLinks.forEach(link => {
     });
 });
 
-const activityTabs = document.querySelectorAll('.activity-tab');
-const activityItems = document.querySelectorAll('.activity-item');
-
 const customCursor = document.getElementById('customCursor');
 
 function updateCursorPosition(e) {
@@ -181,23 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     handleLinkHover();
-});
-
-activityTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const activityNum = tab.getAttribute('data-activity');
-
-        activityTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const targetActivity = document.querySelector(`.activity-item[data-activity="${activityNum}"]`);
-        if (targetActivity) {
-            activityItems.forEach(t => t.classList.remove('active'));
-            setTimeout(() => {
-                targetActivity.classList.add('active');
-            }, 200);
-        }
-    });
 });
 
 function generateStars() {

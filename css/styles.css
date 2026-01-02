@@ -447,10 +447,6 @@ body .qa-item:hover~.custom-cursor,
     color: #cccccc;
 }
 
-#about {
-    margin-top: 180px;
-}
-
 #activities {
     margin-top: 180px;
 }
@@ -459,23 +455,75 @@ body .qa-item:hover~.custom-cursor,
     margin-top: 180px;
 }
 
-.venue-container {
+#vision {
+    margin-top: 180px;
+}
+
+.vision-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     max-width: 900px;
     margin: 0 auto;
-    background-color: #1c2264;
-    box-shadow: 8px 8px #a2aed5;
+    padding: 20px;
+}
+
+.vision-content {
+    width: 50%;
+    padding: 0 30px;
+    text-align: left;
+    color: white;
+}
+
+.vision-content h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: left;
+    color: white;
+}
+
+.vision-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #cccccc;
+    text-align: left;
+}
+
+.vision-image {
+    width: 50%;
+    height: 0;
+    padding-bottom: 37.5%;
+    overflow: hidden;
+    border: 3px solid #a2aed5;
+    position: relative;
+}
+
+.vision-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.venue-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
 }
 
 .venue-image {
     position: relative;
-    width: 100%;
+    width: 50%;
     height: 0;
-    padding-bottom: 66.67%;
+    padding-bottom: 37.5%;
     overflow: hidden;
+    border: 3px solid #a2aed5;
 }
 
 .venue-image img {
@@ -514,15 +562,17 @@ body .qa-item:hover~.custom-cursor,
 }
 
 .venue-info {
-    width: 100%;
-    text-align: center;
+    width: 50%;
+    padding: 0 30px;
+    margin-left: 30px;
+    text-align: left;
     color: white;
 }
 
 .venue-info h3 {
     font-size: 28px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .venue-info p {
@@ -530,92 +580,7 @@ body .qa-item:hover~.custom-cursor,
     line-height: 1.6;
     margin-bottom: 15px;
     color: #cccccc;
-    text-align: center;
-}
-
-.activity-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.activity-tab {
-    background: none;
-    border: 2px solid #a2aed5;
-    color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    font-family: font, sans-serif;
-    margin: 0 10px;
-}
-
-.activity-tab.active {
-    background: #a2aed5;
-    border: 2px solid #a2aed5;
-    color: black;
-}
-
-.activities-container {
-    display: grid;
-    grid-template-columns: 100%;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 900px;
-}
-
-.activity-item {
-    grid-area: 1 / 1;
-    display: flex;
-    box-shadow: 8px 8px #a2aed5;
-    background-color: #1c2264;
-    width: 100%;
-
-    opacity: 0;
-    visibility: hidden;
-    z-index: 0;
-
-    transition: opacity 0.2s, visibility 0s step-start 0.2s;
-}
-
-.activity-item.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1;
-    transition: opacity 0.2s, visibility 0s linear 0s;
-}
-
-.activity-image {
-    width: 40%;
-    height: 400px;
-    padding: 20px;
-}
-
-.activity-image img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-.activity-content {
-    width: 60%;
-    height: 400px;
-    padding: 30px;
     text-align: left;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.activity-content h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.activity-content p {
-    font-size: 18px;
-    line-height: 1.6;
 }
 
 #guests {
@@ -642,7 +607,7 @@ body .qa-item:hover~.custom-cursor,
 .mascot img {
     width: 200px;
     height: 200px;
-    box-shadow: 8px 8px #a2aed5;
+    border: 3px solid #a2aed5;
     background: #1c2264;
     object-fit: cover;
     margin-bottom: 15px;
@@ -680,7 +645,7 @@ body .qa-item:hover~.custom-cursor,
     padding: 30px;
     width: 300px;
     text-align: center;
-    box-shadow: 8px 8px #a2aed5;
+    border: 3px solid #a2aed5;
     display: flex;
     flex-direction: column;
 }
@@ -741,7 +706,7 @@ body .qa-item:hover~.custom-cursor,
 .qa-item {
     background-color: #1c2264;
     margin-bottom: 20px;
-    box-shadow: 8px 8px #a2aed5;
+    border: 3px solid #a2aed5;
 }
 
 .qa-question {
@@ -798,7 +763,7 @@ body .qa-item:hover~.custom-cursor,
 .guest img {
     width: 150px;
     height: 150px;
-    box-shadow: 8px 8px #a2aed5;
+    border: 3px solid #a2aed5;
     object-fit: cover;
     margin-bottom: 15px;
 }
@@ -1076,19 +1041,57 @@ body .qa-item:hover~.custom-cursor,
     }
 
     .venue-container {
+        flex-direction: column;
         padding: 0;
     }
 
     .venue-image {
+        width: 100%;
         height: 250px;
+        padding-bottom: 0;
+    }
+
+    .venue-info {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
     }
 
     .venue-info h3 {
         font-size: 24px;
+        text-align: center;
     }
 
     .venue-info p {
         font-size: 16px;
+        text-align: center;
+    }
+
+    .vision-container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .vision-content {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .vision-content h3 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .vision-content p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .vision-image {
+        width: 100%;
+        height: 250px;
+        padding-bottom: 0;
     }
 
     .tickets-container {
@@ -1236,6 +1239,18 @@ body .qa-item:hover~.custom-cursor,
 
     .venue-info p {
         font-size: 14px;
+    }
+
+    .vision-content h3 {
+        font-size: 20px;
+    }
+
+    .vision-content p {
+        font-size: 14px;
+    }
+
+    .vision-image {
+        height: 200px;
     }
 
     .guest {
