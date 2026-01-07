@@ -693,6 +693,13 @@ body .qa-item:hover~.custom-cursor,
     align-self: center;
 }
 
+.ticket-tier-featured {
+    background-color: #1c2264;
+    transform: scale(1.05);
+    position: relative;
+    margin-top: 10px;
+}
+
 #qa {
     margin-top: 180px;
 }
