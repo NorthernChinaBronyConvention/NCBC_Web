@@ -587,45 +587,6 @@ body .qa-item:hover~.custom-cursor,
     margin-top: 180px;
 }
 
-#mascots {
-    margin-top: 180px;
-}
-
-.mascots-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.mascot {
-    padding: 20px;
-    text-align: center;
-    width: 250px;
-}
-
-.mascot img {
-    width: 200px;
-    height: 200px;
-    border: 3px solid #a2aed5;
-    background: #1c2264;
-    object-fit: cover;
-    margin-bottom: 15px;
-    padding: 20px;
-}
-
-.mascot h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.mascot p {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #cccccc;
-}
-
 
 #tickets {
     margin-top: 180px;
@@ -1371,25 +1332,6 @@ body .qa-item:hover~.custom-cursor,
 
     .guest p {
         font-size: 14px;
-    }
-
-    .mascot {
-        width: 100%;
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-
-    .mascot img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .mascot h3 {
-        font-size: 18px;
-    }
-
-    .mascot p {
-        font-size: 13px;
     }
 
     .tickets-container {
