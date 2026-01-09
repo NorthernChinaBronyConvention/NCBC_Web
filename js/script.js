@@ -4,7 +4,7 @@ console.log('🥵🥵烧叨艾草！');
 window.addEventListener('load', function () {
     setTimeout(function () {
         document.body.classList.add('loaded');
-        const loaderText = document.querySelector('.loader-text');
+        const loaderText = document.querySelector('.loader-text-left');
         if (loaderText) {
             loaderText.textContent = '// Done';
         }
