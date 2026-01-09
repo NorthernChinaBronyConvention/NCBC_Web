@@ -1,12 +1,4 @@
 @font-face {
-    font-family: "OPPOSans-Ver2-Bold";
-    src: url(https://www.oppo.com/content/dam/statics/fonts/cn/OPPOSans3.0cn-Bold.woff2) format("woff2");
-    font-variation-settings: 'wght' 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'font';
     src: url('../fonts/HanYiCuSongJian-1.woff2');
 }
@@ -19,6 +11,11 @@
 @font-face {
     font-family: 'font3';
     src: url('../fonts/SourceHanSerifCN-Heavy.otf');
+}
+
+@font-face {
+    font-family: 'font4';
+    src: url('../fonts/SarasaFixedSlabCL-SemiBold.woff2');
 }
 
 * {
@@ -1465,7 +1462,7 @@ body.loaded .loader {
 }
 
 .loader-text {
-    font-family: "OPPOSans-Ver2-Bold";
+    font-family: "font4";
     color: rgba(255, 255, 255, 0.7);
     font-size: 12px;
     letter-spacing: 2px;
@@ -1476,7 +1473,7 @@ body.loaded .loader {
     position: absolute;
     bottom: 10px;
     right: 20px;
-    font-family: "OPPOSans-Ver2-Bold";
+    font-family: "font4";
     color: rgba(255, 255, 255, 0.7);
     font-size: 12px;
     letter-spacing: 2px;
