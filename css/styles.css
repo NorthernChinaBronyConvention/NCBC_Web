@@ -664,6 +664,26 @@ body .qa-item:hover~.custom-cursor,
     transform: scale(1.05);
     position: relative;
     margin-top: 10px;
+    overflow: hidden;
+}
+
+.ticket-tier-featured::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 110%;
+    background-image: url("../img/ticket/1.png");
+    background-size: cover;
+    background-position: right center;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.ticket-tier-featured > * {
+    position: relative;
+    z-index: 1;
 }
 
 #qa {
