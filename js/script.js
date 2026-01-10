@@ -104,6 +104,7 @@ function updateCursorPosition(e) {
     if (customCursor) {
         customCursor.style.left = e.clientX + 'px';
         customCursor.style.top = e.clientY + 'px';
+        customCursor.classList.add('visible');
     }
 }
 
@@ -166,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseleave', () => {
         if (customCursor) {
             customCursor.classList.remove('active');
+            customCursor.classList.remove('visible');
         }
     });
 

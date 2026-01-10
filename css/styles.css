@@ -49,6 +49,11 @@ img {
     z-index: 114514;
     transition: width 0.1s ease, height 0.1s ease, border-color 0.1s ease, opacity 0.1s ease;
     mix-blend-mode: difference;
+    display: none;
+}
+
+.custom-cursor.visible {
+    display: block;
 }
 
 .custom-cursor::after {
