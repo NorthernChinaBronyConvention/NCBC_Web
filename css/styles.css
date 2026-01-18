@@ -197,6 +197,11 @@ body .qa-item:hover~.custom-cursor,
 .hero-mascot4-image,
 .hero-mascot-c-image {
     transition: transform 0.2s ease-out;
+    opacity: 0;
+}
+
+.hero-bg-right-image {
+    opacity: 0;
 }
 
 .hero-subtitle1 {
@@ -868,6 +873,94 @@ body .qa-item:hover~.custom-cursor,
     text-align: left;
 }
 
+body.loaded .hero-subtitle1,
+body.loaded .hero-subtitle2,
+body.loaded .hero-title1,
+body.loaded .hero-title2,
+body.loaded .hero-title3 {
+    animation: slideFromLeft 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body.loaded .hero-bg-left-image {
+    animation: slideFromRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body.loaded .hero-birds-image,
+body.loaded .hero-mascot1-image,
+body.loaded .hero-mascot2-image,
+body.loaded .hero-mascot3-image,
+body.loaded .hero-mascot4-image,
+body.loaded .hero-mascot-c-image,
+body.loaded .hero-bg-right-image {
+    animation: slideFromBottomMargin 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body.loaded .hero-subtitle1 { animation-delay: 0.1s; }
+body.loaded .hero-subtitle2 { animation-delay: 0.2s; }
+body.loaded .hero-title1 { animation-delay: 0.3s; }
+body.loaded .hero-title2 { animation-delay: 0.4s; }
+body.loaded .hero-title3 { animation-delay: 0.5s; }
+
+body.loaded .hero-bg-left-image { animation-delay: 0.2s; }
+body.loaded .hero-mascot1-image { animation-delay: 0.1s; }
+body.loaded .hero-mascot2-image { animation-delay: 0.2s; }
+body.loaded .hero-mascot3-image { animation-delay: 0.3s; }
+body.loaded .hero-mascot4-image { animation-delay: 0.4s; }
+body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
+
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        margin-left: -40px;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        margin-left: 40px;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideFromBottomMargin {
+    0% {
+        opacity: 0;
+        margin-bottom: -40px;
+    }
+    100% {
+        opacity: 1;
+        margin-bottom: 0;
+    }
+}
+
+@keyframes simpleFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 1200px) {
     .header {
         padding: 40px 10%;
@@ -935,6 +1028,27 @@ body .qa-item:hover~.custom-cursor,
 }
 
 @media (max-width: 768px) {
+    body.loaded .hero-subtitle1,
+    body.loaded .hero-subtitle2,
+    body.loaded .hero-title1,
+    body.loaded .hero-title2,
+    body.loaded .hero-title3 {
+        animation-name: slideFromBottom;
+    }
+
+    body.loaded .hero-bg-left-image,
+    body.loaded .hero-birds-image,
+    body.loaded .hero-mascot1-image,
+    body.loaded .hero-mascot2-image,
+    body.loaded .hero-mascot3-image,
+    body.loaded .hero-mascot4-image,
+    body.loaded .hero-mascot-c-image,
+    body.loaded .hero-bg-right-image {
+        animation-name: simpleFadeIn;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
     .custom-cursor {
         display: none;
     }
