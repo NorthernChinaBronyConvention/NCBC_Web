@@ -133,7 +133,7 @@ function updateCursorPosition(e) {
 }
 
 function handleLinkHover() {
-    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .qa-item');
+    const interactiveElements = document.querySelectorAll('a, button, .gallery-item');
     const disabledPaginationBtns = document.querySelectorAll('.pagination-btn:disabled');
 
     interactiveElements.forEach(element => {
@@ -234,23 +234,6 @@ function generateStars() {
 }
 
 document.addEventListener('DOMContentLoaded', generateStars);
-
-const qaQuestions = document.querySelectorAll('.qa-question');
-
-qaQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const toggle = question.querySelector('.qa-toggle');
-
-        answer.classList.toggle('active');
-
-        if (answer.classList.contains('active')) {
-            toggle.textContent = '-';
-        } else {
-            toggle.textContent = '+';
-        }
-    });
-});
 
 document.addEventListener('DOMContentLoaded', function () {
     const heroBgLeftImage = document.querySelector('.hero-bg-left-image');
