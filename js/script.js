@@ -13,6 +13,8 @@ window.addEventListener('load', function () {
 
 const header = document.querySelector('.header');
 const nav = document.querySelector('.nav');
+let lastScrollY = window.scrollY;
+let ticking = false;
 
 window.addEventListener('scroll', handleScroll);
 window.addEventListener('load', handleScroll);
@@ -25,6 +27,27 @@ function handleScroll() {
         header.classList.remove('scrolled');
         nav.classList.remove('scrolled');
     }
+    
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            updateHeaderVisibility();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+function updateHeaderVisibility() {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        header.classList.add('hidden');
+    }
+    else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+        header.classList.remove('hidden');
+    }
+    
+    lastScrollY = currentScrollY;
 }
 
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
@@ -291,6 +314,32 @@ document.addEventListener('DOMContentLoaded', function () {
         if (heroTitle3) {
             heroTitle3.style.transform = '';
         }
+    }
+
+    const merchScene = document.getElementById('merchScene');
+    if (merchScene) {
+        const merchLayers = document.querySelectorAll('.merch-layer');
+        
+        merchScene.addEventListener('mousemove', (e) => {
+            const rect = merchScene.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const percentX = (x - centerX) / centerX;
+            const percentY = (y - centerY) / centerY;
+            
+            merchLayers.forEach(layer => {
+                const speed = layer.getAttribute('data-speed');
+                const moveX = percentX * speed * 20;
+                const moveY = percentY * speed * 20;
+                
+                layer.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+            });
+        });
+        
     }
 
     if (hero) {
