@@ -69,6 +69,22 @@ window.addEventListener('scroll', highlightNavOnScroll);
 
 document.addEventListener('DOMContentLoaded', highlightNavOnScroll);
 
+let lenis;
+if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 1,
+        smoothWheel: true,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+}
+
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -76,19 +92,27 @@ navLinks.forEach(link => {
         const targetId = this.getAttribute('href');
 
         if (targetId === '#') {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+             if (lenis) {
+                lenis.scrollTo(0);
+             } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+             }
             return;
         }
 
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
+            if (lenis) {
+                lenis.scrollTo(targetElement, { offset: -80 });
+            } else {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         navLinks.forEach(navLink => {
