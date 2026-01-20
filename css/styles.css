@@ -725,12 +725,13 @@ body .gallery-item:hover~.custom-cursor,
         flex-direction: column;
         gap: 30px;
     }
-    
-    .venue-visuals, .venue-text-panel {
+
+    .venue-visuals,
+    .venue-text-panel {
         flex: auto;
         width: 100%;
     }
-    
+
     .venue-bg-element {
         width: 200px;
         height: 200px;
@@ -739,19 +740,27 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 @media (max-width: 768px) {
+    .venue-bg-element {
+        display: none;
+    }
+
     .venue-constructivism {
         padding: 20px 0;
     }
-    
+
     .venue-title-block h2 {
         font-size: 32px;
     }
-    
+
+    .venue-title-block {
+        margin-top: 40px;
+    }
+
     .venue-id {
         font-size: 40px;
         top: -20px;
     }
-    
+
     .venue-image-frame {
         padding-bottom: 56.25%;
     }
@@ -895,7 +904,7 @@ body .gallery-item:hover~.custom-cursor,
     right: -20px;
     width: 150px;
     height: 150px;
-    border: 2px solid #a2aed5;
+    background-color: #1c2264;
     z-index: 1;
     transform: rotate(15deg);
     transition: transform 0.5s ease;
@@ -906,12 +915,13 @@ body .gallery-item:hover~.custom-cursor,
         flex-direction: column-reverse;
         gap: 40px;
     }
-    
-    .vision-text-panel, .vision-visuals {
+
+    .vision-text-panel,
+    .vision-visuals {
         flex: auto;
         width: 100%;
     }
-    
+
     .vision-image-container {
         max-width: 300px;
     }
@@ -921,14 +931,15 @@ body .gallery-item:hover~.custom-cursor,
     .vision-constructivism {
         padding: 40px 0;
     }
-    
+
     .vision-title {
         font-size: 36px;
     }
-    
+
     .vision-id {
-        font-size: 80px;
-        top: -40px;
+        font-size: 50px;
+        top: -20px;
+        left: 2px;
     }
 }
 
@@ -1158,19 +1169,20 @@ body .gallery-item:hover~.custom-cursor,
         flex-direction: column;
         align-items: center;
     }
-    
+
+    .tickets-id {
+        font-size: 80px;
+        top: -40px;
+    }
+
     .ticket-card {
         width: 100%;
         max-width: 400px;
     }
-    
+
     .ticket-card.featured {
         transform: none;
         margin: 20px 0;
-    }
-    
-    .ticket-card.featured:hover {
-        transform: translateY(-10px);
     }
 }
 
@@ -1251,7 +1263,7 @@ body .gallery-item:hover~.custom-cursor,
     height: 200%;
     top: -50%;
     left: -50%;
-    background-image: 
+    background-image:
         linear-gradient(rgba(162, 174, 213, 0.25) 1px, transparent 1px),
         linear-gradient(90deg, rgba(162, 174, 213, 0.25) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -1279,25 +1291,25 @@ body .gallery-item:hover~.custom-cursor,
     #merch {
         margin-top: 120px;
     }
-    
+
     .merch-title {
         font-size: 36px;
     }
-    
+
     .merch-id {
         font-size: 80px;
         top: -40px;
     }
-    
+
     .merch-scene {
         height: 300px;
     }
-    
+
     .merch-box {
         width: 300px;
         height: 450px;
     }
-    
+
     .merch-logos-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -1424,24 +1436,56 @@ body.loaded .hero-bg-right-image {
     animation: slideFromBottomMargin 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-body.loaded .hero-subtitle1 { animation-delay: 0.1s; }
-body.loaded .hero-subtitle2 { animation-delay: 0.2s; }
-body.loaded .hero-title1 { animation-delay: 0.3s; }
-body.loaded .hero-title2 { animation-delay: 0.4s; }
-body.loaded .hero-title3 { animation-delay: 0.5s; }
+body.loaded .hero-subtitle1 {
+    animation-delay: 0.1s;
+}
 
-body.loaded .hero-bg-left-image { animation-delay: 0.2s; }
-body.loaded .hero-mascot1-image { animation-delay: 0.1s; }
-body.loaded .hero-mascot2-image { animation-delay: 0.2s; }
-body.loaded .hero-mascot3-image { animation-delay: 0.3s; }
-body.loaded .hero-mascot4-image { animation-delay: 0.4s; }
-body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
+body.loaded .hero-subtitle2 {
+    animation-delay: 0.2s;
+}
+
+body.loaded .hero-title1 {
+    animation-delay: 0.3s;
+}
+
+body.loaded .hero-title2 {
+    animation-delay: 0.4s;
+}
+
+body.loaded .hero-title3 {
+    animation-delay: 0.5s;
+}
+
+body.loaded .hero-bg-left-image {
+    animation-delay: 0.2s;
+}
+
+body.loaded .hero-mascot1-image {
+    animation-delay: 0.1s;
+}
+
+body.loaded .hero-mascot2-image {
+    animation-delay: 0.2s;
+}
+
+body.loaded .hero-mascot3-image {
+    animation-delay: 0.3s;
+}
+
+body.loaded .hero-mascot4-image {
+    animation-delay: 0.4s;
+}
+
+body.loaded .hero-mascot-c-image {
+    animation-delay: 0.5s;
+}
 
 @keyframes slideFromLeft {
     0% {
         opacity: 0;
         margin-left: -40px;
     }
+
     100% {
         opacity: 1;
         margin-left: 0;
@@ -1453,6 +1497,7 @@ body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
         opacity: 0;
         margin-left: 40px;
     }
+
     100% {
         opacity: 1;
         margin-left: 0;
@@ -1464,6 +1509,7 @@ body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
         opacity: 0;
         transform: translateY(40px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -1475,6 +1521,7 @@ body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
         opacity: 0;
         margin-bottom: -40px;
     }
+
     100% {
         opacity: 1;
         margin-bottom: 0;
@@ -1485,6 +1532,7 @@ body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -1557,6 +1605,7 @@ body.loaded .hero-mascot-c-image { animation-delay: 0.5s; }
 }
 
 @media (max-width: 768px) {
+
     body.loaded .hero-subtitle1,
     body.loaded .hero-subtitle2,
     body.loaded .hero-title1,
