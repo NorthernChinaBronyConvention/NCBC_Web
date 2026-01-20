@@ -479,7 +479,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const distance = targetDate - now;
 
         if (distance < 0) {
-            document.querySelector('.countdown-container').innerHTML = '<div class="countdown-content"><h2 class="countdown-title">活动已经开始！</h2></div>';
+            document.querySelector('.countdown-container').innerHTML = `
+            <div class="countdown-constructivism">
+                <div class="countdown-deco-tl"></div>
+                <div class="countdown-header">
+                    <span class="countdown-label">COUNTDOWN</span>
+                    <span class="countdown-target">2026.08.01</span>
+                </div>
+                <div class="countdown-grid">
+                    <div style="font-family: 'font3', sans-serif; font-size: 24px; color: white; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);">
+                        EVENT STARTED
+                    </div>
+                </div>
+            </div>`;
             return;
         }
 
