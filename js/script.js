@@ -160,7 +160,7 @@ function updateCursorPosition(e) {
 }
 
 function handleLinkHover() {
-    const interactiveElements = document.querySelectorAll('a, button, .gallery-item');
+    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .merch-logo, .merch-modal-close');
     const disabledPaginationBtns = document.querySelectorAll('.pagination-btn:disabled');
 
     interactiveElements.forEach(element => {
@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const merchLayers = document.querySelectorAll('.merch-layer');
 
         merchScene.addEventListener('mousemove', (e) => {
+            if (isMobile()) return;
             const rect = merchScene.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -554,6 +555,103 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!hamburger.contains(event.target) && !nav.contains(event.target)) {
             hamburger.classList.remove('active');
             nav.classList.remove('active');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('merchModal');
+    const modalClose = document.querySelector('.merch-modal-close');
+    const modalTitle = document.getElementById('merchModalTitle');
+    const modalDesc = document.getElementById('merchModalDesc');
+    const modalImg = document.getElementById('merchModalImg');
+    const merchLogos = document.querySelectorAll('.merch-logo');
+    const prevBtn = modal.querySelector('.merch-modal-nav.prev');
+    const nextBtn = modal.querySelector('.merch-modal-nav.next');
+
+    let currentImages = [];
+    let currentImageIndex = 0;
+
+    function updateModalImage() {
+        if (currentImages.length > 0) {
+            modalImg.src = currentImages[currentImageIndex];
+            
+            if (prevBtn && nextBtn) {
+                const isMultiple = currentImages.length > 1;
+                prevBtn.disabled = !isMultiple;
+                nextBtn.disabled = !isMultiple;
+                prevBtn.style.display = isMultiple ? 'flex' : 'none';
+                nextBtn.style.display = isMultiple ? 'flex' : 'none';
+            }
+        }
+    }
+
+    function openModal(element) {
+        const title = element.getAttribute('data-title');
+        const desc = element.getAttribute('data-desc');
+        const imagesStr = element.getAttribute('data-images');
+        const logoSrc = element.getAttribute('data-logo');
+        
+        currentImages = imagesStr ? imagesStr.split(',') : [];
+        currentImageIndex = 0;
+
+        modalTitle.textContent = title || '名称';
+        modalDesc.textContent = desc || '介绍';
+        
+        const modalLogo = document.getElementById('merchModalLogoImg');
+        if (modalLogo) {
+            modalLogo.src = logoSrc;
+        }
+
+        updateModalImage();
+        
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+
+    merchLogos.forEach(logo => {
+        logo.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal(logo);
+        });
+    });
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+            updateModalImage();
+        });
+    }
+
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
         }
     });
 });

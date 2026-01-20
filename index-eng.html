@@ -229,24 +229,55 @@
                         </div>
 
                         <div class="merch-layer" data-speed="0.3" style="top: 30%; left: 45%;">
-                            <img src="img/dlc-ico.webp" alt="Logo 1" class="merch-logo" style="max-width: 150px;">
+                            <img src="img/dlc-ico.webp" class="merch-logo" 
+                                data-title="Shop Name" 
+                                data-desc="Introduction"
+                                data-logo="img/dlc-ico.webp"
+                                data-images="img/dlc-ico.webp,img/sample.jpg"
+                                style="max-width: 150px;">
                         </div>
                         <div class="merch-layer" data-speed="0.6" style="top: 70%; left: 25%;">
-                            <img src="img/dlc-ico.webp" alt="Logo 2" class="merch-logo" style="max-width: 120px;">
+                            <img src="img/dlc-ico.webp" class="merch-logo" 
+                                data-title="Shop Name" 
+                                data-desc="Introduction"
+                                data-logo="img/dlc-ico.webp"
+                                data-images="img/dlc-ico.webp,img/venue.webp"
+                                style="max-width: 120px;">
                         </div>
                         <div class="merch-layer" data-speed="0.2" style="top: 20%; left: 70%;">
-                            <img src="img/dlc-ico.webp" alt="Logo 3" class="merch-logo" style="max-width: 100px;">
+                            <img src="img/dlc-ico.webp" class="merch-logo" 
+                                data-title="Shop Name" 
+                                data-desc="Introduction"
+                                data-logo="img/dlc-ico.webp"
+                                data-images="img/dlc-ico.webp"
+                                style="max-width: 100px;">
                         </div>
                         <div class="merch-layer" data-speed="0.8" style="top: 80%; left: 65%;">
-                            <img src="img/dlc-ico.webp" alt="Logo 4" class="merch-logo" style="max-width: 110px;">
+                            <img src="img/dlc-ico.webp" class="merch-logo" 
+                                data-title="Shop Name" 
+                                data-desc="Introduction"
+                                data-logo="img/dlc-ico.webp"
+                                data-images="img/dlc-ico.webp"
+                                style="max-width: 110px;">
                         </div>
                         <div class="merch-layer" data-speed="0.45" style="top: 45%; left: 80%;">
-                            <img src="img/dlc-ico.webp" alt="Logo 5" class="merch-logo" style="max-width: 80px;">
+                            <img src="img/dlc-ico.webp" class="merch-logo" 
+                                data-title="Shop Name" 
+                                data-desc="Introduction"
+                                data-logo="img/dlc-ico.webp"
+                                data-images="img/dlc-ico.webp"
+                                style="max-width: 80px;">
                         </div>
                         <div class="merch-layer" data-speed="1.1" style="top: 50%; left: 15%;">
-                            <img src="img/dlc-ico.webp" alt="Logo 6" class="merch-logo" style="max-width: 90px;">
+                            <img src="img/dlc-ico.webp" class="merch-logo" 
+                                data-title="Shop Name" 
+                                data-desc="Description"
+                                data-logo="img/dlc-ico.webp"
+                                data-images="img/dlc-ico.webp"
+                                style="max-width: 90px;">
                         </div>
                     </div>
+                    <p class="merch-hint">Click icons for details</p>
                 </div>
             </div>
         </section>
@@ -275,6 +306,26 @@
         </div>
 
     </footer>
+
+    <div id="merchModal" class="merch-modal">
+        <div class="merch-modal-content">
+            <button class="merch-modal-close">&times;</button>
+            <div class="merch-modal-body">
+                <div class="merch-modal-info">
+                    <div class="merch-modal-logo">
+                        <img id="merchModalLogoImg" src="img/dlc.svg">
+                    </div>
+                    <h2 id="merchModalTitle"></h2>
+                    <p id="merchModalDesc"></p>
+                </div>
+                <div class="merch-modal-image">
+                    <button class="merch-modal-nav prev"><</button>
+                    <img id="merchModalImg" src="">
+                    <button class="merch-modal-nav next">></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/lenis.min.js"></script> 
     <script src="js/script.js"></script>
