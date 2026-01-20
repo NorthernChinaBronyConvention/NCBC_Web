@@ -1664,69 +1664,69 @@ body.modal-open {
     text-align: left;
 }
 
-body.loaded .hero-subtitle1,
-body.loaded .hero-subtitle2,
-body.loaded .hero-title1,
-body.loaded .hero-title2,
-body.loaded .hero-title3 {
+body.hero-loaded .hero-subtitle1,
+body.hero-loaded .hero-subtitle2,
+body.hero-loaded .hero-title1,
+body.hero-loaded .hero-title2,
+body.hero-loaded .hero-title3 {
     animation: slideFromLeft 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-body.loaded .hero-bg-left-image {
+body.hero-loaded .hero-bg-left-image {
     animation: slideFromRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-body.loaded .hero-birds-image,
-body.loaded .hero-mascot1-image,
-body.loaded .hero-mascot2-image,
-body.loaded .hero-mascot3-image,
-body.loaded .hero-mascot4-image,
-body.loaded .hero-mascot-c-image,
-body.loaded .hero-bg-right-image {
+body.hero-loaded .hero-birds-image,
+body.hero-loaded .hero-mascot1-image,
+body.hero-loaded .hero-mascot2-image,
+body.hero-loaded .hero-mascot3-image,
+body.hero-loaded .hero-mascot4-image,
+body.hero-loaded .hero-mascot-c-image,
+body.hero-loaded .hero-bg-right-image {
     animation: slideFromBottomMargin 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-body.loaded .hero-subtitle1 {
+body.hero-loaded .hero-subtitle1 {
     animation-delay: 0.1s;
 }
 
-body.loaded .hero-subtitle2 {
+body.hero-loaded .hero-subtitle2 {
     animation-delay: 0.2s;
 }
 
-body.loaded .hero-title1 {
+body.hero-loaded .hero-title1 {
     animation-delay: 0.3s;
 }
 
-body.loaded .hero-title2 {
+body.hero-loaded .hero-title2 {
     animation-delay: 0.4s;
 }
 
-body.loaded .hero-title3 {
+body.hero-loaded .hero-title3 {
     animation-delay: 0.5s;
 }
 
-body.loaded .hero-bg-left-image {
+body.hero-loaded .hero-bg-left-image {
     animation-delay: 0.2s;
 }
 
-body.loaded .hero-mascot1-image {
+body.hero-loaded .hero-mascot1-image {
     animation-delay: 0.1s;
 }
 
-body.loaded .hero-mascot2-image {
+body.hero-loaded .hero-mascot2-image {
     animation-delay: 0.2s;
 }
 
-body.loaded .hero-mascot3-image {
+body.hero-loaded .hero-mascot3-image {
     animation-delay: 0.3s;
 }
 
-body.loaded .hero-mascot4-image {
+body.hero-loaded .hero-mascot4-image {
     animation-delay: 0.4s;
 }
 
-body.loaded .hero-mascot-c-image {
+body.hero-loaded .hero-mascot-c-image {
     animation-delay: 0.5s;
 }
 
@@ -2388,13 +2388,16 @@ body.loaded .hero-mascot-c-image {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.5s ease, visibility 0s linear 0s;
     overflow: hidden;
+    opacity: 1;
+    visibility: visible;
 }
 
 body.loaded .loader {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
 .loader-bg {
