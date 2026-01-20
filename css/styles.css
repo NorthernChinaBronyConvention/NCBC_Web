@@ -1027,7 +1027,7 @@ body .gallery-item:hover~.custom-cursor,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/ticket/1.png");
+    background-image: url("../img/ticket/1.webp");
     background-size: cover;
     background-position: right center;
     opacity: 0.05;
