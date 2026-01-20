@@ -1414,10 +1414,6 @@ body .gallery-item:hover~.custom-cursor,
     filter: drop-shadow(0 0 15px rgba(162, 174, 213, 0.15));
 }
 
-body.modal-open {
-    overflow: hidden !important;
-}
-
 .merch-modal-logo img {
     width: 100%;
     height: auto;

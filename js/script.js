@@ -131,7 +131,7 @@ function finishLoading() {
             loaderText.textContent = '// Done';
         }
         startLoaderAnimation();
-    }, 100);
+    }, 800);
 }
 
 function initPage() {
