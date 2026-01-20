@@ -2,6 +2,27 @@ console.log('我是叨叨，这个网站的搭建者，你既然通过翻日志�
 console.log('🥵🥵烧叨艾草！');
 
 window.addEventListener('load', function () {
+    const loaderBg = document.getElementById('loader-bg');
+    if (loaderBg) {
+        let binaryString = '';
+        for (let i = 0; i < 20000; i++) {
+            binaryString += Math.random() > 0.5 ? '1' : '0';
+        }
+        loaderBg.textContent = binaryString;
+
+        setInterval(() => {
+            let newBinaryString = '';
+            for (let i = 0; i < 20000; i++) {
+                newBinaryString += Math.random() > 0.5 ? '1' : '0';
+            }
+            loaderBg.textContent = newBinaryString;
+            
+            const randomX = (Math.random() - 0.5) * 10;
+            const randomY = (Math.random() - 0.5) * 10;
+            loaderBg.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }, 100);
+    }
+
     setTimeout(function () {
         document.body.classList.add('loaded');
         const loaderText = document.querySelector('.loader-text-left');
