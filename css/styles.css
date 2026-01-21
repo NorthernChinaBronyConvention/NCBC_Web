@@ -2673,6 +2673,124 @@ body.loaded .loader {
     }
 }
 
+#more {
+    margin-top: 180px;
+    margin-bottom: 80px;
+}
+
+.more-constructivism {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.more-header {
+    position: relative;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.more-id {
+    font-family: 'font4', monospace;
+    font-size: 120px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    z-index: -1;
+}
+
+.more-title {
+    font-size: 48px;
+    color: white;
+    margin: 0;
+    font-family: 'font3', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.more-subtitle-bar {
+    display: inline-block;
+    background-color: #a2aed5;
+    color: #1c2264;
+    font-family: 'font4', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin-top: 10px;
+    letter-spacing: 3px;
+}
+
+.more-content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.more-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 80px;
+    text-decoration: none;
+    border: 2px solid #a2aed5;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.more-button:hover {
+    background: #a2aed5;
+}
+
+.btn-text {
+    font-family: 'font3', sans-serif;
+    font-size: 24px;
+    color: white;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.more-button:hover .btn-text {
+    color: #1c2264;
+}
+
+.btn-deco {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: #a2aed5;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    #more {
+        margin-top: 120px;
+    }
+
+    .more-title {
+        font-size: 36px;
+    }
+
+    .more-id {
+        font-size: 80px;
+        top: -40px;
+    }
+
+    .more-button {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
 @media (max-width: 480px) {
     .ticket-tier {
         padding: 20px;
