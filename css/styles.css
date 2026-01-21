@@ -188,6 +188,16 @@ body .gallery-item:hover~.custom-cursor,
     padding-top: 20vh;
 }
 
+.hero-grid-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
 .hero-subtitle1,
 .hero-subtitle2,
 .hero-title1,

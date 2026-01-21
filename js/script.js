@@ -29,14 +29,14 @@ function handleLinkClick(e) {
     const href = link.getAttribute('href');
     const target = link.getAttribute('target');
 
-    if (!href || 
-        href.startsWith('#') || 
-        href.startsWith('javascript:') || 
-        href.startsWith('mailto:') || 
-        href.startsWith('tel:') || 
+    if (!href ||
+        href.startsWith('#') ||
+        href.startsWith('javascript:') ||
+        href.startsWith('mailto:') ||
+        href.startsWith('tel:') ||
         target === '_blank' ||
         link.hasAttribute('download')) {
-        
+
         if (href.startsWith('#')) {
             if (lenis && href !== '#') {
                 e.preventDefault();
@@ -89,7 +89,7 @@ async function navigateTo(url, pushState = true) {
 
         const newBodyContent = newDoc.body.innerHTML;
         document.body.innerHTML = newBodyContent;
-        
+
         if (pushState) {
             window.history.pushState({}, '', url);
         }
@@ -135,7 +135,7 @@ function finishLoading() {
 }
 
 function initPage() {
-    startLoaderAnimation(); 
+    startLoaderAnimation();
     initCommon();
     initLenis();
     initCursor();
@@ -143,7 +143,7 @@ function initPage() {
     initNav();
 
     const path = window.location.pathname;
-    
+
     if (document.querySelector('.hero') || path.endsWith('index.html') || path === '/' || path.endsWith('/')) {
         initHome();
     }
@@ -175,7 +175,7 @@ function startLoaderAnimation() {
                 newBinaryString += Math.random() > 0.5 ? '1' : '0';
             }
             loaderBg.textContent = newBinaryString;
-            
+
             const randomX = (Math.random() - 0.5) * 10;
             const randomY = (Math.random() - 0.5) * 10;
             loaderBg.style.transform = `translate(${randomX}px, ${randomY}px)`;
@@ -207,7 +207,7 @@ function initNav() {
     const nav = document.querySelector('.nav');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelectorAll('.nav a');
-    
+
     if (!header || !nav) return;
 
     let lastScrollY = window.scrollY;
@@ -235,16 +235,16 @@ function initNav() {
             });
             ticking = true;
         }
-        
+
         if (!window.isDisabledNav) {
             highlightNavOnScroll();
         }
     };
 
-    window.removeEventListener('scroll', window.handleScrollRef); 
-    window.handleScrollRef = handleScroll; 
+    window.removeEventListener('scroll', window.handleScrollRef);
+    window.handleScrollRef = handleScroll;
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
 
     if (hamburger) {
         hamburger.onclick = function () {
@@ -303,9 +303,7 @@ function initCursor() {
     const customCursor = document.getElementById('customCursor');
     if (!customCursor) return;
 
-    function isMobile() {
-        return window.innerWidth < 768;
-    }
+    function isMobile() { return window.innerWidth < 768; }
 
     function updateCursorPosition(e) {
         if (!isMobile()) {
@@ -372,7 +370,7 @@ function handleLinkHover() {
 function initStars() {
     const footer = document.querySelector('.footer');
     if (!footer) return;
-    
+
     const oldStars = footer.querySelectorAll('.star');
     oldStars.forEach(s => s.remove());
 
@@ -402,6 +400,92 @@ function initHome() {
     initParallax();
     initCountdown();
     initMerchModal();
+    initHeroGrid();
+}
+
+function initHeroGrid() {
+    const canvas = document.getElementById('heroGridCanvas');
+    function isMobile() { return window.innerWidth < 768; }
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let mouseX = -1000;
+    let mouseY = -1000;
+
+    const gridSize = 50;
+    const revealRadius = 300;
+
+    function resize() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        width = canvas.width = hero.offsetWidth;
+        height = canvas.height = hero.offsetHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    let targetAlpha = 0;
+    let currentAlpha = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        mouseX = x;
+        mouseY = y;
+
+        if (x >= 0 && x <= width && y >= 0 && y <= height) {
+            targetAlpha = 1;
+        } else {
+            targetAlpha = 0;
+        }
+    });
+
+    document.addEventListener('mouseleave', () => {
+        targetAlpha = 0;
+    });
+
+    function draw() {
+        if (isMobile()) return;
+        ctx.clearRect(0, 0, width, height);
+
+        currentAlpha += (targetAlpha - currentAlpha) * 0.07;
+
+        if (currentAlpha > 0.001) {
+            const cols = Math.ceil(width / gridSize);
+            const rows = Math.ceil(height / gridSize);
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    const x = i * gridSize;
+                    const y = j * gridSize;
+
+                    const centerX = x + gridSize / 2;
+                    const centerY = y + gridSize / 2;
+
+                    const dist = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
+
+                    if (dist < revealRadius) {
+                        const opacity = Math.pow(1 - dist / revealRadius, 2) * currentAlpha;
+
+                        ctx.strokeStyle = `rgba(162, 174, 213, ${opacity * 0.5})`;
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(x, y, gridSize, gridSize);
+
+                        ctx.fillStyle = `rgba(162, 174, 213, ${opacity})`;
+                        ctx.fillRect(centerX - 1, centerY - 1, 2, 2);
+                    }
+                }
+            }
+        }
+
+        requestAnimationFrame(draw);
+    }
+
+    draw();
 }
 
 function initParallax() {
@@ -483,7 +567,7 @@ function initParallax() {
         if (elements.mascot3) elements.mascot3.style.transform = `translate(${offsetX * intensities.m3}px, ${offsetY * intensities.m3}px)`;
         if (elements.mascotC) elements.mascotC.style.transform = `translate(${offsetX * intensities.mc}px, ${offsetY * intensities.mc}px)`;
         if (elements.mascot4) elements.mascot4.style.transform = `translate(${offsetX * intensities.m4}px, ${offsetY * intensities.m4}px)`;
-        
+
         const titleTransform = `translate(${offsetX * intensities.title}px, ${offsetY * intensities.title}px)`;
         if (elements.sub1) elements.sub1.style.transform = titleTransform;
         if (elements.sub2) elements.sub2.style.transform = titleTransform;
@@ -602,13 +686,13 @@ function initMerchModal() {
         const desc = element.getAttribute('data-desc');
         const imagesStr = element.getAttribute('data-images');
         const logoSrc = element.getAttribute('data-logo');
-        
+
         currentImages = imagesStr ? imagesStr.split(',') : [];
         currentImageIndex = 0;
 
         modalTitle.textContent = title || '名称';
         modalDesc.textContent = desc || '介绍';
-        
+
         const modalLogo = document.getElementById('merchModalLogoImg');
         if (modalLogo) modalLogo.src = logoSrc;
 
@@ -643,7 +727,7 @@ function initMerchModal() {
 
     if (modalClose) modalClose.onclick = closeModal;
     modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-    
+
     document.onkeydown = (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     };
@@ -682,7 +766,7 @@ function initGallery() {
                 }
             });
         }, { rootMargin: '200px 0px', threshold: 0.01 });
-        
+
         lazyImages.forEach(img => imageObserver.observe(img));
     }
 
@@ -700,7 +784,7 @@ function initGallery() {
 
         setupLazyLoading();
         updatePagination();
-        handleLinkHover(); 
+        handleLinkHover();
     }
 
     function updatePagination() {
@@ -728,7 +812,7 @@ function initGallery() {
         currentImageIndex = index;
         lightboxImg.src = galleryItems[index].dataset.src;
         lightboxName.textContent = galleryItems[index].dataset.name || '';
-        
+
         const imgAuthor = galleryItems[index].dataset.author;
         let authorElement = lightbox.querySelector('.lightbox-author');
         if (!authorElement) {
@@ -739,7 +823,7 @@ function initGallery() {
             }
         }
         authorElement.textContent = imgAuthor || '';
-        
+
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
