@@ -2460,7 +2460,7 @@ body.loaded .loader {
 }
 
 .error-page {
-    background-color: #1c2264;
+    background-color: #262d74;
     color: white;
     overflow: hidden;
     width: 100vw;
@@ -2476,7 +2476,7 @@ body.loaded .loader {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: radial-gradient(circle at center, #262d74 0%, #151a4d 100%);
+    background: #262d74;
 }
 
 .c404-grid {
@@ -2514,7 +2514,6 @@ body.loaded .loader {
     color: white;
     line-height: 0.8;
     position: relative;
-    text-shadow: 4px 4px 0 #a2aed5;
 }
 
 .c404-title::before,
@@ -2600,6 +2599,18 @@ body.loaded .loader {
     20% { transform: translate(2px, 4px); }
     25% { transform: translate(-2px, -4px); }
     30% { transform: translate(0); }
+    35% { transform: translate(0); opacity: 1; }
+    40% { transform: translate(-4px, 2px); opacity: 0.75; }
+    45% { transform: translate(4px, -2px); opacity: 1; }
+    50% { transform: translate(0); }
+    55% { transform: translate(2px, 4px); }
+    60% { transform: translate(-2px, -4px); }
+    65% { transform: translate(0); }
+    70% { transform: translate(2px, 4px); }
+    75% { transform: translate(-2px, -4px); }
+    80% { transform: translate(0); }
+    85% { transform: translate(0); opacity: 1; }
+    90% { transform: translate(-4px, 2px); opacity: 0.75; }
     100% { transform: translate(0); }
 }
 
@@ -2608,9 +2619,22 @@ body.loaded .loader {
     5% { transform: translate(4px, -2px); opacity: 0.75; }
     10% { transform: translate(-4px, 2px); opacity: 1; }
     15% { transform: translate(0); }
+    20% { transform: translate(4px, -2px); opacity: 0.75; }
+    25% { transform: translate(-4px, 2px); opacity: 1; }
+    30% { transform: translate(-4px, 2px); opacity: 1; }
+    35% { transform: translate(0); }
     40% { transform: translate(-2px, -2px); }
     45% { transform: translate(2px, 2px); }
     50% { transform: translate(0); }
+    55% { transform: translate(0); }
+    60% { transform: translate(4px, -2px); opacity: 0.75; }
+    65% { transform: translate(-4px, 2px); opacity: 1; }
+    70% { transform: translate(-4px, 2px); opacity: 1; }
+    75% { transform: translate(0); }
+    80% { transform: translate(-2px, -2px); }
+    85% { transform: translate(2px, 2px); }
+    90% { transform: translate(0); }
+    95% { transform: translate(2px, 2px); }
     100% { transform: translate(0); }
 }
 
