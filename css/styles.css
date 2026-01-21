@@ -40,16 +40,19 @@ img {
 
 .custom-cursor {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 18px;
     height: 18px;
     border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 0;
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate3d(0, 0, 0) translate(-50%, -50%);
     pointer-events: none;
     z-index: 114514;
     transition: width 0.1s ease, height 0.1s ease, border-color 0.1s ease, opacity 0.1s ease;
     mix-blend-mode: difference;
     display: none;
+    will-change: transform;
 }
 
 .custom-cursor.visible {

@@ -342,17 +342,37 @@ function initCursor() {
 
     function isMobile() { return window.innerWidth < 768; }
 
-    function updateCursorPosition(e) {
-        if (!isMobile()) {
-            customCursor.style.left = e.clientX + 'px';
-            customCursor.style.top = e.clientY + 'px';
+    let mouseX = -100;
+    let mouseY = -100;
+    let isVisible = false;
+
+    if (window.cursorRaf) cancelAnimationFrame(window.cursorRaf);
+
+    function onMouseMove(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible && !isMobile()) {
+            isVisible = true;
             customCursor.classList.add('visible');
         }
     }
 
+    function updateCursor() {
+        if (isMobile()) {
+            if (isVisible) {
+                isVisible = false;
+                customCursor.classList.remove('visible');
+            }
+        } else if (isVisible) {
+             customCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        }
+        
+        window.cursorRaf = requestAnimationFrame(updateCursor);
+    }
+
     document.removeEventListener('mousemove', window.cursorMoveRef);
-    window.cursorMoveRef = updateCursorPosition;
-    document.addEventListener('mousemove', updateCursorPosition);
+    window.cursorMoveRef = onMouseMove;
+    document.addEventListener('mousemove', onMouseMove);
 
     document.addEventListener('mousedown', () => customCursor.classList.add('active'));
     document.addEventListener('mouseup', () => customCursor.classList.remove('active'));
@@ -360,47 +380,35 @@ function initCursor() {
         if (!isMobile()) {
             customCursor.classList.remove('active');
             customCursor.classList.remove('visible');
+            isVisible = false;
         }
     });
 
-    window.addEventListener('resize', () => {
-        customCursor.style.left = window.innerWidth / 2 + 'px';
-        customCursor.style.top = window.innerHeight / 2 + 'px';
+    updateCursor();
+
+    document.addEventListener('mouseover', (e) => {
+        if (isMobile()) return;
+        const target = e.target.closest('a, button, .gallery-item, .merch-logo, .merch-modal-close');
+        if (target) {
+            if (target.classList.contains('pagination-btn') && target.disabled) {
+                customCursor.classList.add('disabled');
+                customCursor.classList.remove('hover');
+            } else {
+                customCursor.classList.add('hover');
+                customCursor.classList.remove('disabled');
+            }
+        }
     });
 
-    handleLinkHover();
-}
-
-function handleLinkHover() {
-    const customCursor = document.getElementById('customCursor');
-    if (!customCursor) return;
-
-    const interactiveElements = document.querySelectorAll('a, button, .gallery-item, .merch-logo, .merch-modal-close');
-    const disabledPaginationBtns = document.querySelectorAll('.pagination-btn:disabled');
-
-    interactiveElements.forEach(element => {
-        if (element.classList.contains('pagination-btn') && element.disabled) return;
-
-        element.addEventListener('mouseenter', () => {
-            customCursor.classList.add('hover');
-            customCursor.classList.remove('disabled');
-        });
-
-        element.addEventListener('mouseleave', () => {
-            customCursor.classList.remove('hover');
-            customCursor.classList.remove('disabled');
-        });
-    });
-
-    disabledPaginationBtns.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-            customCursor.classList.add('disabled');
-            customCursor.classList.remove('hover');
-        });
-        btn.addEventListener('mouseleave', () => {
-            customCursor.classList.remove('disabled');
-            customCursor.classList.remove('hover');
-        });
+    document.addEventListener('mouseout', (e) => {
+        if (isMobile()) return;
+        const target = e.target.closest('a, button, .gallery-item, .merch-logo, .merch-modal-close');
+        if (target) {
+            if (!target.contains(e.relatedTarget)) {
+                customCursor.classList.remove('hover');
+                customCursor.classList.remove('disabled');
+            }
+        }
     });
 }
 
@@ -620,12 +628,6 @@ function initParallax() {
     });
 
     window.addEventListener('scroll', updateParallaxEffect);
-    window.addEventListener('resize', () => {
-        heroRect = hero.getBoundingClientRect();
-        heroCenterX = heroRect.width / 2;
-        heroCenterY = heroRect.height / 2;
-        if (isMobile()) resetParallaxElements();
-    });
 }
 
 function initCountdown() {
@@ -787,15 +789,19 @@ function initGallery() {
     let currentPage = 1;
     const itemsPerPage = 6;
     let currentImageIndex = 0;
+    let imageObserver;
 
     function setupLazyLoading() {
-        const lazyImages = document.querySelectorAll('.lazy-load');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        if (imageObserver) {
+            imageObserver.disconnect();
+        }
+
+        imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
                     const src = img.getAttribute('data-src');
-                    if (src) {
+                    if (src && !img.src) {
                         img.src = src;
                         img.onload = () => img.classList.add('loaded');
                         observer.unobserve(img);
@@ -804,7 +810,13 @@ function initGallery() {
             });
         }, { rootMargin: '200px 0px', threshold: 0.01 });
 
-        lazyImages.forEach(img => imageObserver.observe(img));
+        const visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
+        visibleItems.forEach(item => {
+            const img = item.querySelector('.lazy-load');
+            if (img && !img.src) {
+                imageObserver.observe(img);
+            }
+        });
     }
 
     function showPage(page) {
@@ -821,7 +833,6 @@ function initGallery() {
 
         setupLazyLoading();
         updatePagination();
-        handleLinkHover();
     }
 
     function updatePagination() {
