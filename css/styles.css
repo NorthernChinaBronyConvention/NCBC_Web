@@ -2450,49 +2450,168 @@ body.loaded .loader {
 }
 
 .error-page {
-    background-color: #262d74;
+    background-color: #1c2264;
     color: white;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
 }
 
-.error-container {
+.c404-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #262d74 0%, #151a4d 100%);
+}
+
+.c404-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(162, 174, 213, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(162, 174, 213, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.c404-content {
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
-    text-align: center;
-    padding: 20px;
 }
 
-.error-code {
-    font-size: 120px;
+.c404-glitch-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.c404-title {
+    font-family: 'font4', monospace;
+    font-size: 180px;
     font-weight: bold;
-    color: #a2aed5;
-    margin-bottom: 20px;
-}
-
-.error-message {
-    font-size: 36px;
-    margin-bottom: 20px;
     color: white;
+    line-height: 0.8;
+    position: relative;
+    text-shadow: 4px 4px 0 #a2aed5;
 }
 
-.error-description {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #cccccc;
-    max-width: 600px;
+.c404-title::before,
+.c404-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
-.error-button {
-    background: #a2aed5;
-    border: none;
-    color: black;
-    font-size: 20px;
-    padding: 15px 30px;
-    font-family: font, sans-serif;
+.c404-title::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    animation: glitch-anim .2s infinite linear alternate-reverse;
+}
+
+.c404-title::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    animation: glitch-anim2 .2s infinite linear alternate-reverse;
+}
+
+.c404-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 40px;
     text-decoration: none;
-    display: inline-block;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 2px solid #a2aed5;
+}
+
+.c404-btn-text {
+    font-family: 'font4', monospace;
+    font-size: 18px;
+    color: white;
+    z-index: 2;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.c404-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #a2aed5;
+    transition: left 0.3s ease;
+    z-index: 1;
+}
+
+.c404-btn:hover::before {
+    left: 0;
+}
+
+.c404-btn:hover .c404-btn-text {
+    color: #1c2264;
+}
+
+.c404-btn-deco {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    background: #a2aed5;
+    z-index: 3;
+}
+
+@keyframes glitch-anim {
+    0% { transform: translate(0); opacity: 1; }
+    7% { transform: translate(-4px, 2px); opacity: 0.75; }
+    10% { transform: translate(4px, -2px); opacity: 1; }
+    13% { transform: translate(0); }
+    20% { transform: translate(2px, 4px); }
+    25% { transform: translate(-2px, -4px); }
+    30% { transform: translate(0); }
+    100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { transform: translate(0); opacity: 1; }
+    5% { transform: translate(4px, -2px); opacity: 0.75; }
+    10% { transform: translate(-4px, 2px); opacity: 1; }
+    15% { transform: translate(0); }
+    40% { transform: translate(-2px, -2px); }
+    45% { transform: translate(2px, 2px); }
+    50% { transform: translate(0); }
+    100% { transform: translate(0); }
+}
+
+@media (max-width: 768px) {
+    .c404-title {
+        font-size: 120px;
+    }
+    
+    .c404-subtitle {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 768px) {
