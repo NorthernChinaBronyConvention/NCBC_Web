@@ -3,6 +3,15 @@ console.log('🥵🥵烧叨艾草！');
 
 let lenis;
 let isNavigating = false;
+window.isProgrammaticScroll = false;
+
+const releaseScrollLock = () => {
+    window.isProgrammaticScroll = false;
+};
+window.addEventListener('wheel', releaseScrollLock, { passive: true });
+window.addEventListener('touchmove', releaseScrollLock, { passive: true });
+window.addEventListener('mousedown', releaseScrollLock, { passive: true });
+window.addEventListener('keydown', releaseScrollLock, { passive: true });
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.readyState === 'loading') {
@@ -38,15 +47,37 @@ function handleLinkClick(e) {
         link.hasAttribute('download')) {
 
         if (href.startsWith('#')) {
-            if (lenis && href !== '#') {
-                e.preventDefault();
-                const targetId = href;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    lenis.scrollTo(targetElement, { offset: -80 });
+            e.preventDefault();
+            window.isProgrammaticScroll = true;
+            const header = document.querySelector('.header');
+            if (header) header.classList.remove('hidden');
+
+            const scrollComplete = () => {
+                setTimeout(() => {
+                    window.isProgrammaticScroll = false;
+                }, 100);
+            };
+
+            if (href === '#') {
+                if (lenis) lenis.scrollTo(0, { onComplete: scrollComplete });
+                else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    scrollComplete();
                 }
-                document.querySelectorAll('.nav a').forEach(navLink => navLink.classList.remove('active'));
-                link.classList.add('active');
+            } else {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    if (lenis) lenis.scrollTo(targetElement, { offset: -80, onComplete: scrollComplete });
+                    else {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        scrollComplete();
+                    }
+
+                    document.querySelectorAll('.nav a').forEach(navLink => navLink.classList.remove('active'));
+                    link.classList.add('active');
+                } else {
+                    window.isProgrammaticScroll = false;
+                }
             }
             return;
         }
@@ -99,13 +130,18 @@ async function navigateTo(url, pushState = true) {
         const hashIndex = url.indexOf('#');
         if (hashIndex !== -1) {
             const hash = url.substring(hashIndex);
-            const targetElement = document.querySelector(hash);
-            if (targetElement) {
-                if (lenis) {
-                    lenis.scrollTo(targetElement, { offset: -80, immediate: true });
-                } else {
-                    targetElement.scrollIntoView();
+            if (hash !== '#') {
+                const targetElement = document.querySelector(hash);
+                if (targetElement) {
+                    if (lenis) {
+                        lenis.scrollTo(targetElement, { offset: -80, immediate: true });
+                    } else {
+                        targetElement.scrollIntoView();
+                    }
                 }
+            } else {
+                if (lenis) lenis.scrollTo(0, { immediate: true });
+                else window.scrollTo(0, 0);
             }
         } else {
             window.scrollTo(0, 0);
@@ -115,7 +151,6 @@ async function navigateTo(url, pushState = true) {
         finishLoading();
 
     } catch (error) {
-        console.error('Navigation failed:', error);
         window.location.href = url;
     } finally {
         isNavigating = false;
@@ -225,10 +260,12 @@ function initNav() {
         if (!ticking) {
             window.requestAnimationFrame(function () {
                 const currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                    header.classList.add('hidden');
-                } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
-                    header.classList.remove('hidden');
+                if (!window.isProgrammaticScroll) {
+                    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                        header.classList.add('hidden');
+                    } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+                        header.classList.remove('hidden');
+                    }
                 }
                 lastScrollY = currentScrollY;
                 ticking = false;
@@ -471,11 +508,11 @@ function initHeroGrid() {
                     if (dist < revealRadius) {
                         const opacity = Math.pow(1 - dist / revealRadius, 2) * currentAlpha;
 
-                        ctx.strokeStyle = `rgba(162, 174, 213, ${opacity * 0.5})`;
+                        ctx.strokeStyle = `rgba(162, 174, 213, ${opacity * 0.4})`;
                         ctx.lineWidth = 1;
                         ctx.strokeRect(x, y, gridSize, gridSize);
 
-                        ctx.fillStyle = `rgba(162, 174, 213, ${opacity})`;
+                        ctx.fillStyle = `rgba(162, 174, 213, ${opacity * 0.8})`;
                         ctx.fillRect(centerX - 1, centerY - 1, 2, 2);
                     }
                 }
