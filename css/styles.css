@@ -1,21 +1,16 @@
 @font-face {
-    font-family: 'font';
+    font-family: font;
     src: url('../fonts/HanYiCuSongJian-1.woff2');
 }
 
 @font-face {
-    font-family: 'font2';
-    src: url('../fonts/HYNianHuaSongU-fix.woff2');
-}
-
-@font-face {
-    font-family: 'font3';
-    src: url('../fonts/SourceHanSerifCN-Heavy.otf');
-}
-
-@font-face {
-    font-family: 'font4';
+    font-family: font2;
     src: url('../fonts/SarasaFixedSlabCL-SemiBold.woff2');
+}
+
+@font-face {
+    font-family: font3;
+    src: url('../fonts/SourceHanSerifCN-Heavy.otf');
 }
 
 * {
@@ -27,7 +22,7 @@
 }
 
 body {
-    font-family: font, sans-serif;
+    font-family: font3, sans-serif;
     line-height: 1.6;
     background-color: #262d74;
     color: white;
@@ -429,7 +424,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .countdown-label {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 10px;
     color: #a2aed5;
     letter-spacing: 2px;
@@ -442,7 +437,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .countdown-target {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 10px;
     color: rgba(255, 255, 255, 0.8);
 }
@@ -461,7 +456,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .c-number {
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     font-size: 32px;
     color: white;
     line-height: 0.9;
@@ -475,7 +470,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .c-label {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 9px;
     color: rgba(162, 174, 213, 0.8);
     margin-top: 3px;
@@ -483,7 +478,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .countdown-separator {
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     font-size: 24px;
     color: rgba(255, 255, 255, 0.4);
     margin-top: 3px;
@@ -683,7 +678,7 @@ body .gallery-item:hover~.custom-cursor,
 
 .venue-id {
     display: block;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 60px;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.1);
@@ -700,7 +695,7 @@ body .gallery-item:hover~.custom-cursor,
     margin: 0;
     line-height: 1;
     text-transform: uppercase;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
 }
 
 .venue-eng {
@@ -709,7 +704,7 @@ body .gallery-item:hover~.custom-cursor,
     letter-spacing: 5px;
     color: #a2aed5;
     margin-top: 5px;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
 }
 
 .venue-info-content {
@@ -745,7 +740,7 @@ body .gallery-item:hover~.custom-cursor,
     font-size: 24px;
     margin-bottom: 15px;
     color: white;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
 }
 
 .venue-divider {
@@ -766,7 +761,7 @@ body .gallery-item:hover~.custom-cursor,
 .venue-address strong {
     color: #a2aed5;
     margin-right: 5px;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
 }
 
 .venue-desc {
@@ -855,7 +850,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .vision-id {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 120px;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.05);
@@ -870,7 +865,7 @@ body .gallery-item:hover~.custom-cursor,
     font-size: 48px;
     color: white;
     margin: 0;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     position: relative;
     z-index: 1;
 }
@@ -879,7 +874,7 @@ body .gallery-item:hover~.custom-cursor,
     display: inline-block;
     background-color: #a2aed5;
     color: #1c2264;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 15px;
@@ -898,7 +893,7 @@ body .gallery-item:hover~.custom-cursor,
     font-size: 28px;
     color: #a2aed5;
     margin-bottom: 15px;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
 }
 
 .vision-text-content p {
@@ -1018,7 +1013,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .tickets-id {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 120px;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.05);
@@ -1034,7 +1029,7 @@ body .gallery-item:hover~.custom-cursor,
     font-size: 48px;
     color: white;
     margin: 0;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     position: relative;
     z-index: 1;
 }
@@ -1043,7 +1038,7 @@ body .gallery-item:hover~.custom-cursor,
     display: inline-block;
     background-color: #a2aed5;
     color: #1c2264;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 20px;
@@ -1098,7 +1093,7 @@ body .gallery-item:hover~.custom-cursor,
     transform: translateX(-50%);
     background-color: #fff;
     color: #1c2264;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-weight: bold;
     font-size: 14px;
     padding: 5px 15px;
@@ -1118,7 +1113,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .ticket-header h3 {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 24px;
     color: #a2aed5;
     margin: 0;
@@ -1131,7 +1126,7 @@ body .gallery-item:hover~.custom-cursor,
 
 .ticket-name {
     display: block;
-    font-family: 'font', sans-serif;
+    font-family: font, sans-serif;
     font-size: 32px;
     color: white;
     margin-top: 5px;
@@ -1139,7 +1134,7 @@ body .gallery-item:hover~.custom-cursor,
 
 .ticket-price {
     text-align: center;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 48px;
     font-weight: bold;
     color: white;
@@ -1197,7 +1192,7 @@ body .gallery-item:hover~.custom-cursor,
     text-align: center;
     padding: 20px;
     text-decoration: none;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     font-size: 20px;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -1260,7 +1255,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .merch-id {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 120px;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.05);
@@ -1276,7 +1271,7 @@ body .gallery-item:hover~.custom-cursor,
     font-size: 48px;
     color: white;
     margin: 0;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     position: relative;
     z-index: 1;
 }
@@ -1285,7 +1280,7 @@ body .gallery-item:hover~.custom-cursor,
     display: inline-block;
     background-color: #a2aed5;
     color: #1c2264;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 20px;
@@ -1305,7 +1300,7 @@ body .gallery-item:hover~.custom-cursor,
     color: #a2aed5;
     opacity: 0.6;
     margin-top: -20px;
-    font-family: 'font', monospace;
+    font-family: font, monospace;
     letter-spacing: 1px;
 }
 
@@ -1451,7 +1446,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .merch-modal-info h2 {
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     font-size: 32px;
     margin-bottom: 20px;
     color: #fff;
@@ -1495,7 +1490,7 @@ body .gallery-item:hover~.custom-cursor,
     align-items: center;
     z-index: 5;
     transition: all 0.2s;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 20px;
 }
 
@@ -2417,7 +2412,7 @@ body.loaded .loader {
     width: calc(100% + 100px);
     height: calc(100% + 100px);
     z-index: 1;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 20px;
     line-height: 1;
     color: rgba(162, 174, 213, 0.1);
@@ -2447,7 +2442,7 @@ body.loaded .loader {
     position: absolute;
     bottom: 10px;
     left: 20px;
-    font-family: "font4";
+    font-family: "font2";
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;
     letter-spacing: 2px;
@@ -2457,7 +2452,7 @@ body.loaded .loader {
     position: absolute;
     bottom: 10px;
     right: 20px;
-    font-family: "font4";
+    font-family: "font2";
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;
     letter-spacing: 2px;
@@ -2512,7 +2507,7 @@ body.loaded .loader {
 }
 
 .c404-title {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 180px;
     font-weight: bold;
     color: white;
@@ -2557,7 +2552,7 @@ body.loaded .loader {
 }
 
 .c404-btn-text {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 18px;
     color: white;
     z-index: 2;
@@ -2692,7 +2687,7 @@ body.loaded .loader {
 }
 
 .more-id {
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 120px;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.05);
@@ -2708,7 +2703,7 @@ body.loaded .loader {
     font-size: 48px;
     color: white;
     margin: 0;
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     position: relative;
     z-index: 1;
 }
@@ -2717,7 +2712,7 @@ body.loaded .loader {
     display: inline-block;
     background-color: #a2aed5;
     color: #1c2264;
-    font-family: 'font4', monospace;
+    font-family: font2, monospace;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 20px;
@@ -2750,7 +2745,7 @@ body.loaded .loader {
 }
 
 .btn-text {
-    font-family: 'font3', sans-serif;
+    font-family: font3, sans-serif;
     font-size: 24px;
     color: white;
     z-index: 2;
