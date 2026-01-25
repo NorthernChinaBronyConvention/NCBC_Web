@@ -1420,7 +1420,6 @@ body .gallery-item:hover~.custom-cursor,
     width: 100px;
     margin-bottom: 20px;
     opacity: 0.8;
-    filter: drop-shadow(0 0 15px rgba(162, 174, 213, 0.15));
 }
 
 .merch-modal-logo img {
