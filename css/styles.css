@@ -1058,7 +1058,7 @@ body .gallery-item:hover~.custom-cursor,
     background-color: #1c2264;
     border: 4px solid #a2aed5;
     padding: 0;
-    width: 320px;
+    width: 220px;
     display: flex;
     flex-direction: column;
     position: relative;
