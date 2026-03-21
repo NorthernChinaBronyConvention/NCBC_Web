@@ -1048,17 +1048,16 @@ body .gallery-item:hover~.custom-cursor,
 
 .tickets-content-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: stretch;
+    flex-direction: column;
+    align-items: center;
     gap: 30px;
-    flex-wrap: wrap;
 }
 
 .ticket-card {
     background-color: #1c2264;
     border: 4px solid #a2aed5;
     padding: 0;
-    width: 220px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1102,8 +1101,8 @@ body .gallery-item:hover~.custom-cursor,
 
 .ticket-header {
     background-color: rgba(162, 174, 213, 0.1);
-    padding: 30px 20px 20px;
-    text-align: center;
+    padding: 15px 20px 15px;
+    text-align: left;
     border-bottom: 2px solid #a2aed5;
 }
 
@@ -1127,18 +1126,18 @@ body .gallery-item:hover~.custom-cursor,
 .ticket-name {
     display: block;
     font-family: font, sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     color: white;
-    margin-top: 5px;
+    margin-top: -10px;
 }
 
 .ticket-price {
-    text-align: center;
+    text-align: left;
     font-family: font2, monospace;
     font-size: 48px;
     font-weight: bold;
     color: white;
-    padding: 20px 0;
+    padding: 5px 10px;
 }
 
 .ticket-price .currency {
@@ -1160,18 +1159,24 @@ body .gallery-item:hover~.custom-cursor,
 
 .ticket-features {
     list-style: none;
-    padding: 20px 30px;
+    padding: 20px 20px;
     margin: 0;
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    font-family: sans-serif;
 }
 
 .ticket-features li {
-    padding: 10px 0;
+    padding: 5px 0;
     color: #cccccc;
     font-size: 16px;
-    border-bottom: 1px solid rgba(162, 174, 213, 0.2);
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .ticket-features li::before {
@@ -1185,18 +1190,26 @@ body .gallery-item:hover~.custom-cursor,
     border-bottom: none;
 }
 
+.ticket-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
 .ticket-button {
     display: block;
     background: #a2aed5;
     color: #1c2264;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     text-decoration: none;
     font-family: font3, sans-serif;
     font-size: 20px;
     font-weight: bold;
     transition: all 0.3s ease;
     margin: 20px;
+    width: 120px;
     border: 2px solid transparent;
 }
 
