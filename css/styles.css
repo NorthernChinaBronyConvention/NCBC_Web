@@ -737,7 +737,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .venue-info-content h3 {
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 15px;
     color: white;
     font-family: font3, sans-serif;
@@ -751,7 +751,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .venue-address {
-    font-size: 16px;
+    font-size: 16px !important;
     color: #cccccc;
     margin-bottom: 10px;
     display: flex;
@@ -765,7 +765,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .venue-desc {
-    font-size: 14px;
+    font-size: 14px !important;
     color: rgba(255, 255, 255, 0.6);
     font-style: italic;
     margin-top: 10px;
