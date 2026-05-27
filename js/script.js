@@ -446,6 +446,7 @@ function initHome() {
     initCountdown();
     initMerchModal();
     initHeroGrid();
+    initGuestFlipCard();
 }
 
 function initHeroGrid() {
@@ -770,6 +771,131 @@ function initMerchModal() {
     document.onkeydown = (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     };
+}
+
+function initGuestFlipCard() {
+    const guestItems = document.querySelectorAll('#guestsData .guest-item');
+    if (guestItems.length === 0) return;
+
+    const guestsData = Array.from(guestItems).map(item => ({
+        name: item.getAttribute('data-name') || '',
+        avatar: item.getAttribute('data-avatar') || '',
+        bg: item.getAttribute('data-bg') || '',
+        desc: item.getAttribute('data-desc') || ''
+    }));
+
+    const guestCard = document.getElementById('guestCard');
+    const guestCardBg = document.getElementById('guestCardBg');
+    const guestAvatar = document.getElementById('guestAvatar');
+    const guestName = document.getElementById('guestName');
+    const guestDesc = document.getElementById('guestDesc');
+    const guestPrev = document.getElementById('guestPrev');
+    const guestNext = document.getElementById('guestNext');
+    const guestIconsNav = document.getElementById('guestIconsNav');
+
+    if (!guestCard || !guestIconsNav) return;
+
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    guestIconsNav.innerHTML = '';
+    guestsData.forEach((guest, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'guest-icon-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', guest.name);
+        const img = document.createElement('img');
+        img.src = guest.avatar;
+        img.alt = guest.name;
+        dot.appendChild(img);
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.classList.add('guest-border-ring');
+        svg.setAttribute('viewBox', '0 0 66 66');
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', '1.5');
+        rect.setAttribute('y', '1.5');
+        rect.setAttribute('width', '63');
+        rect.setAttribute('height', '63');
+        svg.appendChild(rect);
+        dot.appendChild(svg);
+        dot.addEventListener('click', () => {
+            if (i !== currentIndex && !isAnimating) {
+                switchGuest(i);
+            }
+        });
+        guestIconsNav.appendChild(dot);
+    });
+
+    function updateContent(index) {
+        const guest = guestsData[index];
+        guestCardBg.style.backgroundImage = `url('${guest.bg}')`;
+        guestAvatar.src = guest.avatar;
+        guestAvatar.alt = guest.name;
+        guestName.textContent = guest.name;
+        guestDesc.textContent = guest.desc;
+    }
+
+    function updateDots(index) {
+        const dots = guestIconsNav.querySelectorAll('.guest-icon-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function switchGuest(newIndex) {
+        if (isAnimating || newIndex === currentIndex) return;
+        isAnimating = true;
+
+        guestCard.classList.add('flipping-out');
+
+        setTimeout(() => {
+            updateContent(newIndex);
+            updateDots(newIndex);
+            currentIndex = newIndex;
+
+            guestCard.classList.remove('flipping-out');
+            guestCard.classList.add('flipping-in');
+
+            void guestCard.offsetWidth;
+
+            guestCard.classList.remove('flipping-in');
+            guestCard.classList.add('flipping-in-active');
+
+            setTimeout(() => {
+                guestCard.classList.remove('flipping-in-active');
+                isAnimating = false;
+            }, 250);
+        }, 180);
+    }
+
+    guestPrev.addEventListener('click', () => {
+        if (isAnimating) return;
+        const newIndex = (currentIndex - 1 + guestsData.length) % guestsData.length;
+        switchGuest(newIndex);
+    });
+
+    guestNext.addEventListener('click', () => {
+        if (isAnimating) return;
+        const newIndex = (currentIndex + 1) % guestsData.length;
+        switchGuest(newIndex);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        const guestSection = document.getElementById('guests');
+        if (!guestSection) return;
+        const rect = guestSection.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!isVisible) return;
+
+        if (e.key === 'ArrowLeft' && !isAnimating) {
+            const newIndex = (currentIndex - 1 + guestsData.length) % guestsData.length;
+            switchGuest(newIndex);
+        } else if (e.key === 'ArrowRight' && !isAnimating) {
+            const newIndex = (currentIndex + 1) % guestsData.length;
+            switchGuest(newIndex);
+        }
+    });
+
+    updateContent(0);
 }
 
 function initGallery() {

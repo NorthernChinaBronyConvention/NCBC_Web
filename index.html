@@ -164,46 +164,48 @@
                     <div class="guests-subtitle-bar">GUESTS</div>
                 </div>
                 <div class="guests-content-wrapper">
-                    
-                    <div class="guest-block" style="background-image: url('img/sample.jpg');">
-                        <div class="guest-block-overlay"></div>
-                        <div class="guest-block-content">
-                            <div class="guest-avatar">
-                                <img src="img/sample.jpg" alt="嘉宾1">
-                            </div>
-                            <div class="guest-info">
-                                <h3 class="guest-name">StormXF3</h3>
-                                <p class="guest-desc">这位成功打通了现实世界小马国边界的伟大动画师，曾为我们制作了《我的小黛西》和现实小马系列作品，相信各位能从他的线下panel中学到许多宝贵的知识。</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="guest-block" style="background-image: url('img/sample.jpg');">
-                        <div class="guest-block-overlay"></div>
-                        <div class="guest-block-content">
-                            <div class="guest-avatar">
-                                <img src="img/sample.jpg" alt="嘉宾2">
-                            </div>
-                            <div class="guest-info">
-                                <h3 class="guest-name">MintyRoot</h3>
-                                <p class="guest-desc">马圈著名动画师，相信各位一定多多少少有欣赏过他的作品（《露娜之决心》《余晖烁烁的陨落》《雷云计划》等）。在2026逐梦庆典中，他将会通过一场线上Panel将我们带入他无与伦比的动画世界。</p>
+                    <div class="guest-card-stage">
+                        <button class="guest-nav-btn guest-nav-prev" id="guestPrev" aria-label="上一位">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <div class="guest-card" id="guestCard">
+                            <div class="guest-card-bg" id="guestCardBg"></div>
+                            <div class="guest-block-overlay"></div>
+                            <div class="guest-block-content">
+                                <div class="guest-avatar">
+                                    <img id="guestAvatar" alt="嘉宾">
+                                </div>
+                                <div class="guest-info">
+                                    <h3 class="guest-name" id="guestName"></h3>
+                                    <p class="guest-desc" id="guestDesc"></p>
+                                </div>
                             </div>
                         </div>
+                        <button class="guest-nav-btn guest-nav-next" id="guestNext" aria-label="下一位">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
                     </div>
-
-                    <div class="guest-block" style="background-image: url('img/sample.jpg');">
-                        <div class="guest-block-overlay"></div>
-                        <div class="guest-block-content">
-                            <div class="guest-avatar">
-                                <img src="img/sample.jpg" alt="嘉宾3">
-                            </div>
-                            <div class="guest-info">
-                                <h3 class="guest-name">LunaJax</h3>
-                                <p class="guest-desc">马圈知名乐手，以自己特色的美式乡村摇滚为小马们所知，为圈子送上了诸如《Regret》《Forgive Me》等优秀作品，我们希望，来自他一场线上演出能为各位小马带来一次全新的体验。</p>
-                            </div>
+                    <div class="guest-icons-nav" id="guestIconsNav"></div>
+                    <div id="guestsData" hidden>
+                        <div class="guest-item"
+                             data-name="StormXF3"
+                             data-avatar="img/guest/storm.webp"
+                             data-bg="img/guest/bg-storm.webp"
+                             data-desc="这位成功打通了现实世界小马国边界的伟大动画师，曾为我们制作了《我的小黛西》和现实小马系列作品，相信各位能从他的线下panel中学到许多宝贵的知识。">
+                        </div>
+                        <div class="guest-item"
+                             data-name="MintyRoot"
+                             data-avatar="img/guest/minty.webp"
+                             data-bg="img/guest/bg-minty.webp"
+                             data-desc="马圈著名动画师，相信各位一定多多少少有欣赏过他的作品（《露娜之决心》《余晖烁烁的陨落》《雷云计划》等）。在2026逐梦庆典中，他将会通过一场线上Panel将我们带入他无与伦比的动画世界。">
+                        </div>
+                        <div class="guest-item"
+                             data-name="LunaJax"
+                             data-avatar="img/guest/jax.webp"
+                             data-bg="img/guest/bg-jax.webp"
+                             data-desc="马圈知名乐手，以自己特色的美式乡村摇滚为小马们所知，为圈子送上了诸如《Regret》《Forgive Me》等优秀作品，我们希望，来自他一场线上演出能为各位小马带来一次全新的体验。">
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
