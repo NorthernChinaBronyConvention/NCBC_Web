@@ -1,6 +1,7 @@
 @font-face {
     font-family: font;
-    src: url('../fonts/SourceHanSerifCN-Heavy.otf');
+    src: url('../fonts/SourceHanSerifCN-VF.otf.woff2');
+    font-weight: 900;
 }
 
 @font-face {
