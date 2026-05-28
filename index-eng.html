@@ -28,6 +28,7 @@
         <nav class="nav">
             <a href="#">Home</a>
             <a href="#venue">Venue</a>
+            <a href="#guests">Guests</a>
             <a href="#tickets">Tickets</a>
             <a href="gallery.html">Gallery</a>
             <div class="nav-divider"></div>
@@ -99,19 +100,22 @@
                             <img src="img/venue-flat.webp" class="venue-image-default">
                             <img src="img/venue.webp" class="venue-image-hover">
                         </div>
-                        <div class="venue-deco-shape"></div>
                     </div>
                     <div class="venue-text-panel">
                         <div class="venue-title-block">
                             <span class="venue-id">01</span>
-                            <h2>VENUE</h2>
+                            <h2>Venue</h2>
                             <span class="venue-eng">VENUE</span>
                         </div>
                         <div class="venue-info-content">
                             <h3>Flamingo Harbour Hotel Tianjin</h3>
                             <div class="venue-divider"></div>
                             <p class="venue-address"><strong>Address:</strong> No. 1 Renai East Road, Jinghai District, Tianjin</p>
-                            <p class="venue-desc">Introduction</p>
+                            <p class="venue-desc">
+                                Welcome to the Flamingo Harbour Hotel, where you will embark on a dream-chasing journey that perfectly blends natural charm with comfortable accommodation. The hotel features an elegant flamingo theme, infusing every detail with a touch of romantic crimson vitality.<br>
+                                This is not just a place to stay, but a harbor to connect with nature. Adjacent to the venue, the Guanghe Valley is built by the lake, offering all pony fans a wonderful natural experience. The hotel also features entertainment and exploration spaces where laughter echoes in every corner. Exquisite cuisine and attentive service are the warmest comfort during your journey.<br>
+                                We sincerely hope that during this DreamLandCon celebration, the Flamingo Harbour Hotel will weave beautiful memories of dancing with nature for you. We look forward to your visit to begin this deep blue dream-chasing journey.<br>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -125,13 +129,16 @@
                     <div class="vision-text-panel">
                         <div class="vision-header">
                             <span class="vision-id">02</span>
-                            <h2 class="vision-title">THEME & VISION</h2>
+                            <h2 class="vision-title">Theme & Vision</h2>
                             <div class="vision-subtitle-bar">THEME & VISION</div>
                         </div>
                         <div class="vision-desc-block">
                             <h3>DreamLandCon</h3>
                             <div class="vision-text-content">
-                                <p>No copywriting yet</p>
+                                <p>
+                                    We firmly believe that the fan community is an important reason why MLP: FiM continues to shine years after its conclusion. Therefore, maintaining and promoting this fan spirit is our long-term goal.<br>
+                                    Following the 2025 NCBC with FOE (Fallout: Equestria) as the theme, we have found a new realm for 2026 DLC - LAYU (Luna's Academy for Young Unicorns) as our platform to look toward the future, sharing stories of ponies and their fan works with all of you.
+                                </p>
                             </div>
                             <div class="vision-deco-dots"></div>
                         </div>
@@ -139,9 +146,69 @@
                     <div class="vision-visuals">
                         <div class="vision-image-container">
                             <div class="vision-image-frame">
-                                <img src="img/sample.jpg">
+                                <img src="img/layu.jpg">
                             </div>
                             <div class="vision-floating-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guests">
+            <div class="guests-constructivism">
+                <div class="guests-header">
+                    <span class="guests-id">03</span>
+                    <h2 class="guests-title">Special Guests</h2>
+                    <div class="guests-subtitle-bar">GUESTS</div>
+                </div>
+                <div class="guests-content-wrapper">
+                    <div class="guest-card-stage">
+                        <button class="guest-nav-btn guest-nav-prev" id="guestPrev" aria-label="Previous">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <div class="guest-card" id="guestCard">
+                            <div class="guest-block-overlay"></div>
+                            <div class="guest-block-content">
+                                <div class="guest-left-panel">
+                                    <div class="guest-header">
+                                        <div class="guest-avatar">
+                                            <img id="guestAvatar" alt="Guest">
+                                        </div>
+                                        <h3 class="guest-name" id="guestName"></h3>
+                                    </div>
+                                    <div class="guest-info">
+                                        <p class="guest-desc" id="guestDesc"></p>
+                                    </div>
+                                </div>
+                                <div class="guest-right-panel">
+                                    <div class="guest-card-bg" id="guestCardBg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="guest-nav-btn guest-nav-next" id="guestNext" aria-label="Next">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+                    <div class="guest-icons-nav" id="guestIconsNav"></div>
+                    <div id="guestsData" hidden>
+                        <div class="guest-item"
+                             data-name="StormXF3"
+                             data-avatar="img/guest/storm.webp"
+                             data-bg="img/guest/bg-storm.webp"
+                             data-desc='This great animator who successfully bridged the boundary between the real world and Equestria has created "My Little Daisy" and the Real Ponies series for us. We believe you will learn much valuable knowledge from his offline panel.'>
+                        </div>
+                        <div class="guest-item"
+                             data-name="MintyRoot"
+                             data-avatar="img/guest/minty.webp"
+                             data-bg="img/guest/bg-minty.webp"
+                             data-desc="A renowned animator in the brony community, many of you must have enjoyed his works (“Luna's Determination”, “Fall of Sunset Shimmer”, “Project Thundercloud”, etc.). At DreamLandCon 2026, he will take us into his unparalleled animation world through an online panel.">
+                        </div>
+                        <div class="guest-item"
+                             data-name="LunaJax"
+                             data-avatar="img/guest/jax.webp"
+                             data-bg="img/guest/bg-jax.webp"
+                             data-desc='A well-known musician in the brony community, known to pony fans for his distinctive American country rock style. He has delivered excellent works such as "Regret" and "Forgive Me" to the community. We hope his online performance will bring a brand new experience to all pony fans.'>
                         </div>
                     </div>
                 </div>
@@ -151,86 +218,86 @@
         <section id="tickets">
             <div class="tickets-constructivism">
                 <div class="tickets-header">
-                    <span class="tickets-id">03</span>
-                    <h2 class="tickets-title">TICKETS</h2>
+                    <span class="tickets-id">04</span>
+                    <h2 class="tickets-title">Tickets</h2>
                     <div class="tickets-subtitle-bar">TICKETS</div>
                 </div>
                 <div class="tickets-content-wrapper">
                     <div class="ticket-card">
                         <div class="ticket-header">
                             <h3>01</h3>
-                            <span class="ticket-name">欢迎入学</span>
+                            <span class="ticket-name">Welcome Admission</span>
                         </div>
                         <div class="ticket-price">
                             <span class="currency">¥</span>188
                         </div>
                         <div class="ticket-divider"></div>
                         <ul class="ticket-features">
-                            <li>录取通知书</li>
-                            <li>钥匙扣</li>
+                            <li>Admission Certificate</li>
+                            <li>Keychain</li>
                         </ul>
-                        <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Buy</a>
                     </div>
                     
                     <div class="ticket-card">
                         <div class="ticket-header">
                             <h3>02</h3>
-                            <span class="ticket-name">高级学员</span>
+                            <span class="ticket-name">Student Council Member</span>
                         </div>
                         <div class="ticket-price">
                             <span class="currency">¥</span>328
                         </div>
                         <div class="ticket-divider"></div>
                         <ul class="ticket-features">
-                            <li>“欢迎入学”的所有物料</li>
-                            <li>主题徽章</li>
-                            <li>主题立牌</li>
-                            <li>主题色纸</li>
-                            <li>定制笔记本</li>
+                            <li>All "Welcome Admission" merchandise</li>
+                            <li>Themed Badge</li>
+                            <li>Themed Acrylic Stand</li>
+                            <li>Custom Notebook</li>
+                            <li>Themed Shikishi Board</li>
                         </ul>
-                        <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Buy</a>
                     </div>
                     
                     <div class="ticket-card">
                         <div class="ticket-header">
                             <h3>03</h3>
-                            <span class="ticket-name">学生长</span>
+                            <span class="ticket-name">⌈Project Selene⌋ Assistant Researcher</span>
                         </div>
                         <div class="ticket-price">
                             <span class="currency">¥</span>888
                         </div>
                         <div class="ticket-divider"></div>
                         <ul class="ticket-features">
-                            <li>“高级学员”的所有物料</li>
-                            <li>火漆印章</li>
-                            <li>OC模板画</li>
-                            <li>巴士免票接送</li>
+                            <li>All "Student Council Member" merchandise</li>
+                            <li>Wax Seal Stamp</li>
+                            <li>OC Template Art</li>
+                            <li>Free Shuttle Bus</li>
                         </ul>
-                        <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Buy</a>
                     </div>
                     
                     <div class="ticket-card featured">
-                        <div class="ticket-tag">RECOMMENDED</div>
+                        <div class="ticket-tag">TOP TIER</div>
                         <div class="ticket-header">
                             <h3>04</h3>
-                            <span class="ticket-name">塞勒涅</span>
+                            <span class="ticket-name">⌈Project Selene⌋ Core Researcher</span>
                         </div>
                         <div class="ticket-price">
                             <span class="currency">¥</span>1888
                         </div>
                         <div class="ticket-divider"></div>
                         <ul class="ticket-features">
-                            <li>“学生长”的所有物料</li>
-                            <li>蚀刻章</li>
-                            <li>场刊鸣谢</li>
+                            <li>All "Assistant Researcher" merchandise</li>
+                            <li>Moon Dust Forged Badge</li>
+                            <li>Program Book Acknowledgment</li>
                         </ul>
-                        <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Buy</a>
+                    </div>
+                    <div class="ticket-buttons-container">
+                        <a target="_blank" class="ticket-button" href="https://xhslink.com/m/2GuWXNIIdmm">Buy Tickets</a>
+                        <a target="_blank" class="ticket-button" href="https://qm.qq.com/q/IZbxVrYPam">Join Group</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="merch">
+        <!--<section id="merch">
             <div class="merch-constructivism">
                 <div class="merch-header">
                     <span class="merch-id">04</span>
@@ -289,16 +356,16 @@
                         <div class="merch-layer" data-speed="1.1" style="top: 50%; left: 15%;">
                             <img src="img/dlc-ico.webp" class="merch-logo" 
                                 data-title="Shop Name" 
-                                data-desc="Description"
+                                data-desc="Introduction"
                                 data-logo="img/dlc-ico.webp"
                                 data-images="img/dlc-ico.webp"
                                 style="max-width: 90px;">
                         </div>
                     </div>
-                    <p class="merch-hint">Click icons for details</p>
+                    <p class="merch-hint">Click icons to view details</p>
                 </div>
             </div>
-        </section>
+        </section>-->
 
     </main>
 
@@ -315,11 +382,11 @@
         <div class="footer-right">
             <div class="footer-image">
                 <img src="img/qrcode.webp">
-                <p class="qrcode-text">Join Group</p>
+                <p class="qrcode-text">Scan to Join Group</p>
             </div>
             <div class="footer-links">
-                <a target="_blank" href="https://csbronycarnival.com/">CSBC</a>
-                <a target="_blank" href="https://www.equestriacn.com/">EQCN</a>
+                <a target="_blank" href="https://csbronycarnival.com/">CSBC South China Brony Carnival</a>
+                <a target="_blank" href="https://www.equestriacn.com/">EQCN Equestria China</a>
             </div>
         </div>
 

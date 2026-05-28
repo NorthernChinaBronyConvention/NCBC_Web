@@ -690,7 +690,6 @@ body .gallery-item:hover~.custom-cursor,
     color: white;
     margin: 0;
     line-height: 1;
-    text-transform: uppercase;
     font-family: font, sans-serif;
 }
 
@@ -1202,7 +1201,7 @@ body .gallery-item:hover~.custom-cursor,
 }
 
 .guest-desc {
-    font-size: 15px;
+    font-size: 15px !important;
     color: #cccccc;
     line-height: 1.8;
     margin: 0;
