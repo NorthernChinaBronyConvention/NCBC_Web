@@ -852,6 +852,8 @@ function initGuestFlipCard() {
             updateDots(newIndex);
             currentIndex = newIndex;
 
+            resetGuestLeftPanelAnimation();
+
             guestCard.classList.remove('flipping-out');
             guestCard.classList.add('flipping-in');
 
@@ -865,6 +867,34 @@ function initGuestFlipCard() {
                 isAnimating = false;
             }, 250);
         }, 180);
+    }
+
+    function resetGuestLeftPanelAnimation() {
+        const guestAvatar = document.querySelector('.guest-avatar');
+        const guestHeader = document.querySelector('.guest-header');
+        const guestInfo = document.querySelector('.guest-info');
+
+        if (guestAvatar) {
+            guestAvatar.style.animation = 'none';
+        }
+        if (guestHeader) {
+            guestHeader.style.animation = 'none';
+        }
+        if (guestInfo) {
+            guestInfo.style.animation = 'none';
+        }
+
+        void guestCard.offsetWidth;
+
+        if (guestAvatar) {
+            guestAvatar.style.animation = '';
+        }
+        if (guestHeader) {
+            guestHeader.style.animation = '';
+        }
+        if (guestInfo) {
+            guestInfo.style.animation = '';
+        }
     }
 
     guestPrev.addEventListener('click', () => {
