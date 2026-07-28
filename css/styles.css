@@ -22,12 +22,6 @@ body {
     line-height: 1.6;
     background-color: #262d74;
     color: white;
-    /* 全屏蓝图网格背景 */
-    background-image:
-        linear-gradient(90deg, rgba(162, 174, 213, 0.025) 1px, transparent 1px),
-        linear-gradient(rgba(162, 174, 213, 0.025) 1px, transparent 1px);
-    background-size: 80px 80px;
-    overflow-x: hidden;
 }
 
 img {
@@ -492,128 +486,6 @@ body .gallery-item:hover~.custom-cursor,
     bottom: 100px;
     box-sizing: border-box;
     text-align: center;
-    position: relative;
-}
-
-.content::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 1px;
-    background: rgba(162, 174, 213, 0.16);
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.content::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background: rgba(162, 174, 213, 0.1);
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.venue-constructivism::before,
-.vision-constructivism::before,
-.guests-constructivism::before,
-.tickets-constructivism::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    width: 100vw;
-    height: 1px;
-    background: rgba(162, 174, 213, 0.2);
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.venue-constructivism::after,
-.vision-constructivism::after,
-.guests-constructivism::after,
-.tickets-constructivism::after {
-    content: '';
-    position: absolute;
-    top: -30px;
-    left: -12px;
-    width: 10px;
-    height: calc(100% + 60px);
-    pointer-events: none;
-    z-index: 0;
-    background:
-        rgba(162, 174, 213, 0.12) 0 0 / 1px 100% no-repeat padding-box content-box,
-        repeating-linear-gradient(to bottom,
-            transparent 0px,
-            transparent 19px,
-            rgba(162, 174, 213, 0.18) 19px,
-            rgba(162, 174, 213, 0.18) 20px,
-            transparent 20px,
-            transparent 39px,
-            rgba(162, 174, 213, 0.1) 39px,
-            rgba(162, 174, 213, 0.1) 40px
-        ) left 4px top 0 / 6px 100% no-repeat;
-}
-
-.venue-title-block::before,
-.vision-header::before,
-.guests-header::before,
-.tickets-header::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 16px;
-    height: 16px;
-    border-top: 2px solid rgba(162, 174, 213, 0.4);
-    border-right: 2px solid rgba(162, 174, 213, 0.4);
-    pointer-events: none;
-    z-index: 0;
-}
-
-#venue::before,
-#vision::before,
-#guests::before,
-#tickets::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 8px;
-    margin: 0 auto 20px;
-    background-image: radial-gradient(circle, rgba(162, 174, 213, 0.25) 1.5px, transparent 1.5px);
-    background-size: 8px 8px;
-    pointer-events: none;
-}
-
-.content-deco-rhombus {
-    position: absolute;
-    bottom: -30px;
-    right: -20px;
-    width: 120px;
-    height: 120px;
-    border: 1px solid rgba(162, 174, 213, 0.06);
-    transform: rotate(45deg);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.content-deco-rhombus::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 80px;
-    height: 80px;
-    border: 1px solid rgba(162, 174, 213, 0.04);
-    pointer-events: none;
 }
 
 .content h2 {
@@ -2245,33 +2117,6 @@ body .gallery-item:hover~.custom-cursor,
     z-index: -1;
 }
 
-.footer::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 2px;
-    background: repeating-linear-gradient(90deg,
-        transparent 0px,
-        transparent 8px,
-        rgba(162, 174, 213, 0.15) 8px,
-        rgba(162, 174, 213, 0.15) 10px,
-        transparent 10px,
-        transparent 18px,
-        rgba(162, 174, 213, 0.08) 18px,
-        rgba(162, 174, 213, 0.08) 20px
-    );
-    animation: contentScanLine 120s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes contentScanLine {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
 .footer-logo {
     font-size: 24px;
     height: 30px;
@@ -2473,10 +2318,6 @@ body.hero-loaded .hero-mascot-c-image {
         max-width: 70%;
     }
 
-    body {
-        background-size: 100px 100px;
-    }
-
     .footer::before {
         height: 70%;
     }
@@ -2506,22 +2347,6 @@ body.hero-loaded .hero-mascot-c-image {
 
     .content {
         max-width: 80%;
-    }
-
-    body {
-        background-size: 120px 120px;
-    }
-
-    .content::before,
-    .content::after {
-        opacity: 0.5;
-    }
-
-    .venue-constructivism::after,
-    .vision-constructivism::after,
-    .guests-constructivism::after,
-    .tickets-constructivism::after {
-        opacity: 0.6;
     }
 
     .activities-container {
@@ -2728,49 +2553,6 @@ body.hero-loaded .hero-mascot-c-image {
         margin-top: 20px;
     }
 
-    body {
-        background-image:
-            linear-gradient(90deg, rgba(162, 174, 213, 0.02) 1px, transparent 1px),
-            linear-gradient(rgba(162, 174, 213, 0.02) 1px, transparent 1px);
-        background-size: 100px 100px;
-    }
-
-    .content::before,
-    .content::after {
-        display: none;
-    }
-
-    .venue-constructivism::after,
-    .vision-constructivism::after,
-    .guests-constructivism::after,
-    .tickets-constructivism::after {
-        display: none;
-    }
-
-    .venue-constructivism::before,
-    .vision-constructivism::before,
-    .guests-constructivism::before,
-    .tickets-constructivism::before {
-        top: -15px;
-        left: 50%;
-        width: 100vw;
-        background: rgba(162, 174, 213, 0.15);
-        transform: translateX(-50%);
-    }
-
-    .content-deco-rhombus {
-        display: none;
-    }
-
-    #venue::before,
-    #vision::before,
-    #guests::before,
-    #tickets::before {
-        width: 30px;
-        height: 6px;
-        background-size: 6px 6px;
-    }
-
     .content h2 {
         font-size: 32px;
     }
@@ -2899,10 +2681,6 @@ body.hero-loaded .hero-mascot-c-image {
         display: none;
     }
 
-    .footer::after {
-        display: none;
-    }
-
     .copyright {
         text-align: center;
         margin-top: 10px;
@@ -2979,37 +2757,6 @@ body.hero-loaded .hero-mascot-c-image {
 
     .content {
         max-width: 95%;
-    }
-
-    body {
-        background-image:
-            linear-gradient(90deg, rgba(162, 174, 213, 0.015) 1px, transparent 1px),
-            linear-gradient(rgba(162, 174, 213, 0.015) 1px, transparent 1px);
-        background-size: 120px 120px;
-    }
-
-    .venue-constructivism::before,
-    .vision-constructivism::before,
-    .guests-constructivism::before,
-    .tickets-constructivism::before {
-        opacity: 0.5;
-    }
-
-    .venue-title-block::before,
-    .vision-header::before,
-    .guests-header::before,
-    .tickets-header::before {
-        display: none;
-    }
-
-    #venue::before,
-    #vision::before,
-    #guests::before,
-    #tickets::before {
-        width: 24px;
-        height: 4px;
-        background-size: 5px 5px;
-        margin: 0 auto 10px;
     }
 
     .content h2 {
